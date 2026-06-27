@@ -1,13 +1,17 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
+import { useLocale } from "../context/I18nContext";
 
 export function NotFoundPage() {
+  const { content } = useLocale();
+  const { notFound } = content;
+
   return (
     <main className="page-shell">
       <section className="section">
-        <p className="eyebrow">404</p>
-        <h1>页面未找到</h1>
-        <p>这个基础骨架已经预留未找到页，便于 GitHub Pages 部署后的异常路径兜底。</p>
-        <Link to="/">返回首页</Link>
+        <p className="eyebrow">{notFound.eyebrow}</p>
+        <h1>{notFound.title}</h1>
+        <p>{notFound.p}</p>
+        <Link to="/">{notFound.backToHome}</Link>
       </section>
     </main>
   );

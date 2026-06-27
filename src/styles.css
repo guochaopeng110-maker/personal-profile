@@ -200,3 +200,44 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Header and Language Switcher Styles */
+.site-header {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.lang-switch-btn {
+  background: rgba(18, 31, 59, 0.72);
+  border: 1px solid rgba(127, 212, 255, 0.28);
+  color: #7fd4ff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(18px);
+  transition: all 0.2s ease;
+}
+
+.lang-switch-btn:hover {
+  background: rgba(127, 212, 255, 0.15);
+  border-color: rgba(127, 212, 255, 0.5);
+  color: #b7ecff;
+  box-shadow: 0 0 12px rgba(127, 212, 255, 0.2);
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    width: min(100% - 20px, 1120px);
+    padding-top: 16px;
+  }
+}

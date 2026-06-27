@@ -1,1 +1,27 @@
-import "@testing-library/jest-dom";
+﻿import "@testing-library/jest-dom";
+
+// Global localStorage mock for JSDOM
+const localStorageMock = (() => {
+  let store: Record<string, string> = {};
+  return {
+    getItem: (key: string) => store[key] || null,
+    setItem: (key: string, value: string) => {
+      store[key] = value.toString();
+    },
+    clear: () => {
+      store = {};
+    },
+    removeItem: (key: string) => {
+      delete store[key];
+    },
+    length: 0,
+    key: (index: number) => null
+  };
+})();
+
+Object.defineProperty(window, "localStorage", {
+  value: localStorageMock,
+  writable: true
+});
+
+globalThis.localStorage = localStorageMock as any;
