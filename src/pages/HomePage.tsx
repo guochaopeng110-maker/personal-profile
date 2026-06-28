@@ -26,7 +26,7 @@ export function HomePage() {
           </div>
         </div>
 
-        <aside className="hero-panel" aria-label="核心招聘信号">
+        <aside className="hero-panel" aria-label={hero.hiringSignalsTitle}>
           <p className="eyebrow">{hero.hiringSignalsTitle}</p>
           <ul className="signal-list">
             {hero.hiringSignals.map((signal) => (

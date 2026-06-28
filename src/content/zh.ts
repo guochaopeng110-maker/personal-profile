@@ -7,12 +7,16 @@ export const content = {
     lede: '面向 AI 应用、智能体与全栈交付，能够把 Web3D、VR、多媒体与工业系统经验整合成可落地的产品与工程能力。',
     supporting: '首屏先回答岗位匹配与交付能力，再引导招聘方进入项目主题、经历与细节，而不是把你丢进一页泛化作品集文案里。',
     actions: { resume: '下载 PDF 简历', github: 'GitHub', email: 'Email' },
-    hiringSignalsTitle: 'Hiring Snapshot',
+    hiringSignalsTitle: '招聘速览',
     hiringSignals: [
       '当前主定位是 AI 智能体 / AI 应用 / 全栈开发工程师。',
       '核心优势不是概念展示，而是把复杂技术整合成可交付结果。',
       '过往 VR、Web3D 与工业系统经验，构成当前 AI 与工程化能力的差异化深度。'
-    ]
+    ],
+    pageMeta: {
+      lang: 'zh-CN',
+      documentTitle: 'Guochao Peng | AI 智能体 / AI 应用 / 全栈开发工程师',
+    },
   },
   narrative: {
     eyebrow: 'Narrative Path',

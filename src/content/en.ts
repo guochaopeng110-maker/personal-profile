@@ -16,7 +16,11 @@ export const content = {
       "Current core positioning: AI Agent / AI Application / Full-Stack Developer.",
       "Core advantage is not presenting concepts, but integrating complex tech into deliverable outcomes.",
       "Past VR, Web3D, and industrial system experiences form the differentiated depth of current AI and engineering capabilities."
-    ]
+    ],
+    pageMeta: {
+      lang: 'en',
+      documentTitle: 'Guochao Peng | AI Agent / AI Application / Full-Stack Engineer',
+    },
   },
   narrative: {
     eyebrow: "Narrative Path",
