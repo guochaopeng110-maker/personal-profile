@@ -30,6 +30,65 @@
       }
     ]
   },
+  timeline: {
+    eyebrow: "Career Journey",
+    title: "职业演进时间线",
+    intro: "从底层工业控制、VR/Web3D 交互 to AI 智能体与全栈工程，我的经历是一条连贯的能力演进之路：用工业级严谨对待系统，用前沿技术赋能业务交付。",
+    items: [
+      {
+        period: "2021 - 至今",
+        company: "长沙兴盛优选有限公司",
+        role: "DCS 设备控制系统工程师 / 全栈开发",
+        contributions: [
+          "负责 DCS (设备控制系统) 与 PLC 集成，实现异构硬件设备的高并发稳定编排与真实世界系统控制。",
+          "研发嵌入式设备集成及底层通讯模块，打通工业级硬件与上层业务系统的全栈数据链路。",
+          "探索 AI 智能体与工作流在仓储物流决策、异常诊断等复杂工业场景下的应用落地。"
+        ]
+      },
+      {
+        period: "2015 - 2021",
+        company: "天度（厦门）科技股份有限公司",
+        role: "VR / Web3D / C++ 资深工程师",
+        contributions: [
+          "基于 C++、Qt 与 Unity 研发高仿真系统与交互式 VR 软件，交付多个高可靠性的工业/军工仿真项目。",
+          "主导研发 Web3D 引擎及 exm-player-web3d 播放器，利用 Babylon.js 实现轻量化、高精度的浏览器端 3D 空间交互。",
+          "设计互动视频与多媒体编排系统，将底层音视频流与前端高频交互无缝整合，支撑起丰富的多媒体体验。"
+        ]
+      }
+    ]
+  },
+  skills: {
+    eyebrow: "Capability Matrix",
+    title: "按能力域组织的技能模块",
+    intro: "避免无差别的工具清单。技术栈的价值在于解决特定领域的工程问题，以下是我在不同演进阶段沉淀的核心能力域：",
+    domains: [
+      {
+        name: "AI 智能体 & AI 应用",
+        description: "将前沿大模型能力转化为可交付的业务生产力",
+        tools: ["LLM Agents", "LangChain / LangGraph", "Workflow Automation", "Prompt Engineering", "RAG & Vector DB"]
+      },
+      {
+        name: "全栈与工程化交付",
+        description: "高并发、高可用业务系统的全栈设计与敏捷交付",
+        tools: ["Node.js / TypeScript", "React / Next.js", "RESTful / GraphQL", "Docker & CI/CD", "System Architecture"]
+      },
+      {
+        name: "互动视频与多媒体",
+        description: "音视频流媒体、多媒体编排与高频交互系统研发",
+        tools: ["Streaming Media", "Video Encoding/Decoding", "FFmpeg", "Interactive Video Orchestration", "WebRTC"]
+      },
+      {
+        name: "Web3D / VR / 空间计算",
+        description: "跨平台的轻量级 3D 空间交互与沉浸式体验开发",
+        tools: ["Babylon.js", "Three.js", "Unity 3D", "PICO VR SDK", "Shader / WebGL"]
+      },
+      {
+        name: "底层系统与工业软件",
+        description: "高可靠性工业控制软件与异构设备编排系统",
+        tools: ["C / C++", "Qt Framework", "DCS / PLC Integration", "Embedded Communication", "Hardware Orchestration"]
+      }
+    ]
+  },
   themes: {
     eyebrow: "Project Themes",
     title: "优先浏览的项目主题",
@@ -44,7 +103,7 @@
     detailPage: {
       eyebrow: "Theme Detail",
       bullets: [
-        "路由已支持主题 slug 扩展",
+        "路由已支持主题 slug expansion",
         "页面结构可继续接入结构化内容源",
         "后续可添加双语文案和案例模块"
       ]

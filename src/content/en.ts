@@ -30,6 +30,65 @@
       }
     ]
   },
+  timeline: {
+    eyebrow: "Career Journey",
+    title: "Professional Timeline",
+    intro: "From low-level industrial control and VR/Web3D interaction to AI agents and full-stack engineering, my journey represents a coherent capability evolution: treating systems with industrial-grade rigor, and empowering business delivery with cutting-edge tech.",
+    items: [
+      {
+        period: "2021 - Present",
+        company: "Changsha Xingsheng Youxuan Co., Ltd.",
+        role: "DCS Equipment Control System Engineer / Full-Stack Developer",
+        contributions: [
+          "Responsible for DCS (Distributed Control System) and PLC integration, achieving high-concurrency stable orchestration and real-world control of heterogeneous hardware.",
+          "Developed embedded device integrations and underlying communication modules, connecting industrial-grade hardware and upper business systems with full-stack data pipelines.",
+          "Explored AI agent and workflow applications in complex industrial scenarios such as warehouse logistics decision-making and anomaly diagnosis."
+        ]
+      },
+      {
+        period: "2015 - 2021",
+        company: "Tiandu (Xiamen) Technology Co., Ltd.",
+        role: "Senior VR / Web3D / C++ Engineer",
+        contributions: [
+          "Developed high-fidelity simulation systems and interactive VR software based on C++, Qt, and Unity, delivering multiple highly reliable industrial/military simulation projects.",
+          "Led the R&D of Web3D engines and the exm-player-web3d player, utilizing Babylon.js to achieve lightweight, high-precision browser-side 3D spatial interactions.",
+          "Designed interactive video and multimedia orchestration systems, seamlessly integrating underlying audio/video streams with front-end high-frequency interactions to support rich multimedia experiences."
+        ]
+      }
+    ]
+  },
+  skills: {
+    eyebrow: "Capability Matrix",
+    title: "Skills Organized by Capability Domain",
+    intro: "Avoiding undifferentiated tool checklists. The value of a tech stack lies in solving specific domain engineering problems. Here are the core capability domains I have accumulated across different evolution stages:",
+    domains: [
+      {
+        name: "AI Agents & AI Applications",
+        description: "Transforming cutting-edge LLM capabilities into deliverable business productivity",
+        tools: ["LLM Agents", "LangChain / LangGraph", "Workflow Automation", "Prompt Engineering", "RAG & Vector DB"]
+      },
+      {
+        name: "Full-Stack & Engineering Delivery",
+        description: "Full-stack design and agile delivery of high-concurrency, high-availability business systems",
+        tools: ["Node.js / TypeScript", "React / Next.js", "RESTful / GraphQL", "Docker & CI/CD", "System Architecture"]
+      },
+      {
+        name: "Interactive Video & Multimedia",
+        description: "R&D of audio/video streaming, multimedia orchestration, and high-frequency interaction systems",
+        tools: ["Streaming Media", "Video Encoding/Decoding", "FFmpeg", "Interactive Video Orchestration", "WebRTC"]
+      },
+      {
+        name: "Web3D / VR / Spatial Computing",
+        description: "Cross-platform lightweight 3D spatial interaction and immersive experience development",
+        tools: ["Babylon.js", "Three.js", "Unity 3D", "PICO VR SDK", "Shader / WebGL"]
+      },
+      {
+        name: "Underlying Systems & Industrial Software",
+        description: "Highly reliable industrial control software and heterogeneous equipment orchestration system",
+        tools: ["C / C++", "Qt Framework", "DCS / PLC Integration", "Embedded Communication", "Hardware Orchestration"]
+      }
+    ]
+  },
   themes: {
     eyebrow: "Project Themes",
     title: "Featured Project Themes",

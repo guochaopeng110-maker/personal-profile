@@ -106,6 +106,59 @@ describe("site routes", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders a professional timeline showing career journey with bilingual switching", async () => {
+    renderRoutes("/");
+
+    // Default Chinese
+    expect(
+      screen.getByRole("heading", { name: "职业演进时间线" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("长沙兴盛优选有限公司")).toBeInTheDocument();
+    expect(screen.getByText("DCS 设备控制系统工程师 / 全栈开发")).toBeInTheDocument();
+    expect(screen.getByText("天度（厦门）科技股份有限公司")).toBeInTheDocument();
+    expect(screen.getByText("VR / Web3D / C++ 资深工程师")).toBeInTheDocument();
+
+    // Switch to English
+    const switchBtn = screen.getByRole("button", { name: "English" });
+    act(() => {
+      switchBtn.click();
+    });
+
+    expect(
+      await screen.findByRole("heading", { name: "Professional Timeline" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Changsha Xingsheng Youxuan Co., Ltd.")).toBeInTheDocument();
+    expect(screen.getByText("DCS Equipment Control System Engineer / Full-Stack Developer")).toBeInTheDocument();
+    expect(screen.getByText("Tiandu (Xiamen) Technology Co., Ltd.")).toBeInTheDocument();
+    expect(screen.getByText("Senior VR / Web3D / C++ Engineer")).toBeInTheDocument();
+  });
+
+  it("renders skills organized by capability domains with bilingual switching", async () => {
+    renderRoutes("/");
+
+    // Default Chinese
+    expect(
+      screen.getByRole("heading", { name: "按能力域组织的技能模块" }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByText("AI 智能体与 AI 应用").length).toBeGreaterThan(0);
+    expect(screen.getByText("将前沿大模型能力转化为可交付的业务生产力")).toBeInTheDocument();
+    expect(screen.getByText("LLM Agents")).toBeInTheDocument();
+    expect(screen.getByText("底层系统与工业软件")).toBeInTheDocument();
+
+    // Switch to English
+    const switchBtn = screen.getByRole("button", { name: "English" });
+    act(() => {
+      switchBtn.click();
+    });
+
+    expect(
+      await screen.findByRole("heading", { name: "Skills Organized by Capability Domain" }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByText("AI Agents & AI Applications").length).toBeGreaterThan(0);
+    expect(screen.getByText("Transforming cutting-edge LLM capabilities into deliverable business productivity")).toBeInTheDocument();
+    expect(screen.getByText("Underlying Systems & Industrial Software")).toBeInTheDocument();
+  });
+
   it("renders a project theme detail page with bilingual switching", async () => {
     renderRoutes("/themes/ai-agents");
 

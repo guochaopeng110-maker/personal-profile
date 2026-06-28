@@ -3,7 +3,7 @@ import { useLocale } from "../context/I18nContext";
 
 export function HomePage() {
   const { content } = useLocale();
-  const { hero, narrative, themes } = content;
+  const { hero, narrative, themes, timeline, skills } = content;
 
   return (
     <main className="page-shell">
@@ -46,6 +46,52 @@ export function HomePage() {
             <article key={index} className="narrative-card">
               <h3>{card.title}</h3>
               <p>{card.p}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section timeline-section">
+        <div className="section-heading">
+          <p className="eyebrow">{timeline.eyebrow}</p>
+          <h2>{timeline.title}</h2>
+          <p className="section-intro">{timeline.intro}</p>
+        </div>
+        <div className="timeline-container">
+          {timeline.items.map((item, index) => (
+            <div key={index} className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <span className="timeline-period">{item.period}</span>
+                <h3 className="timeline-company">{item.company}</h3>
+                <p className="timeline-role">{item.role}</p>
+                <ul className="timeline-contributions">
+                  {item.contributions.map((contribution, idx) => (
+                    <li key={idx}>{contribution}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section skills-section">
+        <div className="section-heading">
+          <p className="eyebrow">{skills.eyebrow}</p>
+          <h2>{skills.title}</h2>
+          <p className="section-intro">{skills.intro}</p>
+        </div>
+        <div className="skills-grid">
+          {skills.domains.map((domain, index) => (
+            <article key={index} className="skills-card">
+              <h3>{domain.name}</h3>
+              <p className="skills-desc">{domain.description}</p>
+              <div className="skills-tags">
+                {domain.tools.map((tool, idx) => (
+                  <span key={idx} className="skills-tag">{tool}</span>
+                ))}
+              </div>
             </article>
           ))}
         </div>
