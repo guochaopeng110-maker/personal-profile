@@ -201,6 +201,134 @@ h1 {
   }
 }
 
+.theme-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.theme-card-title {
+  font-size: 1.22rem;
+  line-height: 1.3;
+  color: #eaf2ff;
+}
+
+.theme-card-summary {
+  color: #c5d4ec;
+  margin: 0;
+}
+
+.theme-card-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.theme-card-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(127, 212, 255, 0.12);
+  border: 1px solid rgba(127, 212, 255, 0.28);
+  color: #b7ecff;
+  font-size: 0.82rem;
+}
+
+.theme-card-results {
+  border-top: 1px solid rgba(160, 194, 255, 0.12);
+  padding-top: 14px;
+}
+
+.theme-card-label {
+  display: block;
+  margin: 0 0 6px;
+  color: #8db8ff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+
+.theme-card-results-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #d5e5ff;
+}
+
+.theme-card-results-list li + li {
+  margin-top: 6px;
+}
+
+.theme-card-judgment {
+  margin: 0;
+  color: #c7d4ea;
+  font-style: italic;
+  border-left: 2px solid rgba(127, 212, 255, 0.4);
+  padding-left: 12px;
+}
+
+.theme-card-link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.theme-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.theme-detail-highlights {
+  margin-top: 8px;
+}
+
+.theme-detail-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.theme-detail-section h2 {
+  font-size: 1.15rem;
+  color: #8db8ff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.theme-detail-section p,
+.theme-detail-section ul {
+  color: #d5e5ff;
+  margin: 0;
+}
+
+.theme-detail-section ul {
+  padding-left: 20px;
+}
+
+.theme-detail-section ul li + li {
+  margin-top: 6px;
+}
+
+.theme-detail-judgment p {
+  font-style: italic;
+  color: #c7d4ea;
+  border-left: 2px solid rgba(127, 212, 255, 0.4);
+  padding-left: 12px;
+}
+
+.theme-detail-repo a {
+  font-weight: 500;
+}
+
+.theme-detail-back {
+  display: flex;
+  justify-content: flex-start;
+}
+
 /* Header and Language Switcher Styles */
 .site-header {
   width: min(1120px, calc(100% - 32px));

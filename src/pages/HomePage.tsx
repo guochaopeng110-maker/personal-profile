@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLocale } from "../context/I18nContext";
 
 export function HomePage() {
@@ -76,7 +76,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section skills-section">
+      <section className="section skills-section" data-testid="skills-section">
         <div className="section-heading">
           <p className="eyebrow">{skills.eyebrow}</p>
           <h2>{skills.title}</h2>
@@ -97,7 +97,12 @@ export function HomePage() {
         </div>
       </section>
 
-      <section id="themes" className="section">
+      <section
+        id="themes"
+        className="section themes-section"
+        data-testid="themes-section"
+        aria-label={themes.title}
+      >
         <div className="section-heading">
           <p className="eyebrow">{themes.eyebrow}</p>
           <h2>{themes.title}</h2>
@@ -105,10 +110,38 @@ export function HomePage() {
         </div>
         <div className="card-grid">
           {Object.entries(themes.items).map(([slug, item]) => (
-            <article key={slug} className="card">
-              <h3>{item.title}</h3>
-              <p>{item.summary}</p>
-              <Link to={`/themes/${slug}`}>{themes.viewDetail}</Link>
+            <article
+              key={slug}
+              className="card theme-card"
+              data-testid="theme-card"
+              data-theme-slug={slug}
+            >
+              <h3 className="theme-card-title">{item.title}</h3>
+              <p className="theme-card-summary">{item.summary}</p>
+              <ul className="theme-card-highlights">
+                {item.highlights.map((tag, idx) => (
+                  <li key={idx} className="theme-card-tag">{tag}</li>
+                ))}
+              </ul>
+              <div className="theme-card-results">
+                <p className="theme-card-label">{themes.detailPage.labels.results}</p>
+                <ul className="theme-card-results-list">
+                  {item.results.map((result, idx) => (
+                    <li key={idx}>{result}</li>
+                  ))}
+                </ul>
+              </div>
+              <p className="theme-card-judgment">
+                <span className="theme-card-label">{themes.detailPage.labels.judgment}</span>
+                {item.judgment}
+              </p>
+              <Link
+                to={`/themes/${slug}`}
+                className="theme-card-link"
+                data-testid="theme-card-link"
+              >
+                {themes.viewDetail}
+              </Link>
             </article>
           ))}
         </div>

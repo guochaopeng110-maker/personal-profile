@@ -1,7 +1,8 @@
-﻿import { render, screen, act } from "@testing-library/react";
+﻿import { render, screen, act, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, beforeEach } from "vitest";
 import { AppRoutes } from "../routes/AppRoutes";
+import { content as zhContent } from "../content/zh";
 
 // Ensure localStorage is cleared before each test
 beforeEach(() => {
@@ -57,7 +58,7 @@ describe("site routes", () => {
     // Find and click language switcher button
     const switchBtn = screen.getByRole("button", { name: "English" });
     expect(switchBtn).toBeInTheDocument();
-    
+
     act(() => {
       switchBtn.click();
     });
@@ -136,14 +137,23 @@ describe("site routes", () => {
   it("renders skills organized by capability domains with bilingual switching", async () => {
     renderRoutes("/");
 
-    // Default Chinese
+    // Default Chinese — scope to the skills section so the duplicated
+    // "底层系统与工业软件" / "AI 智能体 & AI 应用" names from the themes
+    // section below do not break the lookup.
+    const skillsSection = screen.getByTestId("skills-section");
+    const skills = within(skillsSection);
+
     expect(
       screen.getByRole("heading", { name: "按能力域组织的技能模块" }),
     ).toBeInTheDocument();
-    expect(screen.getAllByText("AI 智能体与 AI 应用").length).toBeGreaterThan(0);
-    expect(screen.getByText("将前沿大模型能力转化为可交付的业务生产力")).toBeInTheDocument();
-    expect(screen.getByText("LLM Agents")).toBeInTheDocument();
-    expect(screen.getByText("底层系统与工业软件")).toBeInTheDocument();
+    expect(
+      skills.getByRole("heading", { name: "AI 智能体 & AI 应用", level: 3 }),
+    ).toBeInTheDocument();
+    expect(skills.getByText("将前沿大模型能力转化为可交付的业务生产力")).toBeInTheDocument();
+    expect(skills.getByText("LLM Agents")).toBeInTheDocument();
+    expect(
+      skills.getByRole("heading", { name: "底层系统与工业软件", level: 3 }),
+    ).toBeInTheDocument();
 
     // Switch to English
     const switchBtn = screen.getByRole("button", { name: "English" });
@@ -154,20 +164,38 @@ describe("site routes", () => {
     expect(
       await screen.findByRole("heading", { name: "Skills Organized by Capability Domain" }),
     ).toBeInTheDocument();
-    expect(screen.getAllByText("AI Agents & AI Applications").length).toBeGreaterThan(0);
-    expect(screen.getByText("Transforming cutting-edge LLM capabilities into deliverable business productivity")).toBeInTheDocument();
-    expect(screen.getByText("Underlying Systems & Industrial Software")).toBeInTheDocument();
+    const enSkillsSection = await screen.findByTestId("skills-section");
+    const enSkills = within(enSkillsSection);
+    expect(
+      enSkills.getByRole("heading", {
+        name: "AI Agents & AI Applications",
+        level: 3,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      enSkills.getByText("Transforming cutting-edge LLM capabilities into deliverable business productivity"),
+    ).toBeInTheDocument();
+    expect(
+      enSkills.getByRole("heading", {
+        name: "Underlying Systems & Industrial Software",
+        level: 3,
+      }),
+    ).toBeInTheDocument();
   });
 
   it("renders a project theme detail page with bilingual switching", async () => {
     renderRoutes("/themes/ai-agents");
 
     // Default Chinese
+    const theme = zhContent.themes.items["ai-agents"];
     expect(
-      screen.getByRole("heading", { name: "AI 智能体与 AI 应用" }),
+      screen.getByRole("heading", { name: theme.title, level: 1 }),
     ).toBeInTheDocument();
+    expect(screen.getByText(theme.summary)).toBeInTheDocument();
     expect(
-      screen.getByText("这里会继续扩展 AI agent、workflow 和业务应用案例。"),
+      screen.getByRole("heading", {
+        name: zhContent.themes.detailPage.labels.problem,
+      }),
     ).toBeInTheDocument();
 
     // Switch to English
@@ -176,11 +204,15 @@ describe("site routes", () => {
       switchBtn.click();
     });
 
+    const enTheme = (await import("../content/en")).content.themes.items["ai-agents"];
     expect(
-      await screen.findByRole("heading", { name: "AI Agents & AI Applications" }),
+      await screen.findByRole("heading", { name: enTheme.title, level: 1 }),
     ).toBeInTheDocument();
+    expect(screen.getByText(enTheme.summary)).toBeInTheDocument();
     expect(
-      screen.getByText("This section will be expanded with AI agents, workflows, and business application cases."),
+      screen.getByRole("heading", {
+        name: (await import("../content/en")).content.themes.detailPage.labels.problem,
+      }),
     ).toBeInTheDocument();
   });
 

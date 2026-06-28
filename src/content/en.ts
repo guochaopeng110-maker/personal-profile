@@ -1,4 +1,6 @@
-﻿export const content = {
+import type { Theme } from "./types";
+
+export const content = {
   hero: {
     eyebrow: "Guochao Peng",
     title: "AI Agent / AI Application / Full-Stack Engineer",
@@ -102,20 +104,141 @@
     },
     detailPage: {
       eyebrow: "Theme Detail",
-      bullets: [
-        "Routing already supports theme slug expansion",
-        "Page structure ready to connect to structured content sources",
-        "Bilingual copy and case study modules can be added in the future"
-      ]
+      labels: {
+        problem: "Background & Problem",
+        role: "My Role",
+        solution: "Solution & Architecture",
+        challenges: "Key Challenges",
+        results: "Project Results",
+        judgment: "Engineering Judgment",
+        repo: "Repository"
+      }
     },
     items: {
       "ai-agents": {
         title: "AI Agents & AI Applications",
-        summary: "This section will be expanded with AI agents, workflows, and business application cases."
+        summary: "Turn LLM capabilities into agents and workflows that real business systems can call — not toys that only run demos.",
+        problem: "In enterprise contexts, LLMs are often stuck at the prompt and demo stage: workflows break, results are unstable, and integration with existing systems is expensive, so teams struggle to bring model capability into daily operations.",
+        role: "Owner and developer for AI applications and agents, driving end-to-end work from business decomposition, prompt engineering, workflow orchestration, and system integration to production operation.",
+        solution: "Build observable workflows on top of LLM agents and frameworks such as LangChain / LangGraph. Use RAG and vector databases to inject business knowledge, and pair structured output with human-in-the-loop fallbacks so model output can flow into downstream business systems.",
+        challenges: [
+          "Result stability: under multi-turn and external tool-call scenarios, keep hallucinations and failure paths inside recoverable boundaries.",
+          "Business integration: embed model capabilities into existing Node.js / full-stack pipelines instead of a parallel, disconnected system."
+        ],
+        results: [
+          "Reusable agent workflow templates that can be applied to multiple internal business scenarios.",
+          "Model output upgraded from one-off demos to a capability that business systems can call reliably."
+        ],
+        judgment: "The value of AI applications is the engineering closed loop, not a single impressive answer; running the business flow matters more than any single point capability.",
+        highlights: [
+          "Agent + workflow in production",
+          "Callable from business systems",
+          "Engineering, not one-off demos"
+        ],
+        repo: {
+          label: "GitHub Profile",
+          url: "https://github.com/guochaopeng110-maker"
+        }
       },
-      web3d: {
-        title: "Web3D / Babylon.js",
-        summary: "This section will be expanded with interactive 3D and browser spatial experience cases."
+      "ai-video-workflow": {
+        title: "AI Short Drama / Manga Drama / Video Generation Workflow",
+        summary: "Stitch script, storyboard, generation and editing into a reusable AI video production workflow that coordinates multiple repositories around one theme.",
+        problem: "AI video generation is often trapped in single-tool calls: script, storyboard, voice, and editing are scattered across repositories and scripts. Solo work is possible, but engineering reuse is hard and a team cannot scale it into a reusable production line.",
+        role: "Integrator across multiple related repositories, abstracting AI generation, templated storyboards and post-stitching into a unified workflow, and accumulating reusable assets and scripts.",
+        solution: "Use the workflow as the backbone and orchestrate script generation, storyboard templates, image/video generation nodes, and post-stitching so creators can focus on content decisions instead of tool plumbing.",
+        challenges: [
+          "Multi-repository coordination: keep script, template and generation nodes version- and dependency-consistent without a unified CI.",
+          "Missing-asset fallback: when generation fails or assets are missing, structurally fall back to template output so the pipeline never stalls."
+        ],
+        results: [
+          "Multiple related repositories unified into one themed AI video production line.",
+          "An extensible engineering backbone established for templated short drama / manga drama production."
+        ],
+        judgment: "Multi-repository projects need a shared theme to tie them together, otherwise the highlights are diluted by the repo list.",
+        highlights: [
+          "Multi-repo unified theme",
+          "Workflow-driven production",
+          "Graceful asset fallback"
+        ],
+        repo: {
+          label: "GitHub Profile",
+          url: "https://github.com/guochaopeng110-maker"
+        }
+      },
+      "web3d-vr": {
+        title: "Web3D / Babylon.js + Unity + PICO VR",
+        summary: "From browser 3D interaction to Unity + PICO VR immersive engineering, accumulated as a cross-platform 3D spatial interaction and simulation capability.",
+        problem: "3D projects often end up as one-off demos: the scene is flashy but lacks an interaction architecture, portability to VR lacks modularity, and performance and precision are hard to balance — teams reinvent the wheel every time.",
+        role: "Core engineer for the Web3D engine and VR simulation, leading the architecture and implementation of the exm-player-web3d player and several high-fidelity / interactive VR projects.",
+        solution: "Use Babylon.js as a reusable browser 3D engine layer that unifies scene, interaction and assets. Use Unity + PICO VR SDK for immersive industrial / simulation scenarios, keeping the structure consistent across stacks.",
+        challenges: [
+          "Cross-platform consistency: keep interaction semantics aligned between browser, mobile and VR headsets, instead of writing a separate stack per platform.",
+          "Performance vs. precision: keep an interactive frame rate on low-end devices while preserving physical and geometric fidelity for high-precision simulation."
+        ],
+        results: [
+          "Delivered several highly reliable industrial / military-grade simulation and VR projects.",
+          "Established a reusable Web3D engine and VR engineering baseline for later projects."
+        ],
+        judgment: "The moat of 3D capability is the interaction architecture and the reusable engine, not a single flashy demo.",
+        highlights: [
+          "Cross-platform 3D interaction",
+          "Babylon.js + Unity + PICO VR",
+          "Reusable engineering baseline"
+        ],
+        repo: {
+          label: "GitHub Profile",
+          url: "https://github.com/guochaopeng110-maker"
+        }
+      },
+      "cargo-ship-manage": {
+        title: "CargoShipManage Business System",
+        summary: "A full-stack business system for cargo shipping management — from business modeling to high-availability delivery, showing the engineering trade-offs of a real product project.",
+        problem: "Cargo shipping management involves multi-role collaboration, complex state transitions and high-concurrency business writes. Without complete product experience, teams often build a feature pile that is hard to use, hard to maintain and hard to extend.",
+        role: "Core full-stack developer, leading the engineering build of the system from business modeling and API design to front- and back-end implementation and deployment operations.",
+        solution: "Built on a Node.js + TypeScript + React/Next.js full-stack architecture, with modules split by business domain and connected through RESTful APIs, plus Docker and CI/CD for a gray-release delivery pipeline.",
+        challenges: [
+          "Business modeling: abstract multi-role, multi-state business processes into clean state machines instead of stacking forms.",
+          "Maintainability: keep code structure and dependencies clear under rapid iteration so maintenance cost does not spiral later."
+        ],
+        results: [
+          "Delivered a cargo shipping management system aimed at a real business scenario.",
+          "Found an evolvable balance between business complexity and engineering complexity."
+        ],
+        judgment: "The value of a business system project is \"runs reliably and keeps evolving\", not one fancy feature.",
+        highlights: [
+          "Full-stack business system",
+          "Business modeling + engineering trade-offs",
+          "Gray-release delivery pipeline"
+        ],
+        repo: {
+          label: "GitHub Profile",
+          url: "https://github.com/guochaopeng110-maker"
+        }
+      },
+      "industrial-systems": {
+        title: "Underlying Systems & Industrial Software",
+        summary: "Capability hardened in DCS / PLC heterogeneous hardware and high-reliability industrial scenarios — the engineering bedrock of the current AI and full-stack work.",
+        problem: "Industrial scenarios demand high stability, real-time behavior and heterogeneous device compatibility from the system. Off-the-shelf generic software usually does not survive the plant floor, so the team needs both low-level skills and full delivery ability.",
+        role: "As DCS equipment control system engineer and underlying communication module developer, responsible for heterogeneous device integration, embedded communication links and bridging upper-layer business systems.",
+        solution: "Build high-reliability industrial control and simulation software on C / C++ and Qt, abstracting a unified device protocol at the DCS / PLC integration layer so that upper-layer business systems can call industrial device capabilities uniformly.",
+        challenges: [
+          "Heterogeneous compatibility: build a stable, usable unified abstraction across multi-vendor, multi-model industrial devices.",
+          "Stability first: on the plant floor, availability and recoverability outrank any \"sexy\" feature."
+        ],
+        results: [
+          "Delivered multiple high-reliability industrial / military-grade control and simulation systems.",
+          "Established a reusable industrial device abstraction and communication baseline for upper-layer business systems."
+        ],
+        judgment: "The biggest value of industrial-grade experience is \"treating a system as a system\" — and that backbone decides the engineering rigor of subsequent AI and full-stack delivery.",
+        highlights: [
+          "C / C++ + Qt",
+          "DCS / PLC heterogeneous integration",
+          "Industrial-grade stability"
+        ],
+        repo: {
+          label: "GitHub Profile",
+          url: "https://github.com/guochaopeng110-maker"
+        }
       }
     }
   },
@@ -126,3 +249,5 @@
     backToHome: "Back to Home"
   }
 };
+
+
