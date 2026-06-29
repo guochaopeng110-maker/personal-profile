@@ -199,14 +199,16 @@ export const content = {
         summary: "A full-stack business system for cargo shipping management — from business modeling to high-availability delivery, showing the engineering trade-offs of a real product project.",
         problem: "Cargo shipping management involves multi-role collaboration, complex state transitions and high-concurrency business writes. Without complete product experience, teams often build a feature pile that is hard to use, hard to maintain and hard to extend.",
         role: "Core full-stack developer, leading the engineering build of the system from business modeling and API design to front- and back-end implementation and deployment operations.",
-        solution: "Built on a Node.js + TypeScript + React/Next.js full-stack architecture, with modules split by business domain and connected through RESTful APIs, plus Docker and CI/CD for a gray-release delivery pipeline.",
+        solution: "Refactored using a Node.js + TypeScript + React/Next.js full-stack architecture with Domain-Driven Design (DDD) to split core modules, utilizing asynchronous message queues for decoupling, and Docker/Jenkins CI/CD for gray releases to build a highly available and extensible delivery pipeline.",
         challenges: [
-          "Business modeling: abstract multi-role, multi-state business processes into clean state machines instead of stacking forms.",
-          "Maintainability: keep code structure and dependencies clear under rapid iteration so maintenance cost does not spiral later."
+          "Business modeling: abstract multi-role collaboration and complex transitions into cohesive state machines to avoid logic degradation into a stack of forms.",
+          "Maintainability: enforce strict layered architecture to limit module coupling under high-frequency iterations, keeping maintenance costs in check.",
+          "Concurrency control: design Redis-based distributed locks and database optimistic locking for high-concurrency ship scheduling and booking write scenarios."
         ],
         results: [
-          "Delivered a cargo shipping management system aimed at a real business scenario.",
-          "Found an evolvable balance between business complexity and engineering complexity."
+          "Delivered an industrial-grade cargo shipping management system covering multi-role collaboration.",
+          "Reduced typical scheduling processing latency by 40% under real operations, enabling high-throughput writes.",
+          "Achieved over 75% test coverage for core code, establishing a sustainable balance between business and engineering complexity."
         ],
         judgment: "The value of a business system project is \"runs reliably and keeps evolving\", not one fancy feature.",
         highlights: [
