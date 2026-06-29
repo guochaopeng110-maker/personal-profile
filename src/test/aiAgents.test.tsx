@@ -1,4 +1,4 @@
-import { render, screen, act, within } from "@testing-library/react";
+import { render, screen, act, within, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, beforeEach } from "vitest";
 import { AppRoutes } from "../routes/AppRoutes";
@@ -58,9 +58,11 @@ describe("AI Agents detail page (issue #10)", () => {
   it("gracefully falls back to visual placeholder when screenshots are missing", () => {
     renderAt("/themes/ai-agents");
 
-    // Check visuals section or placeholder
-    const visualsSection = screen.getByTestId("theme-detail-visuals");
-    expect(visualsSection).toBeInTheDocument();
+    // If an image is rendered, fire error to trigger fallback
+    const img = screen.queryByRole("img", { name: /AI 智能体架构示意图/i });
+    if (img) {
+      fireEvent.error(img);
+    }
 
     // Verify placeholder is present and marked as fallback
     const placeholder = screen.getByTestId("visuals-placeholder");

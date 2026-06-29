@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useLocale } from "../context/I18nContext";
 import type { Theme } from "../content/types";
@@ -7,6 +8,7 @@ export function ProjectThemePage() {
   const { content } = useLocale();
   const { themes } = content;
   const detailLabels = themes.detailPage.labels;
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
 
   const theme = themes.items[themeSlug as keyof typeof themes.items] as Theme | undefined;
 
@@ -131,10 +133,15 @@ export function ProjectThemePage() {
               <h2>{detailLabels.visuals}</h2>
               <div className="visuals-container">
                 {theme.visuals.map((visual, idx) => {
-                  if (visual.url) {
+                  if (visual.url && !imageErrors[idx]) {
                     return (
                       <div key={idx} className="visual-media-wrapper">
-                        <img src={visual.url} alt={visual.title} className="visual-media-img" />
+                        <img
+                          src={visual.url}
+                          alt={visual.title}
+                          className="visual-media-img"
+                          onError={() => setImageErrors((prev) => ({ ...prev, [idx]: true }))}
+                        />
                         {visual.description && <p className="visual-media-caption">{visual.description}</p>}
                       </div>
                     );

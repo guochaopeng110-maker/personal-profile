@@ -131,6 +131,7 @@ export const content = {
         visuals: [
           {
             title: 'AI 智能体架构示意图',
+            url: '/personal-profile/assets/ai-agent-architecture.png',
             description: '基于感知-思考-执行 (Sense-Think-Act) 的工业异常诊断 Agent 闭环控制与分析架构。',
             type: 'diagram',
             schematic: [

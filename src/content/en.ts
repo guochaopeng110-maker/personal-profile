@@ -184,6 +184,7 @@ export const content = {
         visuals: [
           {
             title: "AI Agent Architecture Diagram",
+            url: "/personal-profile/assets/ai-agent-architecture.png",
             description: "Closed-loop control and analysis architecture of the industrial anomaly diagnostic Agent based on Sense-Think-Act.",
             type: "diagram",
             schematic: [
