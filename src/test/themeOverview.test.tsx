@@ -4,6 +4,7 @@ import { describe, expect, it, beforeEach } from "vitest";
 import { AppRoutes } from "../routes/AppRoutes";
 import { content as zhContent } from "../content/zh";
 import { content as enContent } from "../content/en";
+import type { Theme } from "../content/types";
 
 beforeEach(() => {
   localStorage.clear();
@@ -109,7 +110,7 @@ describe("Homepage theme overview (issue #6)", () => {
 describe("Project theme detail page (issue #6)", () => {
   it("renders a unified case-study structure for every theme slug", () => {
     for (const slug of REQUIRED_SLUGS) {
-      const theme = zhContent.themes.items[slug];
+      const theme = zhContent.themes.items[slug] as unknown as Theme;
       const detailLabels = zhContent.themes.detailPage.labels;
 
       const { unmount } = renderAt(`/themes/${slug}`);
@@ -124,7 +125,12 @@ describe("Project theme detail page (issue #6)", () => {
       expect(screen.getByText(detailLabels.solution)).toBeInTheDocument();
       expect(screen.getByText(detailLabels.results)).toBeInTheDocument();
       expect(screen.getByText(detailLabels.judgment)).toBeInTheDocument();
-      expect(screen.getByText(detailLabels.repo)).toBeInTheDocument();
+      if (theme.repo) {
+        expect(screen.getByText(detailLabels.repo)).toBeInTheDocument();
+      }
+      if (theme.repos) {
+        expect(screen.getByText(detailLabels.repos)).toBeInTheDocument();
+      }
 
       expect(screen.getByText(theme.problem)).toBeInTheDocument();
       expect(screen.getByText(theme.role)).toBeInTheDocument();

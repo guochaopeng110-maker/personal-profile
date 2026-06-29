@@ -115,7 +115,10 @@ export const content = {
         challenges: "Key Challenges",
         results: "Project Results",
         judgment: "Engineering Judgment",
-        repo: "Repository"
+        repo: "Repository",
+        workflow: "Workflow Pipeline & Roles",
+        repos: "Related Repositories",
+        visuals: "Project Visuals"
       }
     },
     items: {
@@ -164,10 +167,53 @@ export const content = {
           "Workflow-driven production",
           "Graceful asset fallback"
         ],
-        repo: {
-          label: "GitHub Profile",
-          url: "https://github.com/guochaopeng110-maker"
-        }
+        repos: [
+          {
+            label: "prompt-to-screenplay",
+            url: "https://github.com/guochaopeng110-maker/prompt-to-screenplay",
+            description: "Script & Shot Prompt Editor: Driven by LLMs to automatically generate structured scenes and storyboard descriptions.",
+            role: "Workflow Upstream: Creative Translation & Storyboard Design"
+          },
+          {
+            label: "storyboard-diffuser",
+            url: "https://github.com/guochaopeng110-maker/storyboard-diffuser",
+            description: "Storyboard Asset Generator: Multi-threaded batch generation and rate-limit scheduling based on SD & Kling API nodes.",
+            role: "Workflow Midstream: Automated Rendering of Visual Assets"
+          },
+          {
+            label: "ffmpeg-stitcher-orchestrator",
+            url: "https://github.com/guochaopeng110-maker/ffmpeg-stitcher-orchestrator",
+            description: "Multimedia Synthesis & Editing Engine: Uses JSON configuration to orchestrate multi-track timeline rendering, combining voice, music, and clips.",
+            role: "Workflow Downstream: Asset Assembly & Automated Post-Processing"
+          }
+        ],
+        workflow: {
+          title: "Workflow Pipeline & Roles",
+          steps: [
+            {
+              name: "Script Generation",
+              description: "Use LLMs to generate structured screenplays, character settings, and shot descriptions from a theme.",
+              role: "Theme Input -> LLM Script Generation -> Storyboard Outline JSON"
+            },
+            {
+              name: "Asset Generation",
+              description: "Parse storyboard outlines and call SD / Kling nodes to render image and video sequences in batches.",
+              role: "Outline JSON -> Render Video Nodes -> Multimedia Asset Library"
+            },
+            {
+              name: "Synthesis & Editing",
+              description: "Integrate TTS voiceover, background music, and generated clips using FFmpeg for timeline stitching and SRT subtitles.",
+              role: "Asset Library + Voiceover -> FFmpeg Post-Production -> Final Short Video"
+            }
+          ]
+        },
+        visuals: [
+          {
+            title: "Workflow Diagram",
+            description: "Automated pipeline for AI video generation from creative script to storyboard and final editing.",
+            type: "diagram"
+          }
+        ]
       },
       "web3d-vr": {
         title: "Web3D / Babylon.js + Unity + PICO VR",
@@ -189,10 +235,42 @@ export const content = {
           "Babylon.js + Unity + PICO VR",
           "Reusable engineering baseline"
         ],
-        repo: {
-          label: "GitHub Profile",
-          url: "https://github.com/guochaopeng110-maker"
-        }
+        repos: [
+          { label: "exm-player-web3d", url: "https://github.com/guochaopeng110-maker/exm-player-web3d", description: "Lightweight browser 3D spatial interactive player based on Babylon.js, supporting multiple 3D formats and high-frequency interaction actions.", role: "Core Developer: Interactive engine and rendering pipeline design" },
+          { label: "pico-vr-simulation", url: "https://github.com/guochaopeng110-maker/pico-vr-simulation", description: "Immersive industrial interaction simulation project based on Unity and PICO VR SDK, providing high-precision collision and physical feedback.", role: "VR System Architect: Device driver integration and controller interactive semantic design" }
+        ],
+        workflow: {
+          title: "3D Interaction & Simulation Engineering Pipeline",
+          steps: [
+            {
+              name: "Asset Optimization",
+              description: "Use DCC software to decimate 3D meshes, merge Draw Calls, and bake materials, exporting efficient glTF/GLB formats.",
+              role: "Original 3D Assets -> Mesh Decimation & DrawCall Optimization -> Production glTF/GLB"
+            },
+            {
+              name: "Cross-Platform Integration",
+              description: "Develop browser interaction logic with Babylon.js, or configure physical collisions and VR controller input in Unity.",
+              role: "Optimized Assets -> Babylon.js Orchestration / Unity VR Config -> Core Interaction Layer"
+            },
+            {
+              name: "Performance Tuning",
+              description: "Implement occlusion culling and WebGL/WebGPU tuning on Web, and Foveated Rendering in VR to secure stable frame rates.",
+              role: "Core Interaction Layer -> Cross-Platform Rendering Tuning & FPS Monitor -> Smooth Interactive Experience"
+            }
+          ]
+        },
+        visuals: [
+          {
+            title: "3D & VR Spatial Computing Architecture Diagram",
+            description: "A unified 3D interaction architecture design bridging lightweight Web3D (Babylon.js) and immersive VR (Unity).",
+            type: "diagram",
+            schematic: [
+              { label: "DCC / OPT", value: "Decimation, DrawCall batching, texture baking & glTF export", class: "dcc-bar" },
+              { label: "WEB3D", value: "exm-player-web3d interactive logic, lighting & WebGL rendering", class: "web3d-bar" },
+              { label: "VR HMD", value: "Unity + PICO VR SDK physics, controller interaction & driver integration", class: "vr-bar" }
+            ]
+          }
+        ]
       },
       "cargo-ship-manage": {
         title: "CargoShipManage Business System",

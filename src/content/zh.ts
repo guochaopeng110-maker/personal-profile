@@ -80,7 +80,7 @@ export const content = {
     unknownTheme: { eyebrow: 'Unknown Theme', title: '未找到该项目主题', summary: '当前骨架已经支持详情路由，后续可以继续从结构化内容中扩展主题数据。' },
     detailPage: {
       eyebrow: 'Theme Detail',
-      labels: { problem: '背景与问题', role: '我的角色', solution: '方案与架构', challenges: '关键挑战', results: '项目结果', judgment: '工程判断', repo: '仓库链接' }
+      labels: { problem: '背景与问题', role: '我的角色', solution: '方案与架构', challenges: '关键挑战', results: '项目结果', judgment: '工程判断', repo: '仓库链接', workflow: '工作流核心节点与分工', repos: '相关代码仓库', visuals: '项目视觉' }
     },
     items: {
       'ai-agents': {
@@ -117,7 +117,38 @@ export const content = {
         ],
         judgment: '多仓库项目更需要一个共同主题把它们串起来，否则亮点会被仓库列表稀释。',
         highlights: ['多仓库统一主题','工作流化生产','缺图降级保持可读'],
-        repo: { label: 'GitHub 主页', url: 'https://github.com/guochaopeng110-maker' }
+        repos: [
+          { label: 'prompt-to-screenplay', url: 'https://github.com/guochaopeng110-maker/prompt-to-screenplay', description: '脚本与镜头提示词编辑器：大模型驱动，自动生成结构化场景与分镜描述。', role: '工作流上游：创意转化与分镜设计' },
+          { label: 'storyboard-diffuser', url: 'https://github.com/guochaopeng110-maker/storyboard-diffuser', description: '分镜画面生成器：基于 SD & Kling 等大模型 API 进行多线程批量生成及限频调度。', role: '工作流中游：视觉资产自动化渲染' },
+          { label: 'ffmpeg-stitcher-orchestrator', url: 'https://github.com/guochaopeng110-maker/ffmpeg-stitcher-orchestrator', description: '多媒体合成剪辑编排引擎：利用 JSON 配置多轨时间线，合成配音、字幕和视频。', role: '工作流下游：资产装配与自动后期' }
+        ],
+        workflow: {
+          title: '工作流核心节点与分工',
+          steps: [
+            {
+              name: 'AI 脚本生成',
+              description: '使用大模型根据主题生成结构化剧本、演员设定与镜头描述，产出分镜大纲。',
+              role: '输入主题 -> LLM 生成镜头脚本 -> 分镜大纲 JSON'
+            },
+            {
+              name: '分镜素材生成',
+              description: '解析分镜大纲，调用 SD 与 Kling 节点批量渲染图像与视频片段，保障一致性。',
+              role: '大纲 JSON -> 渲染图像/视频节点 -> 多媒体素材库'
+            },
+            {
+              name: '音视频合成剪辑',
+              description: '整合 TTS 语音、背景音乐与生成片段，通过 FFmpeg 完成时间线拼接及字幕压制。',
+              role: '素材库 + 配音字幕 -> FFmpeg 自动后期 -> 交付最终短剧视频'
+            }
+          ]
+        },
+        visuals: [
+          {
+            title: '工作流示意图',
+            description: 'AI 视频生成工作流从创意、分镜到最终剪辑合成的自动化管道。',
+            type: 'diagram'
+          }
+        ]
       },
       'web3d-vr': {
         title: 'Web3D / Babylon.js + Unity + PICO VR',
@@ -135,7 +166,42 @@ export const content = {
         ],
         judgment: '3D 能力的护城河是交互架构与可复用引擎，不是某一个酷炫 Demo。',
         highlights: ['跨端 3D 交互架构','Babylon.js + Unity + PICO VR','可复用的工程基线'],
-        repo: { label: 'GitHub 主页', url: 'https://github.com/guochaopeng110-maker' }
+        repos: [
+          { label: 'exm-player-web3d', url: 'https://github.com/guochaopeng110-maker/exm-player-web3d', description: '基于 Babylon.js 开发的轻量级网页端 3D 空间交互播放器，支持多种 3D 格式与高频交互动作。', role: '核心开发：交互引擎与渲染管道设计' },
+          { label: 'pico-vr-simulation', url: 'https://github.com/guochaopeng110-maker/pico-vr-simulation', description: '基于 Unity 与 PICO VR SDK 开发的沉浸式工业交互仿真项目，提供高精度碰撞与物理反馈。', role: 'VR 系统架构：设备驱动接入与手柄交互语义设计' }
+        ],
+        workflow: {
+          title: '3D 交互与仿真工程管线',
+          steps: [
+            {
+              name: '资产优化',
+              description: '使用 DCC 软件对 3D 模型进行减面、DrawCall 合并及材质贴图烘焙，并导出高效的 glTF/GLB 格式。',
+              role: '原始三维资产 -> 模型减面与 DrawCall 优化 -> 生产级轻量 glTF/GLB'
+            },
+            {
+              name: '交互集成',
+              description: '利用 Babylon.js 编写浏览器网页端交互逻辑，或在 Unity 中配置物理碰撞与 VR 手柄输入逻辑。',
+              role: '轻量化资产 -> Babylon.js 逻辑编排 / Unity VR 配置 -> 核心交互层'
+            },
+            {
+              name: '性能优化',
+              description: '在网页端实施遮挡剔除与 WebGL/WebGPU 参数调优，在 VR 端引入注视点渲染保障帧率稳定。',
+              role: '核心交互层 -> 跨端渲染调优 & 帧率监控 -> 交付流畅交互体验'
+            }
+          ]
+        },
+        visuals: [
+          {
+            title: '3D 与 VR 空间计算架构示意图',
+            description: '跨越轻量网页端 Web3D (Babylon.js) 与沉浸式 VR 端 (Unity) 的统一 3D 交互架构设计。',
+            type: 'diagram',
+            schematic: [
+              { label: 'DCC / 优化', value: '模型减面、DrawCall 合并、材质贴图烘焙与 glTF 导出', class: 'dcc-bar' },
+              { label: 'WEB3D', value: 'exm-player-web3d 引擎交互逻辑、光影调优与 WebGL 渲染', class: 'web3d-bar' },
+              { label: 'VR 头显', value: 'Unity + PICO VR SDK 物理碰撞、手柄交互与设备驱动集成', class: 'vr-bar' }
+            ]
+          }
+        ]
       },
       'cargo-ship-manage': {
         title: 'CargoShipManage 业务系统',
