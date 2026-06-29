@@ -142,10 +142,57 @@ export const content = {
           "Callable from business systems",
           "Engineering, not one-off demos"
         ],
-        repo: {
-          label: "GitHub Profile",
-          url: "https://github.com/guochaopeng110-maker"
-        }
+        repos: [
+          {
+            label: "ai-agent-sandbox",
+            url: "https://github.com/guochaopeng110-maker/ai-agent-sandbox",
+            description: "Agent & RAG Sandbox: Hardened agentic patterns (ReAct, Plan-and-Solve) containing history of prompt evolution and RAG recall optimization.",
+            role: "Tech Accumulation: Agent design & core pipeline experiments"
+          },
+          {
+            label: "dcs-anomaly-agent",
+            url: "https://github.com/guochaopeng110-maker/dcs-anomaly-agent",
+            description: "DCS Anomaly Diagnosis Agent: Combines industrial Distributed Control System alarms with RAG manual retrieval to assist on-site diagnostics.",
+            role: "Production App: Intelligent agent landing in industrial hardware environments"
+          }
+        ],
+        workflow: {
+          title: "Workflow Pipeline & Roles",
+          steps: [
+            {
+              name: "Anomaly Perception & Intent Routing",
+              description: "Receive anomaly alerts from the DCS equipment control system or natural language input from engineers, and route them to corresponding diagnostic paths via LLM intent recognition.",
+              role: "Real-time Alarms / Natural Language -> Intent Recognition & Semantic Matching -> Diagnostic Path Determination"
+            },
+            {
+              name: "Knowledge Base RAG Retrieval",
+              description: "Retrieve relevant troubleshooting steps from local industrial knowledge bases and equipment maintenance manuals using vector database retrieval and semantic rerankers.",
+              role: "Failure Signatures -> Vector Retrieval & Semantic Reranking -> Failure Reference Context"
+            },
+            {
+              name: "ReAct Decision & Tool Invocation",
+              description: "The agent leverages the ReAct (Reasoning and Acting) paradigm to plan diagnostic steps and call tool APIs or query device status for real-time operating metrics.",
+              role: "Reference Context -> Multi-step Reasoning Planning & Tool APIs -> Diagnostic Data Details"
+            },
+            {
+              name: "Structured Output & Human-in-the-Loop",
+              description: "Compile diagnostic conclusions, recovery actions, and reasoning chains into structured JSON for field engineers; trigger human review if confidence falls below threshold.",
+              role: "Diagnostic Data -> Structured JSON Generation / Human Audit -> Final Diagnostic Report Delivery"
+            }
+          ]
+        },
+        visuals: [
+          {
+            title: "AI Agent Architecture Diagram",
+            description: "Closed-loop control and analysis architecture of the industrial anomaly diagnostic Agent based on Sense-Think-Act.",
+            type: "diagram",
+            schematic: [
+              { label: "SENSE", value: "DCS alarm listener, intent router, real-time status APIs", class: "script-bar" },
+              { label: "THINK", value: "LangGraph state machine decisions, RAG manual vector search, ReAct reasoning & planning", class: "video-bar" },
+              { label: "ACT", value: "Diagnostic tool API calls, structured JSON recommendation output, human fallback flows", class: "audio-bar" }
+            ]
+          }
+        ]
       },
       "ai-video-workflow": {
         title: "AI Short Drama / Manga Drama / Video Generation Workflow",

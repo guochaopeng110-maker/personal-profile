@@ -99,7 +99,47 @@ export const content = {
         ],
         judgment: 'AI 应用的价值在工程化闭环，不在单次惊艳回答；能跑通业务流比单点能力更重要。',
         highlights: ['智能体 + 工作流落地','可被业务系统调用','工程化而非单点 demo'],
-        repo: { label: 'GitHub 主页', url: 'https://github.com/guochaopeng110-maker' }
+        repos: [
+          { label: 'ai-agent-sandbox', url: 'https://github.com/guochaopeng110-maker/ai-agent-sandbox', description: '智能体与 RAG 实验沙盒：沉淀 ReAct、Plan-and-Solve 等智能体模式，包含 Prompts 演进与 RAG 召回率优化记录。', role: '技术积累：智能体方案与核心链路实验' },
+          { label: 'dcs-anomaly-agent', url: 'https://github.com/guochaopeng110-maker/dcs-anomaly-agent', description: '设备控制系统异常诊断智能 Agent：结合工业 DCS 实时报警与向量库 RAG 知识检索，辅助现场进行异常定位与决策。', role: '落地应用：工业级异构硬件场景的智能落地' }
+        ],
+        workflow: {
+          title: '工作流核心节点与分工',
+          steps: [
+            {
+              name: '异常感知与意图路由',
+              description: '接收 DCS 设备控制系统的异常报警或用户自然语言描述，通过 LLM 进行意图识别并分发到对应诊断链路。',
+              role: '实时报警 / 自然语言 -> 意图识别与语义匹配 -> 确定诊断链路'
+            },
+            {
+              name: '知识库 RAG 检索',
+              description: '根据异常特征，在本地工业知识库与设备运维手册的向量库中进行检索，召回相关的故障排查步骤。',
+              role: '故障特征 -> 向量化检索 & 语义重排 -> 故障参考上下文'
+            },
+            {
+              name: 'ReAct 决策与工具调用',
+              description: '智能体利用 ReAct (Reasoning and Acting) 结构，自主规划排查动作，调用设备状态查询接口或诊断工具获取实时运行数据。',
+              role: '参考上下文 -> 多步推理规划 & 工具 API 调用 -> 诊断数据详情'
+            },
+            {
+              name: '结果结构化输出与人工兜底',
+              description: '将最终的诊断结论、修复建议与排查逻辑整理为结构化 JSON，输出给现场工程师；当置信度低于阈值时，自动触发人工审核流。',
+              role: '诊断数据 -> 结构化 JSON 生成 / 人工审核 -> 最终诊断报告交付'
+            }
+          ]
+        },
+        visuals: [
+          {
+            title: 'AI 智能体架构示意图',
+            description: '基于感知-思考-执行 (Sense-Think-Act) 的工业异常诊断 Agent 闭环控制与分析架构。',
+            type: 'diagram',
+            schematic: [
+              { label: '感知 SENSE', value: 'DCS 报警监听、意图路由器、实时状态监测接口', class: 'script-bar' },
+              { label: '思考 THINK', value: 'LangGraph 状态机决策、RAG 向量库故障手册检索、ReAct 推理规划', class: 'video-bar' },
+              { label: '执行 ACT', value: '诊断工具 API 调用、结构化 JSON 建议输出、人工兜底审批流', class: 'audio-bar' }
+            ]
+          }
+        ]
       },
       'ai-video-workflow': {
         title: 'AI 短剧 / 漫剧 / 视频生成工作流',
