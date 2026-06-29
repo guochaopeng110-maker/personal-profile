@@ -7,7 +7,7 @@ export function HomePage() {
 
   return (
     <main className="page-shell">
-      <section className="hero hero-grid">
+      <section className="hero hero-grid animate-fade-in-up" data-testid="hero-section">
         <div className="hero-copy">
           <p className="eyebrow">{hero.eyebrow}</p>
           <h1>{hero.title}</h1>
@@ -36,7 +36,7 @@ export function HomePage() {
         </aside>
       </section>
 
-      <section className="section narrative-section">
+      <section className="section narrative-section animate-fade-in-up animate-delay-1" data-testid="narrative-section">
         <div className="section-heading">
           <p className="eyebrow">{narrative.eyebrow}</p>
           <h2>{narrative.title}</h2>
@@ -51,7 +51,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section timeline-section">
+      <section className="section timeline-section animate-fade-in-up animate-delay-2" data-testid="timeline-section">
         <div className="section-heading">
           <p className="eyebrow">{timeline.eyebrow}</p>
           <h2>{timeline.title}</h2>
@@ -66,7 +66,7 @@ export function HomePage() {
                 <h3 className="timeline-company">{item.company}</h3>
                 <p className="timeline-role">{item.role}</p>
                 <ul className="timeline-contributions">
-                  {item.contributions.map((contribution, idx) => (
+                   {item.contributions.map((contribution, idx) => (
                     <li key={idx}>{contribution}</li>
                   ))}
                 </ul>
@@ -76,7 +76,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section skills-section" data-testid="skills-section">
+      <section className="section skills-section animate-fade-in-up animate-delay-3" data-testid="skills-section">
         <div className="section-heading">
           <p className="eyebrow">{skills.eyebrow}</p>
           <h2>{skills.title}</h2>
@@ -99,7 +99,7 @@ export function HomePage() {
 
       <section
         id="themes"
-        className="section themes-section"
+        className="section themes-section animate-fade-in-up animate-delay-4"
         data-testid="themes-section"
         aria-label={themes.title}
       >

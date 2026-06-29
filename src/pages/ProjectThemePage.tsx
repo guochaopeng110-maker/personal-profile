@@ -25,7 +25,7 @@ export function ProjectThemePage() {
 
   return (
     <main className="page-shell">
-      <section className="section theme-detail" data-testid="theme-detail">
+      <section className="section theme-detail animate-fade-in-up" data-testid="theme-detail">
         <div className="section-heading">
           <p className="eyebrow">{themes.detailPage.eyebrow}</p>
           <h1>{theme.title}</h1>
