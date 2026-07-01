@@ -1,4 +1,4 @@
-﻿import { render, screen, act, within } from "@testing-library/react";
+import { render, screen, act, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, beforeEach } from "vitest";
 import { AppRoutes } from "../routes/AppRoutes";
@@ -95,15 +95,13 @@ describe("site routes", () => {
     renderRoutes("/");
 
     expect(
-      screen.getByRole("heading", { name: "为什么这个站适合招聘阅读" }),
+      screen.getByRole("heading", { name: "技术演进：从确定性控制到智能涌现" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("先判断岗位匹配，再决定是否深入看项目与经历。"),
+      screen.getByText("物理世界的确定性控制与系统集成经验"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "从工业系统、VR、Web3D 走到 AI 应用与全栈工程，不是方向分散，而是能力持续演进。",
-      ),
+      screen.getByText("多维交互与全栈工程的自然演进"),
     ).toBeInTheDocument();
   });
 
@@ -114,9 +112,9 @@ describe("site routes", () => {
     expect(
       screen.getByRole("heading", { name: "职业演进时间线" }),
     ).toBeInTheDocument();
-    expect(screen.getByText("长沙兴盛优选有限公司")).toBeInTheDocument();
+    expect(screen.getAllByText("长沙兴盛优选有限公司").length).toBeGreaterThan(0);
     expect(screen.getByText("DCS 设备控制系统工程师 / 全栈开发")).toBeInTheDocument();
-    expect(screen.getByText("天度（厦门）科技股份有限公司")).toBeInTheDocument();
+    expect(screen.getAllByText("天度（厦门）科技股份有限公司").length).toBeGreaterThan(0);
     expect(screen.getByText("VR / Web3D / C++ 资深工程师")).toBeInTheDocument();
 
     // Switch to English
@@ -128,9 +126,9 @@ describe("site routes", () => {
     expect(
       await screen.findByRole("heading", { name: "Professional Timeline" }),
     ).toBeInTheDocument();
-    expect(screen.getByText("Changsha Xingsheng Youxuan Co., Ltd.")).toBeInTheDocument();
+    expect(screen.getAllByText("Changsha Xingsheng Youxuan Co., Ltd.").length).toBeGreaterThan(0);
     expect(screen.getByText("DCS Equipment Control System Engineer / Full-Stack Developer")).toBeInTheDocument();
-    expect(screen.getByText("Tiandu (Xiamen) Technology Co., Ltd.")).toBeInTheDocument();
+    expect(screen.getAllByText("Tiandu (Xiamen) Technology Co., Ltd.").length).toBeGreaterThan(0);
     expect(screen.getByText("Senior VR / Web3D / C++ Engineer")).toBeInTheDocument();
   });
 

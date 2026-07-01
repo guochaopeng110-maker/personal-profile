@@ -12,6 +12,7 @@ beforeEach(() => {
 
 const REQUIRED_SLUGS = [
   "ai-agents",
+  "ai-agent-learning",
   "ai-video-workflow",
   "web3d-vr",
   "cargo-ship-manage",
@@ -29,7 +30,7 @@ function renderAt(initialEntry: string) {
 describe("Homepage theme overview (issue #6)", () => {
   it("exposes exactly five project themes in content", () => {
     const slugs = Object.keys(zhContent.themes.items);
-    expect(slugs).toHaveLength(5);
+    expect(slugs).toHaveLength(6);
     for (const slug of REQUIRED_SLUGS) {
       expect(slugs).toContain(slug);
     }
@@ -71,7 +72,7 @@ describe("Homepage theme overview (issue #6)", () => {
     }
 
     const cards = within(themesSection).getAllByTestId("theme-card");
-    expect(cards).toHaveLength(5);
+    expect(cards).toHaveLength(6);
 
     for (const slug of REQUIRED_SLUGS) {
       const theme = zhContent.themes.items[slug];
@@ -103,7 +104,7 @@ describe("Homepage theme overview (issue #6)", () => {
     }
 
     const links = within(themesSection).getAllByTestId("theme-card-link");
-    expect(links).toHaveLength(5);
+    expect(links).toHaveLength(6);
   });
 });
 

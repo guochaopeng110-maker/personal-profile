@@ -5,17 +5,17 @@ export const content = {
     eyebrow: "Guochao Peng",
     title: "AI Agent / AI Application / Full-Stack Engineer",
     lede: "Focused on AI applications, agents, and full-stack delivery, with the ability to integrate Web3D, VR, multimedia, and industrial system experience into production-ready product and engineering capabilities.",
-    supporting: "The hero section directly addresses role-fit and delivery capabilities, guiding recruiters into project themes, experiences, and details, instead of throwing you into a generic portfolio page.",
+    supporting: "Combining the rigor of industrial control systems with the intuitive interaction of Web3D/VR spatial computing to build highly stable AI agents and full-stack applications that bridge digital and physical worlds.",
     actions: {
       resume: "Download PDF Resume",
       github: "GitHub",
       email: "Email"
     },
-    hiringSignalsTitle: "Hiring Snapshot",
+    hiringSignalsTitle: "Core Value",
     hiringSignals: [
-      "Current core positioning: AI Agent / AI Application / Full-Stack Developer.",
-      "Core advantage is not presenting concepts, but integrating complex tech into deliverable outcomes.",
-      "Past VR, Web3D, and industrial system experiences form the differentiated depth of current AI and engineering capabilities."
+      "Adhering to the 'everything-is-a-system' philosophy, focusing on orchestrating and shipping robust multi-agent workflows.",
+      "Rejecting toy-like single-point demos; delivering observable, fault-tolerant production-ready AI feedback loops.",
+      "Differentiated by deep roots in industrial DCS real-time control, Web3D/VR rendering engines, and interactive video technologies."
     ],
     pageMeta: {
       lang: 'en',
@@ -23,16 +23,20 @@ export const content = {
     },
   },
   narrative: {
-    eyebrow: "Narrative Path",
-    title: "Why this site is built for recruiting",
+    eyebrow: "Evolution Path",
+    title: "Evolution: From Deterministic Control to Intelligent Emergence",
     cards: [
       {
-        title: "Assess role fit first, then decide whether to dive deeper into projects and experiences.",
-        p: "The homepage narrative presents target roles, core value, and contact entry points, allowing recruiters to make a decision in seconds without opening a PDF resume first."
+        title: "Deterministic Control & System Integration in the Physical World",
+        p: "Rigorous engineering standards accumulated in industrial DCS control, PLC communication, and high-fidelity VR simulation guide me in designing state machines, error recovery, and resource management for AI workflows."
       },
       {
-        title: "Evolving from industrial systems, VR, and Web3D to AI applications and full-stack engineering is a path of continuous capability evolution, not scattered directions.",
-        p: "This evolution path explains why the current positioning carries both cutting-edge sense and real-world engineering credibility, distinguishing from candidates who only have demos and lack complex systems experience."
+        title: "Natural Progression of Multi-Dimensional Interaction & Full-Stack Engineering",
+        p: "From low-level hardware control to browser-side Babylon.js 3D rendering and LLM-driven multimedia workflows, this continuous evolution empowers me with cross-domain architecture and end-to-end delivery."
+      },
+      {
+        title: "Engineering Closed Loop of AI Agents & Intelligence Emergence",
+        p: "Combining the rigor of industrial control state machines with the emergent intelligence of LLMs to build production-grade AI applications and multi-agent pipelines, evolving from deterministic control to autonomous decision-making."
       }
     ]
   },
@@ -42,13 +46,33 @@ export const content = {
     intro: "From low-level industrial control and VR/Web3D interaction to AI agents and full-stack engineering, my journey represents a coherent capability evolution: treating systems with industrial-grade rigor, and empowering business delivery with cutting-edge tech.",
     items: [
       {
-        period: "2021 - Present",
+        period: "2024 - Present",
+        company: "Tiandu (Xiamen) Technology Co., Ltd.",
+        role: "AI Agent / AI Application / Full-Stack Lead",
+        contributions: [
+          "Led the R&D of TDuMAIC (MAIC-AI-Classroom) multi-agent interactive classroom platform, published academic paper in JCST'26 as first author, code open-sourced on GitHub.",
+          "Designed multi-agent state machines and intent routing architecture, integrated OpenClaw protocol, supporting Feishu, Slack and 20+ chat apps to generate AI classrooms in one click.",
+          "Built multi-modal AI short drama/manga generation workflows, independently developed a Python-based CLI Agent harness (ai-agent-engineering-journey) modeled after Claude Code."
+        ]
+      },
+      {
+        period: "2023 - 2024",
+        company: "Tiandu (Xiamen) Technology Co., Ltd.",
+        role: "Senior Full-Stack Engineer",
+        contributions: [
+          "Responsible for Web3D and VR spatial computing technology integration and product development, leading the rendering and interaction pipeline design of exm-player-web3d.",
+          "Developed interactive-video-playground engine, leveraging React 19 and Shaka Player dual-instance alternating pre-stitching architecture, eliminating MP4 transition black-screens.",
+          "Engineered building-stared-navigator-pico gaze interaction system using PICO Unity SDK, completing highly reliable industrial simulation VR deployments."
+        ]
+      },
+      {
+        period: "2021 - 2023",
         company: "Changsha Xingsheng Youxuan Co., Ltd.",
         role: "DCS Equipment Control System Engineer / Full-Stack Developer",
         contributions: [
-          "Responsible for DCS (Distributed Control System) and PLC integration, achieving high-concurrency stable orchestration and real-world control of heterogeneous hardware.",
-          "Developed embedded device integrations and underlying communication modules, connecting industrial-grade hardware and upper business systems with full-stack data pipelines.",
-          "Explored AI agent and workflow applications in complex industrial scenarios such as warehouse logistics decision-making and anomaly diagnosis."
+          "Responsible for industrial warehouse DCS and PLC integration, building heterogeneous hardware scheduling and communication control buses based on C++/Qt.",
+          "Applied Redis distributed locks and optimistic locking concurrency control mechanisms to resolve write conflicts under high-concurrency device scheduling scenarios, ensuring real-time reliability.",
+          "Connected embedded devices with business databases, exploring rule-engine and decision-planning anomaly diagnosis logic in logistics warehousing."
         ]
       },
       {
@@ -57,8 +81,8 @@ export const content = {
         role: "Senior VR / Web3D / C++ Engineer",
         contributions: [
           "Developed high-fidelity simulation systems and interactive VR software based on C++, Qt, and Unity, delivering multiple highly reliable industrial/military simulation projects.",
-          "Led the R&D of Web3D engines and the exm-player-web3d player, utilizing Babylon.js to achieve lightweight, high-precision browser-side 3D spatial interactions.",
-          "Designed interactive video and multimedia orchestration systems, seamlessly integrating underlying audio/video streams with front-end high-frequency interactions to support rich multimedia experiences."
+          "Led the R&D of Web3D engines, utilizing Babylon.js to achieve lightweight, high-precision browser-side 3D spatial interactions.",
+          "Designed early interactive video and multimedia orchestration systems, integrating underlying audio/video streams with front-end interactions for rich multimedia experiences."
         ]
       }
     ]
@@ -98,13 +122,13 @@ export const content = {
   themes: {
     eyebrow: "Project Themes",
     title: "Featured Project Themes",
-    intro: "If you have already confirmed the job direction, you can drill down from here to check the case studies that best represent my current capability structure.",
+    intro: "From large-scale full-stack business systems to LLM workflow orchestration, the following themes represent core case studies built around interaction, control, and intelligence.",
     viewDetail: "View Details",
     backToHome: "Back to Home",
     unknownTheme: {
       eyebrow: "Unknown Theme",
       title: "Project Theme Not Found",
-      summary: "The current skeleton already supports detail routing, and structured theme data can be expanded further in the future."
+      summary: "This project theme is currently not configured or has been offline. You can return to the homepage to browse other active themes."
     },
     detailPage: {
       eyebrow: "Theme Detail",
@@ -123,74 +147,126 @@ export const content = {
     },
     items: {
       "ai-agents": {
-        title: "AI Agents & AI Applications",
-        summary: "Turn LLM capabilities into agents and workflows that real business systems can call — not toys that only run demos.",
-        problem: "In enterprise contexts, LLMs are often stuck at the prompt and demo stage: workflows break, results are unstable, and integration with existing systems is expensive, so teams struggle to bring model capability into daily operations.",
-        role: "Owner and developer for AI applications and agents, driving end-to-end work from business decomposition, prompt engineering, workflow orchestration, and system integration to production operation.",
-        solution: "Build observable workflows on top of LLM agents and frameworks such as LangChain / LangGraph. Use RAG and vector databases to inject business knowledge, and pair structured output with human-in-the-loop fallbacks so model output can flow into downstream business systems.",
+        title: "AI Agents & Business Applications",
+        summary: "Turn LLM capabilities into enterprise production-grade multi-agent systems and applications, not toys that only run Demos.",
+        problem: "Enterprise LLM landing often struggles with process non-determinism and state complexity, making it hard to orchestrate models reliably into existing business pipelines.",
+        role: "AI Agent & Application Owner, managing TDuMAIC (MAIC-AI-Classroom) system architecture and deployment from intent routing to multi-client gateways.",
+        solution: "Design LangGraph state machines for multi-agent roleplay and discussions (e.g. AI Teacher/Peer). Integrate OpenClaw protocol to let Feishu/Slack users spin up classrooms in one click.",
         challenges: [
-          "Result stability: under multi-turn and external tool-call scenarios, keep hallucinations and failure paths inside recoverable boundaries.",
-          "Business integration: embed model capabilities into existing Node.js / full-stack pipelines instead of a parallel, disconnected system."
+          "Multi-agent discussion reliability: Design a DAG-based classroom state machine to curtail hallucinations, and build a human-in-the-loop review flow.",
+          "Automated multimedia generation: Create a structured output schema to drive SVG whiteboard rendering and export editable PPTX/interactive HTML assets."
         ],
         results: [
-          "Reusable agent workflow templates that can be applied to multiple internal business scenarios.",
-          "Model output upgraded from one-off demos to a capability that business systems can call reliably."
+          "Published the multi-agent system architecture paper in JCST'26 (Journal of Computer Science and Technology); codebase open-sourced on GitHub.",
+          "Enabled multi-messenger client support via OpenClaw, allowing dynamic LLM swaps and accelerating interactive lesson delivery."
         ],
-        judgment: "The value of AI applications is the engineering closed loop, not a single impressive answer; running the business flow matters more than any single point capability.",
-        highlights: [
-          "Agent + workflow in production",
-          "Callable from business systems",
-          "Engineering, not one-off demos"
-        ],
+        judgment: "The production value of enterprise agents lies in rigorous state machine orchestration and fault-tolerant flows, not single prompt designs.",
+        highlights: ["JCST'26 Paper Published", "LangGraph State Machine Flow", "OpenClaw Multi-Client Support"],
         repos: [
           {
-            label: "ai-agent-sandbox",
-            url: "https://github.com/guochaopeng110-maker/ai-agent-sandbox",
-            description: "Agent & RAG Sandbox: Hardened agentic patterns (ReAct, Plan-and-Solve) containing history of prompt evolution and RAG recall optimization.",
-            role: "Tech Accumulation: Agent design & core pipeline experiments"
-          },
-          {
-            label: "dcs-anomaly-agent",
-            url: "https://github.com/guochaopeng110-maker/dcs-anomaly-agent",
-            description: "DCS Anomaly Diagnosis Agent: Combines industrial Distributed Control System alarms with RAG manual retrieval to assist on-site diagnostics.",
-            role: "Production App: Intelligent agent landing in industrial hardware environments"
+            label: "MAIC-AI-Classroom",
+            url: "https://github.com/guochaopeng110-maker/MAIC-AI-Classroom",
+            description: "One-click lesson generation platform. Features AI teacher/peer roleplay, PPTX exports, interactive whiteboard, and OpenClaw messaging integration.",
+            role: "Architect & Core Dev: Multi-agent collaboration & multi-platform integration"
           }
         ],
         workflow: {
-          title: "Workflow Pipeline & Roles",
+          title: "Multi-Agent Interactive Classroom Workflow",
           steps: [
             {
-              name: "Anomaly Perception & Intent Routing",
-              description: "Receive anomaly alerts from the DCS equipment control system or natural language input from engineers, and route them to corresponding diagnostic paths via LLM intent recognition.",
-              role: "Real-time Alarms / Natural Language -> Intent Recognition & Semantic Matching -> Diagnostic Path Determination"
+              name: "Natural Language Input & Intent Routing",
+              description: "Receive queries from Web or OpenClaw messengers (Feishu/Slack), routing them to specified multi-agent classrooms.",
+              role: "User Query -> Router Gateway -> Wake up classroom Agent instance"
             },
             {
-              name: "Knowledge Base RAG Retrieval",
-              description: "Retrieve relevant troubleshooting steps from local industrial knowledge bases and equipment maintenance manuals using vector database retrieval and semantic rerankers.",
-              role: "Failure Signatures -> Vector Retrieval & Semantic Reranking -> Failure Reference Context"
+              name: "Multi-Agent Roleplay Discussion",
+              description: "AI teachers and peer agents debate under LangGraph states, raising and answering questions to form structured lecture content.",
+              role: "Lesson Syllabus -> Multi-Agent Debate -> Structured Lecture Script"
             },
             {
-              name: "ReAct Decision & Tool Invocation",
-              description: "The agent leverages the ReAct (Reasoning and Acting) paradigm to plan diagnostic steps and call tool APIs or query device status for real-time operating metrics.",
-              role: "Reference Context -> Multi-step Reasoning Planning & Tool APIs -> Diagnostic Data Details"
+              name: "Lesson Scene & Simulation Render",
+              description: "Drive SVG whiteboard drawing and equation rendering, concurrently compiling quizzes and interactive HTML simulation scripts.",
+              role: "Lecture Script -> SVG Whiteboard & HTML Simulation -> Interactive Lesson Assets"
             },
             {
-              name: "Structured Output & Human-in-the-Loop",
-              description: "Compile diagnostic conclusions, recovery actions, and reasoning chains into structured JSON for field engineers; trigger human review if confidence falls below threshold.",
-              role: "Diagnostic Data -> Structured JSON Generation / Human Audit -> Final Diagnostic Report Delivery"
+              name: "Multi-Modal Export & Dispatch",
+              description: "Assemble lecture assets, quizzes, and simulation codes into editable PPTX and HTML, pushing them to the user via gateway.",
+              role: "Lesson Assets -> PPTX/HTML Export Pipeline -> Client Message Gateway"
             }
           ]
         },
         visuals: [
           {
-            title: "AI Agent Architecture Diagram",
+            title: "TDuMAIC Multi-Agent Collaboration Diagram",
             url: "/personal-profile/assets/ai-agent-architecture.png",
-            description: "Closed-loop control and analysis architecture of the industrial anomaly diagnostic Agent based on Sense-Think-Act.",
+            description: "AI Agent interactive classroom architecture based on Sense-Think-Act and messenger client integration.",
             type: "diagram",
             schematic: [
-              { label: "SENSE", value: "DCS alarm listener, intent router, real-time status APIs", class: "script-bar" },
-              { label: "THINK", value: "LangGraph state machine decisions, RAG manual vector search, ReAct reasoning & planning", class: "video-bar" },
-              { label: "ACT", value: "Diagnostic tool API calls, structured JSON recommendation output, human fallback flows", class: "audio-bar" }
+              { label: "SENSE", value: "OpenClaw gateway, intent router, natural language query parser", class: "script-bar" },
+              { label: "THINK", value: "LangGraph state machine, multi-roleplay LLM discussions, classroom decisions", class: "video-bar" },
+              { label: "ACT", value: "Whiteboard rendering, structured PPTX/HTML lesson export & download", class: "audio-bar" }
+            ]
+          }
+        ]
+      },
+      "ai-agent-learning": {
+        title: "AI Agent Learning & Sandbox Exploration",
+        summary: "From-scratch implementation of a CLI agent harness resembling Claude Code, based on the learn-claude-code curriculum.",
+        problem: "How to ensure local Shell execution safety and secure task convergence in a ReAct loop when designing agents capable of autonomous command execution and file edits.",
+        role: "Independent Researcher & Developer, writing the core Agent loop, tool action parsers, and safe process boundaries in Python.",
+        solution: "Construct a ReAct reasoning-acting loop with file-editing and terminal-execution tools. Implement process sandboxing via Python subprocess wrapping to block unsafe system commands.",
+        challenges: [
+          "Command interception: Filter high-risk commands (e.g. rm) and enforce directory boundaries to block unintended scripts.",
+          "ReAct convergence: Trace multi-step state logs and automatically inject error feedback to steer the agent back on track."
+        ],
+        results: [
+          "Created a functional local CLI agent capable of autonomous code editing, building, and running tests.",
+          "Gained deep understanding of prompt versioning, agentic tool design, and LLM-as-a-judge evaluation."
+        ],
+        judgment: "The reliability of CLI agents hinges on defensive command validation and sandboxing, not naive trust in LLM outputs.",
+        highlights: ["Claude Code-like Harness", "Execution Sandbox", "ReAct Convergence"],
+        repos: [
+          {
+            label: "ai-agent-engineering-journey",
+            url: "https://github.com/guochaopeng110-maker/ai-agent-engineering-journey",
+            description: "From-scratch Python implementation of a developer CLI Agent, with a secure subprocess shell sandbox.",
+            role: "Independent Creator: CLI Agent Harness & safety sandboxing"
+          }
+        ],
+        workflow: {
+          title: "Agent Planning & Sandbox Execution Pipeline",
+          steps: [
+            {
+              name: "Intent & Tool Setup",
+              description: "Parse query intent to trigger ReAct loop, initializing file editing and Shell execution toolchains.",
+              role: "User Directive -> Initialize Toolchains -> Start ReAct Loop"
+            },
+            {
+              name: "ReAct Inference",
+              description: "Cycle between reasoning and acting, generating specific file modification or terminal commands.",
+              role: "State Logs -> LLM Reasoning -> Shell Action Command"
+            },
+            {
+              name: "Sandbox Interception",
+              description: "Catch terminal commands, verifying write permissions and directory paths against safelists.",
+              role: "Action Command -> Sandbox Safety Checks -> Sandboxed Call"
+            },
+            {
+              name: "Execution & Feedback",
+              description: "Execute safe scripts in isolated processes, returning logs to the agent for self-correction.",
+              role: "Sandbox Subprocess -> Capture Output/Errors -> Task Converged"
+            }
+          ]
+        },
+        visuals: [
+          {
+            title: "CLI Agent Secure Execution Architecture",
+            description: "Secure development architecture of the CLI Agent based on ReAct planning and command subprocess sandboxing.",
+            type: "diagram",
+            schematic: [
+              { label: "USER INPUT", value: "Natural language directives, software tasks, or file modification requests", class: "script-bar" },
+              { label: "REACT PLAN", value: "Thinking and reasoning loops, selecting tools (read, write, shell), tracing changes", class: "video-bar" },
+              { label: "SANDBOX", value: "Intercept shell executions, verify destination paths, filter risky commands, run in subprocesses", class: "audio-bar" }
             ]
           }
         ]
@@ -265,45 +341,45 @@ export const content = {
       },
       "web3d-vr": {
         title: "Web3D / Babylon.js + Unity + PICO VR",
-        summary: "From browser 3D interaction to Unity + PICO VR immersive engineering, accumulated as a cross-platform 3D spatial interaction and simulation capability.",
-        problem: "3D projects often end up as one-off demos: the scene is flashy but lacks an interaction architecture, portability to VR lacks modularity, and performance and precision are hard to balance — teams reinvent the wheel every time.",
-        role: "Core engineer for the Web3D engine and VR simulation, leading the architecture and implementation of the exm-player-web3d player and several high-fidelity / interactive VR projects.",
-        solution: "Use Babylon.js as a reusable browser 3D engine layer that unifies scene, interaction and assets. Use Unity + PICO VR SDK for immersive industrial / simulation scenarios, keeping the structure consistent across stacks.",
+        summary: "Cross-platform Web3D rendering and VR spatial computing, establishing highly reliable, high-performance interactive 3D and multimedia simulation.",
+        problem: "3D and VR projects commonly suffer from inconsistent interaction semantics, black-screen transition latencies during multi-branch switching, and controller-gaze interaction conflicts.",
+        role: "Core 3D Engine Developer and Team Lead, driving the R&D of exm-player-web3d and building-stared-navigator-pico.",
+        solution: "Wrap a lightweight browser-side engine with Babylon.js; engineer a data-driven spatial gaze interaction system on Unity PICO SDK; develop Shaka Player dual-instance alternating architecture.",
         challenges: [
-          "Cross-platform consistency: keep interaction semantics aligned between browser, mobile and VR headsets, instead of writing a separate stack per platform.",
-          "Performance vs. precision: keep an interactive frame rate on low-end devices while preserving physical and geometric fidelity for high-precision simulation."
+          "Seamless interactive video: Eliminate multi-branch transition black-screens using preloading and Shaka Player dual-instance 'mute-show/sound-hide' alternation in interactive-video-playground.",
+          "VR gaze polling: Use optimized raycasting and entirely data-driven scheduling to avoid frame rate stuttering in Unity update cycles."
         ],
         results: [
-          "Delivered several highly reliable industrial / military-grade simulation and VR projects.",
-          "Established a reusable Web3D engine and VR engineering baseline for later projects."
+          "Delivered multiple high-precision Web3D simulations and immersive VR control systems.",
+          "Eradicated branch-switching black-screens and audio gaps, realizing near-zero latency seamless switching."
         ],
-        judgment: "The moat of 3D capability is the interaction architecture and the reusable engine, not a single flashy demo.",
+        judgment: "The core value of 3D/multimedia lies in the interaction pipeline design and rendering/switching optimization rather than mesh details.",
         highlights: [
-          "Cross-platform 3D interaction",
-          "Babylon.js + Unity + PICO VR",
-          "Reusable engineering baseline"
+          "Babylon.js Spatial Interaction",
+          "PICO VR Gaze System",
+          "Shaka Player Dual-Instance"
         ],
         repos: [
-          { label: "exm-player-web3d", url: "https://github.com/guochaopeng110-maker/exm-player-web3d", description: "Lightweight browser 3D spatial interactive player based on Babylon.js, supporting multiple 3D formats and high-frequency interaction actions.", role: "Core Developer: Interactive engine and rendering pipeline design" },
-          { label: "pico-vr-simulation", url: "https://github.com/guochaopeng110-maker/pico-vr-simulation", description: "Immersive industrial interaction simulation project based on Unity and PICO VR SDK, providing high-precision collision and physical feedback.", role: "VR System Architect: Device driver integration and controller interactive semantic design" }
+          { label: "exm-player-web3d", url: "https://github.com/guochaopeng110-maker/exm-player-web3d", description: "Lightweight browser 3D spatial interactive player based on Babylon.js, supporting multiple 3D formats and high-frequency interaction actions.", role: "Core Developer: 3D rendering pipeline & event bus design" },
+          { label: "building-stared-navigator-pico", url: "https://github.com/guochaopeng110-maker/building-stared-navigator-pico", description: "Data-driven, non-intrusive 3D Gaze Interaction System (Gaze Interaction System) built on PICO Unity SDK.", role: "Lead Developer: Data-driven interaction architecture & raycast scheduling" }
         ],
         workflow: {
           title: "3D Interaction & Simulation Engineering Pipeline",
           steps: [
             {
-              name: "Asset Optimization",
-              description: "Use DCC software to decimate 3D meshes, merge Draw Calls, and bake materials, exporting efficient glTF/GLB formats.",
-              role: "Original 3D Assets -> Mesh Decimation & DrawCall Optimization -> Production glTF/GLB"
+              name: "Asset Optimization & Export",
+              description: "Perform mesh decimation, DrawCall merging, and texture baking on industrial models, exporting highly compressed glTF/GLB models.",
+              role: "Raw 3D Assets -> Decimation & Baking -> Production glTF/GLB"
             },
             {
-              name: "Cross-Platform Integration",
-              description: "Develop browser interaction logic with Babylon.js, or configure physical collisions and VR controller input in Unity.",
-              role: "Optimized Assets -> Babylon.js Orchestration / Unity VR Config -> Core Interaction Layer"
+              name: "Multi-Platform Interaction Binding",
+              description: "Bind gesture actions in Babylon.js on Web, and configure gaze sensors and controller raycasts in Unity on VR HMDs.",
+              role: "3D Model Load -> Babylon.js Events / Unity Gaze Component -> Unified API Interfaces"
             },
             {
-              name: "Performance Tuning",
-              description: "Implement occlusion culling and WebGL/WebGPU tuning on Web, and Foveated Rendering in VR to secure stable frame rates.",
-              role: "Core Interaction Layer -> Cross-Platform Rendering Tuning & FPS Monitor -> Smooth Interactive Experience"
+              name: "Tuning & Seamless Playback",
+              description: "Optimize WebGL rendering parameters for low-end devices, and alternate Shaka Player instances for zero-latency video switching.",
+              role: "Interaction Event -> WebGL Tuning / Dual-Instance Rendering -> Smooth & Seamless Experience"
             }
           ]
         },
@@ -313,9 +389,9 @@ export const content = {
             description: "A unified 3D interaction architecture design bridging lightweight Web3D (Babylon.js) and immersive VR (Unity).",
             type: "diagram",
             schematic: [
-              { label: "DCC / OPT", value: "Decimation, DrawCall batching, texture baking & glTF export", class: "dcc-bar" },
-              { label: "WEB3D", value: "exm-player-web3d interactive logic, lighting & WebGL rendering", class: "web3d-bar" },
-              { label: "VR HMD", value: "Unity + PICO VR SDK physics, controller interaction & driver integration", class: "vr-bar" }
+              { label: "DCC / OPT", value: "Decimation, DrawCall batching, texture baking & Draco glTF export", class: "dcc-bar" },
+              { label: "WEB3D / MULTIMEDIA", value: "exm-player-web3d rendering, interactive-video-playground Shaka Player dual-instance alternating", class: "web3d-bar" },
+              { label: "VR HMD", value: "Unity + PICO VR SDK gaze interaction, gesture tracking & raycasting", class: "vr-bar" }
             ]
           }
         ]

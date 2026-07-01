@@ -34,7 +34,7 @@ describe("Web3D & Unity VR detail page (issue #9)", () => {
 
     // Verify specific repository links are present
     expect(within(reposSection).getByText(/exm-player-web3d/i)).toBeInTheDocument();
-    expect(within(reposSection).getByText(/pico-vr-simulation/i)).toBeInTheDocument();
+    expect(within(reposSection).getByText(/building-stared-navigator-pico/i)).toBeInTheDocument();
   });
 
   it("renders workflow steps and role divisions in a pipeline diagram", () => {
@@ -49,9 +49,9 @@ describe("Web3D & Unity VR detail page (issue #9)", () => {
     expect(steps.length).toBe(3);
 
     // Verify workflow step details
-    expect(within(workflowSection).getByText(/资产优化/)).toBeInTheDocument();
-    expect(within(workflowSection).getByText(/交互集成/)).toBeInTheDocument();
-    expect(within(workflowSection).getByText(/性能优化/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/三维资产优化/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/多端交互事件/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/渲染调优/)).toBeInTheDocument();
   });
 
   it("gracefully falls back to custom visual placeholder with Web3D/VR tracks", () => {
@@ -81,7 +81,7 @@ describe("Web3D & Unity VR detail page (issue #9)", () => {
     // Default Chinese
     expect(screen.getByText("工作流核心节点与分工")).toBeInTheDocument();
     expect(screen.getByText("相关代码仓库")).toBeInTheDocument();
-    expect(screen.getByText("模型减面、DrawCall 合并、材质贴图烘焙与 glTF 导出")).toBeInTheDocument();
+    expect(screen.getByText("网格减面、DrawCall 合并、材质烘焙与 Draco 压缩 glTF 导出")).toBeInTheDocument();
 
     // Switch to English
     const switchBtn = screen.getByRole("button", { name: "English" });
@@ -92,6 +92,6 @@ describe("Web3D & Unity VR detail page (issue #9)", () => {
     // Verify elements are now in English
     expect(await screen.findByText("Workflow Pipeline & Roles")).toBeInTheDocument();
     expect(screen.getByText("Related Repositories")).toBeInTheDocument();
-    expect(screen.getByText("Decimation, DrawCall batching, texture baking & glTF export")).toBeInTheDocument();
+    expect(screen.getByText("Decimation, DrawCall batching, texture baking & Draco glTF export")).toBeInTheDocument();
   });
 });

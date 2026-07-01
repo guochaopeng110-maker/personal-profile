@@ -71,13 +71,14 @@ describe("PRD Final Verification & Contract Checking", () => {
     expect(href.endsWith("docs/MyResume.pdf")).toBe(true);
   });
 
-  it("verifies all five project themes are routeable and adhere to the PRD case-study contract", () => {
+  it("verifies all project themes are routeable and adhere to the PRD case-study contract", () => {
     const slugs = [
       "cargo-ship-manage",
       "ai-video-workflow",
       "web3d-vr",
       "industrial-systems",
-      "ai-agents"
+      "ai-agents",
+      "ai-agent-learning"
     ];
 
     slugs.forEach((slug) => {

@@ -2,6 +2,7 @@ import { render, screen, act, within, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, beforeEach } from "vitest";
 import { AppRoutes } from "../routes/AppRoutes";
+import { content as zhContent } from "../content/zh";
 
 beforeEach(() => {
   localStorage.clear();
@@ -16,25 +17,29 @@ function renderAt(initialEntry: string) {
 }
 
 describe("AI Agents detail page (issue #10)", () => {
-  it("renders a unified case-study structure with multiple repository links", async () => {
+  it("renders a unified case-study structure with repository links", () => {
     renderAt("/themes/ai-agents");
 
-    // Check title & basic blocks
-    expect(
-      screen.getByRole("heading", { name: "AI 智能体与 AI 应用", level: 1 }),
-    ).toBeInTheDocument();
+    const detailLabels = zhContent.themes.detailPage.labels;
+    expect(screen.getByText(detailLabels.problem)).toBeInTheDocument();
+    expect(screen.getByText(detailLabels.role)).toBeInTheDocument();
+    expect(screen.getByText(detailLabels.solution)).toBeInTheDocument();
+    expect(screen.getByText(detailLabels.results)).toBeInTheDocument();
+    expect(screen.getByText(detailLabels.judgment)).toBeInTheDocument();
+    expect(screen.getByText(detailLabels.repos)).toBeInTheDocument();
+
+    expect(screen.getByRole("heading", { name: "AI 智能体与业务应用", level: 1 })).toBeInTheDocument();
 
     // Check multiple repositories section exists
     const reposSection = screen.getByTestId("theme-detail-repos");
     expect(reposSection).toBeInTheDocument();
 
-    // Verify there are multiple repository links
+    // Verify there are repository links
     const repoLinks = within(reposSection).getAllByRole("link");
-    expect(repoLinks.length).toBeGreaterThan(1);
+    expect(repoLinks.length).toBeGreaterThanOrEqual(1);
 
     // Verify specific repository links are present
-    expect(within(reposSection).getByText(/ai-agent-sandbox/i)).toBeInTheDocument();
-    expect(within(reposSection).getByText(/dcs-anomaly-agent/i)).toBeInTheDocument();
+    expect(within(reposSection).getByText(/MAIC-AI-Classroom/i)).toBeInTheDocument();
   });
 
   it("renders workflow steps and role divisions in a pipeline diagram", () => {
@@ -49,17 +54,17 @@ describe("AI Agents detail page (issue #10)", () => {
     expect(steps.length).toBe(4);
 
     // Verify workflow step details
-    expect(within(workflowSection).getByText(/异常感知与意图路由/)).toBeInTheDocument();
-    expect(within(workflowSection).getByText(/知识库 RAG 检索/)).toBeInTheDocument();
-    expect(within(workflowSection).getByText(/ReAct 决策与工具调用/)).toBeInTheDocument();
-    expect(within(workflowSection).getByText(/结果结构化输出与人工兜底/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/自然语言输入与意图路由/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/多智能体角色扮演讨论/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/课程场景与仿真生成/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/多模态课件导出与交付/)).toBeInTheDocument();
   });
 
   it("gracefully falls back to visual placeholder when screenshots are missing", () => {
     renderAt("/themes/ai-agents");
 
     // If an image is rendered, fire error to trigger fallback
-    const img = screen.queryByRole("img", { name: /AI 智能体架构示意图/i });
+    const img = screen.queryByRole("img", { name: /TDuMAIC 多智能体协同架构示意图/i });
     if (img) {
       fireEvent.error(img);
     }
@@ -67,7 +72,7 @@ describe("AI Agents detail page (issue #10)", () => {
     // Verify placeholder is present and marked as fallback
     const placeholder = screen.getByTestId("visuals-placeholder");
     expect(placeholder).toBeInTheDocument();
-    expect(placeholder).toHaveTextContent(/AI 智能体架构示意图/);
+    expect(placeholder).toHaveTextContent(/TDuMAIC 多智能体协同架构示意图/);
   });
 
   it("supports bilingual switching for all custom workflow elements", async () => {
@@ -86,6 +91,6 @@ describe("AI Agents detail page (issue #10)", () => {
     // Verify elements are now in English
     expect(await screen.findByText("Workflow Pipeline & Roles")).toBeInTheDocument();
     expect(screen.getByText("Related Repositories")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Anomaly Perception & Intent Routing", level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Natural Language Input & Intent Routing", level: 3 })).toBeInTheDocument();
   });
 });

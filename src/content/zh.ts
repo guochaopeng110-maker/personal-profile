@@ -5,13 +5,13 @@ export const content = {
     eyebrow: 'Guochao Peng',
     title: 'AI 智能体 / AI 应用 / 全栈开发工程师',
     lede: '面向 AI 应用、智能体与全栈交付，能够把 Web3D、VR、多媒体与工业系统经验整合成可落地的产品与工程能力。',
-    supporting: '首屏先回答岗位匹配与交付能力，再引导招聘方进入项目主题、经历与细节，而不是把你丢进一页泛化作品集文案里。',
+    supporting: '基于底层工业控制系统的严谨性与 Web3D/VR 空间计算的直观交互，构建具备高稳定性的 AI 智能体与全栈应用，打通数字与物理世界的交汇点。',
     actions: { resume: '下载 PDF 简历', github: 'GitHub', email: 'Email' },
-    hiringSignalsTitle: '招聘速览',
+    hiringSignalsTitle: '技术主张',
     hiringSignals: [
-      '当前主定位是 AI 智能体 / AI 应用 / 全栈开发工程师。',
-      '核心优势不是概念展示，而是把复杂技术整合成可交付结果。',
-      '过往 VR、Web3D 与工业系统经验，构成当前 AI 与工程化能力的差异化深度。'
+      '秉承“万物皆系统”的架构理念，专注于高可靠性、多智能体工作流编排与应用落地。',
+      '拒绝单点 Demo 玩具，聚焦于可观察、可容错的生产级 AI 闭环与全栈系统交付。',
+      '深厚的工业 DCS 实时控制、Web3D/VR 引擎及交互视频技术积淀，构成差异化底色。'
     ],
     pageMeta: {
       lang: 'zh-CN',
@@ -19,16 +19,20 @@ export const content = {
     },
   },
   narrative: {
-    eyebrow: 'Narrative Path',
-    title: '为什么这个站适合招聘阅读',
+    eyebrow: 'Evolution Path',
+    title: '技术演进：从确定性控制到智能涌现',
     cards: [
       {
-        title: '先判断岗位匹配，再决定是否深入看项目与经历。',
-        p: '首页主叙事先给出当前目标岗位、核心价值和联系入口，让招聘方无需先打开 PDF，就能在数秒内判断是否值得继续沟通。'
+        title: '物理世界的确定性控制与系统集成经验',
+        p: '在 DCS 工业控制、PLC 通讯及高仿真 VR 软件中积累的严苛工程标准，帮助我在设计 AI 智能体工作流时能精准把握状态机流转、异常分支容错与资源编排。'
       },
       {
-        title: '从工业系统、VR、Web3D 走到 AI 应用与全栈工程，不是方向分散，而是能力持续演进。',
-        p: '这条演进路径解释了为什么当前定位既有前沿感，也有真实工程落地的可信度，从而区别于只有 demo、缺少复杂系统经验的通用作品集候选人。'
+        title: '多维交互与全栈工程的自然演进',
+        p: '从底层硬件控制到 Babylon.js 浏览器 3D 渲染，再到大模型驱动的音视频生成流水线，能力链条的持续演进使我具备独特的全场景架构与端到端交付实力。'
+      },
+      {
+        title: 'AI 智能体与智能涌现的工程闭环',
+        p: '将传统控制系统的状态机严谨性与大模型的涌现能力相结合，研发生产级 AI 应用与多智能体协同流水线，探索从确定性控制到自主决策的进化。'
       }
     ]
   },
@@ -38,13 +42,33 @@ export const content = {
     intro: '从底层工业控制、VR/Web3D 交互 to AI 智能体与全栈工程，我的经历是一条连贯的能力演进之路：用工业级严谨对待系统，用前沿技术赋能业务交付。',
     items: [
       {
-        period: '2021 - 至今',
+        period: '2024 - 至今',
+        company: '天度（厦门）科技股份有限公司',
+        role: 'AI 智能体 / AI 应用 / 全栈开发负责人',
+        contributions: [
+          '主导研发 TDuMAIC (MAIC-AI-Classroom) 多智能体互动课堂系统，作为第一作者在 JCST\'26 发表学术论文，代码在 GitHub 开源。',
+          '设计并实现多智能体状态机流转与意图路由架构，接入 OpenClaw 协议，支持飞书、Slack 等 20+ 聊天软件一键生成 AI 课堂。',
+          '搭建多模态 AI 短剧与漫剧自动化生成工作流，基于 Python 独立研发类 Claude Code 的智能命令行 Agent 框架（ai-agent-engineering-journey）。'
+        ]
+      },
+      {
+        period: '2023 - 2024',
+        company: '天度（厦门）科技股份有限公司',
+        role: '资深全栈开发工程师',
+        contributions: [
+          '负责 Web3D 与 VR 空间计算的技术融合与产品研发，主导核心 Web3D 播放器（exm-player-web3d）渲染与交互管道设计。',
+          '研发 interactive-video-playground 互动视频引擎，基于 React 19 与 Shaka Player 双实例交替拼接架构，消灭 MP4 切换黑屏顽疾。',
+          '基于 PICO VR SDK 研发凝视交互系统（building-stared-navigator-pico），完成三维虚拟现实高可靠交互仿真落地。'
+        ]
+      },
+      {
+        period: '2021 - 2023',
         company: '长沙兴盛优选有限公司',
         role: 'DCS 设备控制系统工程师 / 全栈开发',
         contributions: [
-          '负责 DCS (设备控制系统) 与 PLC 集成，实现异构硬件设备的高并发稳定编排与真实世界系统控制。',
-          '研发嵌入式设备集成及底层通讯模块，打通工业级硬件与上层业务系统的全栈数据链路。',
-          '探索 AI 智能体与工作流在仓储物流决策、异常诊断等复杂工业场景下的应用落地。'
+          '负责工业仓储 DCS (设备控制系统) 与 PLC 集成，基于 C++/Qt 构建异构硬件调度与通信控制总线。',
+          '针对高并发设备写入及调度场景，运用 Redis 分布式锁与乐观锁并发控制机制，保证复杂工业现场的实时性与高可用性。',
+          '打通嵌入式设备与上层业务数据链路，探索基于规则引擎与决策规划的仓储物流异常定位方案。'
         ]
       },
       {
@@ -53,8 +77,8 @@ export const content = {
         role: 'VR / Web3D / C++ 资深工程师',
         contributions: [
           '基于 C++、Qt 与 Unity 研发高仿真系统与交互式 VR 软件，交付多个高可靠性的工业/军工仿真项目。',
-          '主导研发 Web3D 引擎及 exm-player-web3d 播放器，利用 Babylon.js 实现轻量化、高精度的浏览器端 3D 空间交互。',
-          '设计互动视频与多媒体编排系统，将底层音视频流与前端高频交互无缝整合，支撑起丰富的多媒体体验。'
+          '主导研发 Web3D 引擎，利用 Babylon.js 实现轻量化、高精度的浏览器端 3D 空间交互。',
+          '设计早期互动视频与多媒体编排系统，将底层音视频流与前端交互无缝整合，支撑起丰富的多媒体体验。'
         ]
       }
     ]
@@ -74,70 +98,126 @@ export const content = {
   themes: {
     eyebrow: 'Project Themes',
     title: '优先浏览的项目主题',
-    intro: '如果招聘方已经确认岗位方向，可以从这里继续下钻，查看最能代表当前能力结构的主题案例。',
+    intro: '从大规模全栈业务系统到大模型工作流编排，以下主题代表了我围绕“交互、控制、智能”构建的核心技术案例。',
     viewDetail: '进入详情页',
     backToHome: '返回首页',
-    unknownTheme: { eyebrow: 'Unknown Theme', title: '未找到该项目主题', summary: '当前骨架已经支持详情路由，后续可以继续从结构化内容中扩展主题数据。' },
+    unknownTheme: { eyebrow: 'Unknown Theme', title: '未找到该项目主题', summary: '该项目主题当前未配置或已下线，您可以返回首页查看其他活跃的项目主题。' },
     detailPage: {
       eyebrow: 'Theme Detail',
       labels: { problem: '背景与问题', role: '我的角色', solution: '方案与架构', challenges: '关键挑战', results: '项目结果', judgment: '工程判断', repo: '仓库链接', workflow: '工作流核心节点与分工', repos: '相关代码仓库', visuals: '项目视觉' }
     },
     items: {
       'ai-agents': {
-        title: 'AI 智能体与 AI 应用',
-        summary: '把大模型能力做成可被业务真正调用的工作流与智能体，而不是只能跑 demo 的玩具。',
-        problem: '大模型在企业场景里常被卡在 prompt 与 demo 阶段：流程跑不通、结果不稳定、和现有系统对接成本高，团队难以把模型能力纳入日常业务流。',
-        role: '作为 AI 应用 / 智能体方向的负责与开发，从业务拆解、Prompt 工程、工作流编排、系统集成到上线运维，端到端推进。',
-        solution: '基于 LLM Agent 与 LangChain / LangGraph 等框架构建可观察的工作流，引入 RAG 与向量库注入业务知识，配合结构化输出与人工兜底，让模型输出能够进入下游业务系统。',
+        title: 'AI 智能体与业务应用',
+        summary: '把大模型能力做成可被企业业务真正调用的多智能体协同系统与工程化应用，而不是跑 Demo 的玩具。',
+        problem: '大模型应用在企业落地时常受限于流程不确定性、复杂状态难以维护，团队难以将模型稳定编排进既有的业务系统中。',
+        role: '作为 AI 应用与智能体负责人，从意图路由、状态机设计到多端网关集成，全面负责 TDuMAIC (MAIC-AI-Classroom) 系统架构与交付。',
+        solution: '基于 LangGraph 设计多角色智能体协同的状态机流转，支持 AI 讲师/学生角色扮演讨论；集成 OpenClaw 协议，支持飞书、Slack 等 20+ 聊天客户端一键生成并推送多模态课堂。',
         challenges: [
-          '结果稳定性：在多轮调用与外部工具调用场景下，把幻觉与失败路径限制在可恢复的边界内。',
-          '业务集成：把模型能力嵌入既有 Node.js / 全栈业务链路，而不是另起一套互不打通的系统。'
+          '多智能体协同可靠性：设计基于有向无环图（DAG）的课堂决策流，限制幻觉扩散，并引入人工兜底确认流。',
+          '课件多模态自动化生成：设计统一结构化 Schema 输出，自动驱动 SVG 白板渲染并实时渲染导出为 editable PPTX 课件与互动 HTML。'
         ],
         results: [
-          '形成可复用的智能体工作流模板，能复用到多个内部业务场景。',
-          '把模型输出从一次性 demo 升级为可被业务系统稳定调用的能力。'
+          '智能体平台核心理论与架构设计论文发表于中国计算机大会推荐期刊 JCST\'26，且代码已在 GitHub 开源。',
+          '通过 OpenClaw 实现多聊天客户端适配，支撑多厂商 LLM 动态切换，提升了智能课件交付效率。'
         ],
-        judgment: 'AI 应用的价值在工程化闭环，不在单次惊艳回答；能跑通业务流比单点能力更重要。',
-        highlights: ['智能体 + 工作流落地','可被业务系统调用','工程化而非单点 demo'],
+        judgment: '企业智能体的落地价值在于对多角色业务流程的确定性状态机流转编排与可容错设计，而非单次惊艳的 Prompt 回答。',
+        highlights: ['JCST\'26 论文发表','LangGraph 状态机编排','OpenClaw 多端适配'],
         repos: [
-          { label: 'ai-agent-sandbox', url: 'https://github.com/guochaopeng110-maker/ai-agent-sandbox', description: '智能体与 RAG 实验沙盒：沉淀 ReAct、Plan-and-Solve 等智能体模式，包含 Prompts 演进与 RAG 召回率优化记录。', role: '技术积累：智能体方案与核心链路实验' },
-          { label: 'dcs-anomaly-agent', url: 'https://github.com/guochaopeng110-maker/dcs-anomaly-agent', description: '设备控制系统异常诊断智能 Agent：结合工业 DCS 实时报警与向量库 RAG 知识检索，辅助现场进行异常定位与决策。', role: '落地应用：工业级异构硬件场景的智能落地' }
+          { label: 'MAIC-AI-Classroom', url: 'https://github.com/guochaopeng110-maker/MAIC-AI-Classroom', description: '一键生成多智能体互动课堂平台。包含 AI 讲师/学生角色扮演、PPTX 导出、白板互动与 OpenClaw 多端聊天软件接入。', role: '架构师 & 核心研发：多智能体协作与多端集成' }
         ],
         workflow: {
-          title: '工作流核心节点与分工',
+          title: '多智能体互动课堂工作流',
           steps: [
             {
-              name: '异常感知与意图路由',
-              description: '接收 DCS 设备控制系统的异常报警或用户自然语言描述，通过 LLM 进行意图识别并分发到对应诊断链路。',
-              role: '实时报警 / 自然语言 -> 意图识别与语义匹配 -> 确定诊断链路'
+              name: '自然语言输入与意图路由',
+              description: '接收来自 Web 端或 OpenClaw 聊天软件（飞书/Slack）的请求，通过意图路由模型将任务分发给指定的多智能体课堂。',
+              role: '用户自然语言请求 -> 路由网关解析 -> 唤醒课堂 Agent 实例'
             },
             {
-              name: '知识库 RAG 检索',
-              description: '根据异常特征，在本地工业知识库与设备运维手册的向量库中进行检索，召回相关的故障排查步骤。',
-              role: '故障特征 -> 向量化检索 & 语义重排 -> 故障参考上下文'
+              name: '多智能体角色扮演讨论',
+              description: '智能讲师 Agent 与学生 Agent 根据 LangGraph 状态机定义协同讨论主题，相互提问补充，产出结构化讲义。',
+              role: '教学大纲 -> 智能体角色扮演讨论 -> 结构化讲义生成'
             },
             {
-              name: 'ReAct 决策与工具调用',
-              description: '智能体利用 ReAct (Reasoning and Acting) 结构，自主规划排查动作，调用设备状态查询接口或诊断工具获取实时运行数据。',
-              role: '参考上下文 -> 多步推理规划 & 工具 API 调用 -> 诊断数据详情'
+              name: '课程场景与仿真生成',
+              description: '依据讲义内容自动驱动白板公式与 SVG 渲染，同步生成小测验（Quizzes）与交互式网页仿真代码。',
+              role: '结构化讲义 -> SVG 白板渲染 & 交互仿真代码 -> 互动课件资产'
             },
             {
-              name: '结果结构化输出与人工兜底',
-              description: '将最终的诊断结论、修复建议与排查逻辑整理为结构化 JSON，输出给现场工程师；当置信度低于阈值时，自动触发人工审核流。',
-              role: '诊断数据 -> 结构化 JSON 生成 / 人工审核 -> 最终诊断报告交付'
+              name: '多模态课件导出与交付',
+              description: '整合课件、小测验及生成的多分支代码，一键导出为 editable PPTX 及互动 HTML，通过网关反馈给用户。',
+              role: '互动课件资产 -> PPTX/HTML 自动后期导出 -> 多端推送交付'
             }
           ]
         },
         visuals: [
           {
-            title: 'AI 智能体架构示意图',
+            title: 'TDuMAIC 多智能体协同架构示意图',
             url: '/personal-profile/assets/ai-agent-architecture.png',
-            description: '基于感知-思考-执行 (Sense-Think-Act) 的工业异常诊断 Agent 闭环控制与分析架构。',
+            description: '基于感知-思考-执行 (Sense-Think-Act) 与多端聊天集成的 AI 智能体互动课堂系统。',
             type: 'diagram',
             schematic: [
-              { label: '感知 SENSE', value: 'DCS 报警监听、意图路由器、实时状态监测接口', class: 'script-bar' },
-              { label: '思考 THINK', value: 'LangGraph 状态机决策、RAG 向量库故障手册检索、ReAct 推理规划', class: 'video-bar' },
-              { label: '执行 ACT', value: '诊断工具 API 调用、结构化 JSON 建议输出、人工兜底审批流', class: 'audio-bar' }
+              { label: '感知 SENSE', value: 'OpenClaw 网关、意图路由器、自然语言请求解析', class: 'script-bar' },
+              { label: '思考 THINK', value: 'LangGraph 状态机、大模型多角色扮演讨论、课件生成决策链', class: 'video-bar' },
+              { label: '执行 ACT', value: '白板渲染生成、结构化 PPTX/HTML 仿真课件导出与下载', class: 'audio-bar' }
+            ]
+          }
+        ]
+      },
+      'ai-agent-learning': {
+        title: 'AI 智能体学习与沙盒探索',
+        summary: '基于 learn-claude-code 框架，从零构建类 Claude Code 的智能命令行 Agent 框架与安全沙箱。',
+        problem: '在设计具有高自主度、能够执行命令和编写代码的智能体时，如何确保本地 Shell 执行的安全性并保证 ReAct 循环收敛。',
+        role: '独立学习与研发负责人，基于 Python 从底层手写 Agent 决策哈纳斯、动作解析器与子进程执行沙箱。',
+        solution: '构建基于 ReAct 推理规划的 Agent 决策循环，提供文件编辑与终端指令工具；在 subprocess 层上封装安全沙箱以防御高危系统操作。',
+        challenges: [
+          '本地命令安全执行：严格限制沙箱操作目录，防范恶意的系统级破坏（如 rm -rf）命令。',
+          'ReAct 任务自动纠错：捕获命令报错与异常日志，自动回传给智能体进行状态修复与代码自愈，防止无限死循环。'
+        ],
+        results: [
+          '手写完成本地命令行开发智能体，实现文件操作、Shell 命令自动执行、编译测试等全套研发动作。',
+          '顺便掌握了 Python 异步编程及 subprocess 底层进程控制，深入实践了 LLM-as-a-judge 评估指标与 Prompt 提示词版本迭代。'
+        ],
+        judgment: '命令行智能体的核心壁垒在于对 Shell 动作的防注入校验与沙箱边界管控，这是将 Agent 推向生产级实用的关键安全锁。',
+        highlights: ['类 Claude Code 实现','安全执行沙箱','ReAct 自愈收敛'],
+        repos: [
+          { label: 'ai-agent-engineering-journey', url: 'https://github.com/guochaopeng110-maker/ai-agent-engineering-journey', description: '基于 Python 从零手写 CLI 开发 Agent，包含 Shell 命令安全沙箱与文件操作工具。', role: '独立研发：命令行 Agent Harness 及安全沙箱' }
+        ],
+        workflow: {
+          title: '智能体运行规划与沙箱验证管线',
+          steps: [
+            {
+              name: '意图识别与工具准备',
+              description: '解析用户输入的开发请求，唤醒 ReAct 智能体循环，初始化文件编辑和 Shell 执行等工具链。',
+              role: '用户指令输入 -> 初始化工具链 -> 开启 ReAct 循环'
+            },
+            {
+              name: 'ReAct 推理与行动规划',
+              description: '智能体在循环中进行思考推理与动作选择（如读写特定文件、检查目录结构），生成待执行的 Shell 命令。',
+              role: '当前状态日志 -> LLM 规划推理 -> 动作指令生成'
+            },
+            {
+              name: '安全沙箱命令拦截与校验',
+              description: '拦截生成的 Shell 命令，通过权限白名单和目录边界验证，防范非法命令或恶意脚本对系统带来威胁。',
+              role: '动作指令 -> 沙箱安全校验 -> 物理系统隔离调用'
+            },
+            {
+              name: '命令执行与结果自动纠错',
+              description: '在隔离子进程中安全执行校验通过的命令，捕获其标准输出及报错日志，实时回传智能体进行动作自愈与逻辑修复。',
+              role: '沙箱子进程运行 -> 报错捕获与自动重试 -> 任务收敛完成'
+            }
+          ]
+        },
+        visuals: [
+          {
+            title: 'CLI Agent 安全执行架构',
+            description: '基于 ReAct 推理循环与隔离沙箱的命令行 Agent 自主研发与安全防护架构。',
+            type: 'diagram',
+            schematic: [
+              { label: '用户输入', value: '自然语言指令、待解决的开发任务或代码修改诉求', class: 'script-bar' },
+              { label: 'ReAct 规划', value: '思考推理、选择工具（读写文件、Shell 执行）、跟踪当前修改进度', class: 'video-bar' },
+              { label: '沙箱校验', value: '拦截 Shell 动作、验证目标路径、白名单过滤危险操作、隔离进程执行', class: 'audio-bar' }
             ]
           }
         ]
@@ -193,53 +273,53 @@ export const content = {
       },
       'web3d-vr': {
         title: 'Web3D / Babylon.js + Unity + PICO VR',
-        summary: '从浏览器 3D 交互到 Unity + PICO VR 沉浸式工程，沉淀一套跨端 3D 空间交互与仿真能力。',
-        problem: '3D 项目常被做成一次性 demo：场景炫但没有交互架构、移植到 VR 时缺乏模块化、性能与精度难以兼得，团队重复造轮子。',
-        role: '作为 Web3D 引擎与 VR 仿真的核心研发，主导 exm-player-web3d 播放器与多个高仿真 / 交互式 VR 项目的架构与实现。',
-        solution: '用 Babylon.js 搭建可复用的浏览器 3D 引擎层，统一处理场景、交互与资源；用 Unity + PICO VR SDK 承接需要沉浸感的工业 / 仿真场景，保持结构一致。',
+        summary: '跨网页 Web3D 交互引擎与 Unity + PICO VR 空间计算，沉淀一套高可靠、高性能的三维交互与仿真能力。',
+        problem: '3D 与虚拟现实项目普遍存在多端交互语义不一致、频繁场景切换黑屏卡顿、以及 VR 头显手柄凝视交互冲突的痛点。',
+        role: '作为三维交互引擎的核心研发与团队负责人，主导了 exm-player-web3d 与 building-stared-navigator-pico 的系统开发。',
+        solution: '基于 Babylon.js 封装轻量化 3D 空间交互引擎；在 VR 端基于 Unity PICO SDK 研发数据驱动的 3D 空间凝视交互系统；研发 Shaka Player 双实例交替拼接架构解决黑屏切换。',
         challenges: [
-          '跨端一致性：在浏览器、移动端、VR 头显之间保持交互语义一致，而不是各端各写一套。',
-          '性能与精度权衡：在低端设备上保持可交互帧率，在高精度仿真里保留物理与几何可信度。'
+          '互动视频秒级切换：在 interactive-video-playground 中，通过预加载与 Shaka Player 双实例交替“有声隐藏/静音显示”消除多分支切换黑屏。',
+          'VR 凝视交互性能：使用射线检测与完全数据驱动的轮询调度，避免 Unity 更新周期中的性能抖动。'
         ],
         results: [
-          '交付多个高可靠性的工业 / 军工仿真与 VR 项目。',
-          '形成可被后续项目复用的 Web3D 引擎与 VR 工程基线。'
+          '交付多套高精度的 Web3D 交互仿真系统与沉浸式 VR 控制台。',
+          '成功消灭了多分支互动视频切换过程中的瞬时黑屏与音频卡顿，实现接近零延迟的无缝体验。'
         ],
-        judgment: '3D 能力的护城河是交互架构与可复用引擎，不是某一个酷炫 Demo。',
-        highlights: ['跨端 3D 交互架构','Babylon.js + Unity + PICO VR','可复用的工程基线'],
+        judgment: '3D 与多媒体的护城河不在模型精细度，而在底层交互管道的设计与极致的渲染切换性能调优。',
+        highlights: ['Babylon.js 空间渲染','PICO VR 凝视交互系统','Shaka Player 双实例拼接'],
         repos: [
-          { label: 'exm-player-web3d', url: 'https://github.com/guochaopeng110-maker/exm-player-web3d', description: '基于 Babylon.js 开发的轻量级网页端 3D 空间交互播放器，支持多种 3D 格式与高频交互动作。', role: '核心开发：交互引擎与渲染管道设计' },
-          { label: 'pico-vr-simulation', url: 'https://github.com/guochaopeng110-maker/pico-vr-simulation', description: '基于 Unity 与 PICO VR SDK 开发的沉浸式工业交互仿真项目，提供高精度碰撞与物理反馈。', role: 'VR 系统架构：设备驱动接入与手柄交互语义设计' }
+          { label: 'exm-player-web3d', url: 'https://github.com/guochaopeng110-maker/exm-player-web3d', description: '基于 Babylon.js 研发的轻量级网页 3D 空间交互播放器，支持多种工业三维格式解析与高频手势动作交互。', role: '核心研发：3D 渲染管线与事件交互总线设计' },
+          { label: 'building-stared-navigator-pico', url: 'https://github.com/guochaopeng110-maker/building-stared-navigator-pico', description: '基于 PICO Unity SDK 研发的非侵入式、数据驱动的 3D 空间凝视交互系统（Gaze Interaction System）。', role: '主导研发：数据驱动交互框架与射线轮询调度设计' }
         ],
         workflow: {
           title: '3D 交互与仿真工程管线',
           steps: [
             {
-              name: '资产优化',
-              description: '使用 DCC 软件对 3D 模型进行减面、DrawCall 合并及材质贴图烘焙，并导出高效的 glTF/GLB 格式。',
-              role: '原始三维资产 -> 模型减面与 DrawCall 优化 -> 生产级轻量 glTF/GLB'
+              name: '三维资产优化与导出',
+              description: '对工业与机械仿真模型进行网格减面、DrawCall 合并及材质烘焙，导出高压缩率的 glTF/GLB 空间模型。',
+              role: '原始大体量 3D 资产 -> 模型减面与贴图烘焙 -> 生产级轻量 glTF/GLB'
             },
             {
-              name: '交互集成',
-              description: '利用 Babylon.js 编写浏览器网页端交互逻辑，或在 Unity 中配置物理碰撞与 VR 手柄输入逻辑。',
-              role: '轻量化资产 -> Babylon.js 逻辑编排 / Unity VR 配置 -> 核心交互层'
+              name: '多端交互事件绑定',
+              description: '在网页端利用 Babylon.js 绑定手势交互与旋转缩放事件，在 VR 头显端配置凝视传感器与手柄射线碰撞。',
+              role: '3D 模型载入 -> Babylon.js 事件流 / Unity Gaze 交互器 -> 统一交互接口'
             },
             {
-              name: '性能优化',
-              description: '在网页端实施遮挡剔除与 WebGL/WebGPU 参数调优，在 VR 端引入注视点渲染保障帧率稳定。',
-              role: '核心交互层 -> 跨端渲染调优 & 帧率监控 -> 交付流畅交互体验'
+              name: '渲染调优与无缝拼接',
+              description: '针对低配设备调优 WebGL 渲染参数；在互动多媒体视频中引入 Shaka Player 双实例交替显示，实现多分辨率视频 of 级切换。',
+              role: '交互层事件 -> WebGL/WebGL2 性能调优 / 双实例无缝渲染 -> 流畅交互与秒级播放'
             }
           ]
         },
         visuals: [
           {
             title: '3D 与 VR 空间计算架构示意图',
-            description: '跨越轻量网页端 Web3D (Babylon.js) 与沉浸式 VR 端 (Unity) 的统一 3D 交互架构设计。',
+            description: '融合轻量网页 Web3D (Babylon.js) 与沉浸式 PICO VR (Unity) 的高可靠三维空间交互架构。',
             type: 'diagram',
             schematic: [
-              { label: 'DCC / 优化', value: '模型减面、DrawCall 合并、材质贴图烘焙与 glTF 导出', class: 'dcc-bar' },
-              { label: 'WEB3D', value: 'exm-player-web3d 引擎交互逻辑、光影调优与 WebGL 渲染', class: 'web3d-bar' },
-              { label: 'VR 头显', value: 'Unity + PICO VR SDK 物理碰撞、手柄交互与设备驱动集成', class: 'vr-bar' }
+              { label: 'DCC / 优化', value: '网格减面、DrawCall 合并、材质烘焙与 Draco 压缩 glTF 导出', class: 'dcc-bar' },
+              { label: 'WEB3D / 多媒体', value: 'exm-player-web3d 渲染、interactive-video-playground Shaka Player 双实例拼接', class: 'web3d-bar' },
+              { label: 'VR 头显', value: 'Unity + PICO VR SDK 空间凝视交互系统、手势追踪与射线碰撞组件', class: 'vr-bar' }
             ]
           }
         ]

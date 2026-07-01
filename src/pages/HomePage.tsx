@@ -27,7 +27,62 @@ export function HomePage() {
         </div>
 
         <aside className="hero-panel" aria-label={hero.hiringSignalsTitle}>
-          <p className="eyebrow">{hero.hiringSignalsTitle}</p>
+          <div className="panel-visual">
+            <div className="tech-graph">
+              <svg className="graph-svg" viewBox="0 0 200 160">
+                <defs>
+                  <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.8"/>
+                    <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0.8"/>
+                  </linearGradient>
+                  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+                
+                {/* Connecting paths */}
+                <path d="M 40 40 L 160 40 L 160 120 L 40 120 Z" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1.5" />
+                <path d="M 40 40 L 160 120 M 160 40 L 40 120" fill="none" stroke="rgba(0, 240, 255, 0.08)" strokeWidth="1" strokeDasharray="3,3" />
+                
+                {/* Active path indicator */}
+                <path className="active-path" d="M 40 40 L 160 40 L 160 120" fill="none" stroke="url(#glowGrad)" strokeWidth="2" strokeDasharray="15, 120" />
+                <path className="active-path-rev" d="M 160 120 L 40 120 L 40 40" fill="none" stroke="url(#glowGrad)" strokeWidth="2" strokeDasharray="15, 120" />
+
+                {/* Nodes */}
+                {/* DCS/PLC */}
+                <g className="graph-node" transform="translate(40, 40)">
+                  <circle r="10" fill="var(--color-bg-base)" stroke="var(--color-text-muted)" strokeWidth="2" />
+                  <circle r="3" fill="var(--color-text-muted)" />
+                  <text y="-16" textAnchor="middle" fontSize="8" fill="var(--color-text-muted)" fontFamily="var(--font-mono)">DCS</text>
+                </g>
+                {/* Web3D/VR */}
+                <g className="graph-node active" transform="translate(160, 40)">
+                  <circle r="10" fill="var(--color-bg-base)" stroke="var(--color-primary)" strokeWidth="2" filter="url(#glow)" />
+                  <circle className="ping-dot" r="3.5" fill="var(--color-primary)" />
+                  <text y="-16" textAnchor="middle" fontSize="8" fill="var(--color-primary)" fontFamily="var(--font-mono)">3D/VR</text>
+                </g>
+                {/* Full-Stack */}
+                <g className="graph-node active" transform="translate(160, 120)">
+                  <circle r="10" fill="var(--color-bg-base)" stroke="var(--color-primary)" strokeWidth="2" filter="url(#glow)" />
+                  <circle className="ping-dot" r="3.5" fill="var(--color-primary)" />
+                  <text y="20" textAnchor="middle" fontSize="8" fill="var(--color-primary)" fontFamily="var(--font-mono)">STACK</text>
+                </g>
+                {/* AI Agents */}
+                <g className="graph-node active" transform="translate(40, 120)">
+                  <circle r="12" fill="var(--color-bg-base)" stroke="var(--color-accent)" strokeWidth="2" filter="url(#glow)" />
+                  <circle className="ping-dot" r="4.5" fill="var(--color-accent)" />
+                  <text y="22" textAnchor="middle" fontSize="8" fill="var(--color-accent)" fontFamily="var(--font-mono)">AI_AGENT</text>
+                </g>
+              </svg>
+            </div>
+            
+            <div className="panel-info">
+              <span className="panel-status-tag"><span className="pulse-dot"></span>SYSTEM_ACTIVE</span>
+              <p className="eyebrow" style={{ margin: 0 }}>{hero.hiringSignalsTitle}</p>
+            </div>
+          </div>
+
           <ul className="signal-list">
             {hero.hiringSignals.map((signal) => (
               <li key={signal}>{signal}</li>

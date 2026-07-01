@@ -61,7 +61,7 @@ describe("i18n locale side-effects (issue #4 hardening)", () => {
   });
 
   it("uses the Chinese hiring snapshot label on the Chinese homepage", async () => {
-    const { content } = await import("../content/zh");
-    expect(content.hero.hiringSignalsTitle).toBe("招聘速览");
-  });
+     const { content } = await import("../content/zh");
+     expect(content.hero.hiringSignalsTitle).toBe("技术主张");
+   });
 });
