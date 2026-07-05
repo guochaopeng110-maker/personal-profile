@@ -77,8 +77,7 @@ describe("PRD Final Verification & Contract Checking", () => {
       "ai-video-workflow",
       "web3d-vr",
       "industrial-systems",
-      "ai-agents",
-      "ai-agent-learning"
+      "ai-agents"
     ];
 
     slugs.forEach((slug) => {

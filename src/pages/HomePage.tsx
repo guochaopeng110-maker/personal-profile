@@ -1,9 +1,80 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocale } from "../context/I18nContext";
 
+// ScrollRevealSection component for viewport-driven reveal animations (performance friendly & JSDOM test safe)
+function ScrollRevealSection({
+  children,
+  className = "",
+  ...props
+}: {
+  children: React.ReactNode;
+  className?: string;
+  [key: string]: any;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  useEffect(() => {
+    // If not in a browser environment or IntersectionObserver is not defined (e.g. under jsdom tests), fallback instantly
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setIsRevealed(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsRevealed(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <section
+      ref={ref}
+      className={`scroll-reveal ${isRevealed ? "revealed" : ""} ${className}`}
+      {...props}
+    >
+      {children}
+    </section>
+  );
+}
+
 export function HomePage() {
-  const { content } = useLocale();
+  const { locale, content } = useLocale();
   const { hero, narrative, themes, timeline, skills } = content;
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+
+  // Technical summaries for SVG graph nodes hover states (strictly zero em-dashes)
+  const nodeInfoZH: Record<string, string> = {
+    dcs: "DCS / PLC 底层设备控制系统：严谨的状态机流转、乐观锁并发控制及异构硬件集成底色。",
+    "3d-vr": "Web3D 与 VR 空间计算：Babylon.js 轻量级 3D 空间渲染，以及 Unity/PICO VR 数据驱动凝视交互设计。",
+    stack: "全栈与工程化交付：Next.js、Node.js 敏捷交付，Redis 分布式锁、Docker 容器化与 Jenkins 自动化发布。",
+    "ai-agent": "AI 智能体与 AI 应用：LangGraph 多智能体编排状态机，以及 CLI Agent 进程隔离安全沙箱与自愈循环。",
+    default: "点击或悬停上方拓扑图谱节点，查看职业演进不同阶段的核心技术沉淀。"
+  };
+
+  const nodeInfoEN: Record<string, string> = {
+    dcs: "DCS / PLC low-level control systems: rigorous state machines, optimistic locks and heterogeneous hardware integration.",
+    "3d-vr": "Web3D and VR spatial computing: Babylon.js lightweight 3D spatial rendering, and Unity/PICO VR data-driven gaze systems.",
+    stack: "Full-stack delivery and engineering: Next.js/Node.js agile delivery, Redis locks, Docker and Jenkins automation.",
+    "ai-agent": "AI Agents and applications: LangGraph multi-agent orchestration, and CLI Agent subprocess safety sandbox self-healing.",
+    default: "Hover or click nodes on the topology graph to inspect core engineering layers from different career stages."
+  };
+
+  const nodeInfo = locale === "zh" ? nodeInfoZH : nodeInfoEN;
 
   return (
     <main className="page-shell">
@@ -51,25 +122,49 @@ export function HomePage() {
 
                 {/* Nodes */}
                 {/* DCS/PLC */}
-                <g className="graph-node" transform="translate(40, 40)">
-                  <circle r="10" fill="var(--color-bg-base)" stroke="var(--color-text-muted)" strokeWidth="2" />
-                  <circle r="3" fill="var(--color-text-muted)" />
-                  <text y="-16" textAnchor="middle" fontSize="8" fill="var(--color-text-muted)" fontFamily="var(--font-mono)">DCS</text>
+                <g 
+                  className={`graph-node ${hoveredNode === 'dcs' ? 'active' : ''}`} 
+                  transform="translate(40, 40)"
+                  onMouseEnter={() => setHoveredNode('dcs')}
+                  onMouseLeave={() => setHoveredNode(null)}
+                  onClick={() => setHoveredNode('dcs')}
+                >
+                  <circle r="10" fill="var(--color-bg-base)" stroke={hoveredNode === 'dcs' ? "var(--color-primary)" : "var(--color-text-muted)"} strokeWidth="2" />
+                  <circle r="3" fill={hoveredNode === 'dcs' ? "var(--color-primary)" : "var(--color-text-muted)"} />
+                  <text y="-16" textAnchor="middle" fontSize="8" fill={hoveredNode === 'dcs' ? "var(--color-primary)" : "var(--color-text-muted)"} fontFamily="var(--font-mono)">DCS</text>
                 </g>
                 {/* Web3D/VR */}
-                <g className="graph-node active" transform="translate(160, 40)">
+                <g 
+                  className={`graph-node active ${hoveredNode === '3d-vr' ? 'focus' : ''}`} 
+                  transform="translate(160, 40)"
+                  onMouseEnter={() => setHoveredNode('3d-vr')}
+                  onMouseLeave={() => setHoveredNode(null)}
+                  onClick={() => setHoveredNode('3d-vr')}
+                >
                   <circle r="10" fill="var(--color-bg-base)" stroke="var(--color-primary)" strokeWidth="2" filter="url(#glow)" />
                   <circle className="ping-dot" r="3.5" fill="var(--color-primary)" />
                   <text y="-16" textAnchor="middle" fontSize="8" fill="var(--color-primary)" fontFamily="var(--font-mono)">3D/VR</text>
                 </g>
                 {/* Full-Stack */}
-                <g className="graph-node active" transform="translate(160, 120)">
+                <g 
+                  className={`graph-node active ${hoveredNode === 'stack' ? 'focus' : ''}`} 
+                  transform="translate(160, 120)"
+                  onMouseEnter={() => setHoveredNode('stack')}
+                  onMouseLeave={() => setHoveredNode(null)}
+                  onClick={() => setHoveredNode('stack')}
+                >
                   <circle r="10" fill="var(--color-bg-base)" stroke="var(--color-primary)" strokeWidth="2" filter="url(#glow)" />
                   <circle className="ping-dot" r="3.5" fill="var(--color-primary)" />
                   <text y="20" textAnchor="middle" fontSize="8" fill="var(--color-primary)" fontFamily="var(--font-mono)">STACK</text>
                 </g>
                 {/* AI Agents */}
-                <g className="graph-node active" transform="translate(40, 120)">
+                <g 
+                  className={`graph-node active ${hoveredNode === 'ai-agent' ? 'focus' : ''}`} 
+                  transform="translate(40, 120)"
+                  onMouseEnter={() => setHoveredNode('ai-agent')}
+                  onMouseLeave={() => setHoveredNode(null)}
+                  onClick={() => setHoveredNode('ai-agent')}
+                >
                   <circle r="12" fill="var(--color-bg-base)" stroke="var(--color-accent)" strokeWidth="2" filter="url(#glow)" />
                   <circle className="ping-dot" r="4.5" fill="var(--color-accent)" />
                   <text y="22" textAnchor="middle" fontSize="8" fill="var(--color-accent)" fontFamily="var(--font-mono)">AI_AGENT</text>
@@ -81,6 +176,12 @@ export function HomePage() {
               <span className="panel-status-tag"><span className="pulse-dot"></span>SYSTEM_ACTIVE</span>
               <p className="eyebrow" style={{ margin: 0 }}>{hero.hiringSignalsTitle}</p>
             </div>
+
+            <div className="node-tooltip-panel">
+              <p className="node-tooltip-text">
+                {hoveredNode ? nodeInfo[hoveredNode] : nodeInfo['default']}
+              </p>
+            </div>
           </div>
 
           <ul className="signal-list">
@@ -91,7 +192,7 @@ export function HomePage() {
         </aside>
       </section>
 
-      <section className="section narrative-section animate-fade-in-up animate-delay-1" data-testid="narrative-section">
+      <ScrollRevealSection className="section narrative-section animate-fade-in-up" data-testid="narrative-section">
         <div className="section-heading">
           <p className="eyebrow">{narrative.eyebrow}</p>
           <h2>{narrative.title}</h2>
@@ -104,9 +205,9 @@ export function HomePage() {
             </article>
           ))}
         </div>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="section timeline-section animate-fade-in-up animate-delay-2" data-testid="timeline-section">
+      <ScrollRevealSection className="section timeline-section animate-fade-in-up" data-testid="timeline-section">
         <div className="section-heading">
           <p className="eyebrow">{timeline.eyebrow}</p>
           <h2>{timeline.title}</h2>
@@ -129,9 +230,9 @@ export function HomePage() {
             </div>
           ))}
         </div>
-      </section>
+      </ScrollRevealSection>
 
-      <section className="section skills-section animate-fade-in-up animate-delay-3" data-testid="skills-section">
+      <ScrollRevealSection className="section skills-section animate-fade-in-up" data-testid="skills-section">
         <div className="section-heading">
           <p className="eyebrow">{skills.eyebrow}</p>
           <h2>{skills.title}</h2>
@@ -150,11 +251,11 @@ export function HomePage() {
             </article>
           ))}
         </div>
-      </section>
+      </ScrollRevealSection>
 
-      <section
+      <ScrollRevealSection
         id="themes"
-        className="section themes-section animate-fade-in-up animate-delay-4"
+        className="section themes-section animate-fade-in-up"
         data-testid="themes-section"
         aria-label={themes.title}
       >
@@ -200,7 +301,7 @@ export function HomePage() {
             </article>
           ))}
         </div>
-      </section>
+      </ScrollRevealSection>
     </main>
   );
 }

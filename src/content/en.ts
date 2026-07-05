@@ -147,85 +147,30 @@ export const content = {
     },
     items: {
       "ai-agents": {
-        title: "AI Agents & Business Applications",
-        summary: "Turn LLM capabilities into enterprise production-grade multi-agent systems and applications, not toys that only run Demos.",
-        problem: "Enterprise LLM landing often struggles with process non-determinism and state complexity, making it hard to orchestrate models reliably into existing business pipelines.",
-        role: "AI Agent & Application Owner, managing TDuMAIC (MAIC-AI-Classroom) system architecture and deployment from intent routing to multi-client gateways.",
-        solution: "Design LangGraph state machines for multi-agent roleplay and discussions (e.g. AI Teacher/Peer). Integrate OpenClaw protocol to let Feishu/Slack users spin up classrooms in one click.",
+        title: "AI Agents & AI Applications",
+        summary: "Design and develop multi-agent collaboration systems, local CLI Agent harnesses, and secure execution sandboxes for production-grade AI delivery.",
+        problem: "Enterprise LLM landing often struggles with process non-determinism and state complexity, while highly autonomous CLI agents face severe security risks and directory isolation challenges on local machines.",
+        role: "AI Agent & Application Owner, managing TDuMAIC (MAIC-AI-Classroom) system architecture and independently designing CLI Agent ReAct loops with process-isolated sandboxing.",
+        solution: "Design LangGraph state machines for multi-agent discussions and integrate OpenClaw gateway. Build a Python-based CLI Agent running in a ReAct loop, wrapping subprocesses with safety interceptors and directory boundaries to support self-healing code recovery.",
         challenges: [
           "Multi-agent discussion reliability: Design a DAG-based classroom state machine to curtail hallucinations, and build a human-in-the-loop review flow.",
-          "Automated multimedia generation: Create a structured output schema to drive SVG whiteboard rendering and export editable PPTX/interactive HTML assets."
+          "Secure command execution: Filter high-risk commands (e.g. system destructive scripts) and enforce strict path boundaries in subprocesses.",
+          "ReAct loop convergence: Trace multi-step state logs and automatically inject error feedback to steer the agent towards code self-healing and prevent infinite loops."
         ],
         results: [
-          "Published the multi-agent system architecture paper in JCST'26 (Journal of Computer Science and Technology); codebase open-sourced on GitHub.",
-          "Enabled multi-messenger client support via OpenClaw, allowing dynamic LLM swaps and accelerating interactive lesson delivery."
+          "Co-authored multi-agent classroom paper published in JCST'26, and open-sourced the platform codebase on GitHub.",
+          "Enabled multi-messenger client support via OpenClaw, allowing dynamic LLM swaps and accelerating interactive lesson delivery.",
+          "Created a functional local CLI agent capable of autonomous code editing, building, running tests, and error feedback recovery under a secure sandbox."
         ],
-        judgment: "The production value of enterprise agents lies in rigorous state machine orchestration and fault-tolerant flows, not single prompt designs.",
-        highlights: ["JCST'26 Paper Published", "LangGraph State Machine Flow", "OpenClaw Multi-Client Support"],
+        judgment: "The production value of enterprise agents lies in state machine orchestration, fault-tolerant self-healing loops, and secure physical sandboxing.",
+        highlights: ["JCST'26 Paper Published", "LangGraph State Machine Flow", "Command Execution Sandbox", "OpenClaw Multi-Client Support"],
         repos: [
           {
             label: "MAIC-AI-Classroom",
             url: "https://github.com/guochaopeng110-maker/MAIC-AI-Classroom",
             description: "One-click lesson generation platform. Features AI teacher/peer roleplay, PPTX exports, interactive whiteboard, and OpenClaw messaging integration.",
             role: "Architect & Core Dev: Multi-agent collaboration & multi-platform integration"
-          }
-        ],
-        workflow: {
-          title: "Multi-Agent Interactive Classroom Workflow",
-          steps: [
-            {
-              name: "Natural Language Input & Intent Routing",
-              description: "Receive queries from Web or OpenClaw messengers (Feishu/Slack), routing them to specified multi-agent classrooms.",
-              role: "User Query -> Router Gateway -> Wake up classroom Agent instance"
-            },
-            {
-              name: "Multi-Agent Roleplay Discussion",
-              description: "AI teachers and peer agents debate under LangGraph states, raising and answering questions to form structured lecture content.",
-              role: "Lesson Syllabus -> Multi-Agent Debate -> Structured Lecture Script"
-            },
-            {
-              name: "Lesson Scene & Simulation Render",
-              description: "Drive SVG whiteboard drawing and equation rendering, concurrently compiling quizzes and interactive HTML simulation scripts.",
-              role: "Lecture Script -> SVG Whiteboard & HTML Simulation -> Interactive Lesson Assets"
-            },
-            {
-              name: "Multi-Modal Export & Dispatch",
-              description: "Assemble lecture assets, quizzes, and simulation codes into editable PPTX and HTML, pushing them to the user via gateway.",
-              role: "Lesson Assets -> PPTX/HTML Export Pipeline -> Client Message Gateway"
-            }
-          ]
-        },
-        visuals: [
-          {
-            title: "TDuMAIC Multi-Agent Collaboration Diagram",
-            url: "/personal-profile/assets/ai-agent-architecture.png",
-            description: "AI Agent interactive classroom architecture based on Sense-Think-Act and messenger client integration.",
-            type: "diagram",
-            schematic: [
-              { label: "SENSE", value: "OpenClaw gateway, intent router, natural language query parser", class: "script-bar" },
-              { label: "THINK", value: "LangGraph state machine, multi-roleplay LLM discussions, classroom decisions", class: "video-bar" },
-              { label: "ACT", value: "Whiteboard rendering, structured PPTX/HTML lesson export & download", class: "audio-bar" }
-            ]
-          }
-        ]
-      },
-      "ai-agent-learning": {
-        title: "AI Agent Learning & Sandbox Exploration",
-        summary: "From-scratch implementation of a CLI agent harness resembling Claude Code, based on the learn-claude-code curriculum.",
-        problem: "How to ensure local Shell execution safety and secure task convergence in a ReAct loop when designing agents capable of autonomous command execution and file edits.",
-        role: "Independent Researcher & Developer, writing the core Agent loop, tool action parsers, and safe process boundaries in Python.",
-        solution: "Construct a ReAct reasoning-acting loop with file-editing and terminal-execution tools. Implement process sandboxing via Python subprocess wrapping to block unsafe system commands.",
-        challenges: [
-          "Command interception: Filter high-risk commands (e.g. rm) and enforce directory boundaries to block unintended scripts.",
-          "ReAct convergence: Trace multi-step state logs and automatically inject error feedback to steer the agent back on track."
-        ],
-        results: [
-          "Created a functional local CLI agent capable of autonomous code editing, building, and running tests.",
-          "Gained deep understanding of prompt versioning, agentic tool design, and LLM-as-a-judge evaluation."
-        ],
-        judgment: "The reliability of CLI agents hinges on defensive command validation and sandboxing, not naive trust in LLM outputs.",
-        highlights: ["Claude Code-like Harness", "Execution Sandbox", "ReAct Convergence"],
-        repos: [
+          },
           {
             label: "ai-agent-engineering-journey",
             url: "https://github.com/guochaopeng110-maker/ai-agent-engineering-journey",
@@ -234,39 +179,40 @@ export const content = {
           }
         ],
         workflow: {
-          title: "Agent Planning & Sandbox Execution Pipeline",
+          title: "Multi-Agent Classroom Collaboration & Sandbox Execution Pipeline",
           steps: [
             {
-              name: "Intent & Tool Setup",
-              description: "Parse query intent to trigger ReAct loop, initializing file editing and Shell execution toolchains.",
-              role: "User Directive -> Initialize Toolchains -> Start ReAct Loop"
+              name: "Natural Language Input & Intent Routing",
+              description: "Receive queries from Web or OpenClaw messengers (Feishu/Slack), routing them to specified multi-agent classrooms or CLI developers.",
+              role: "User Query -> Router Gateway -> Wake up agent instance"
             },
             {
-              name: "ReAct Inference",
-              description: "Cycle between reasoning and acting, generating specific file modification or terminal commands.",
-              role: "State Logs -> LLM Reasoning -> Shell Action Command"
+              name: "Multi-Agent Debate / ReAct Planning",
+              description: "AI teachers debate under LangGraph states to draft lesson materials; for CLI tasks, the agent plans tool actions to read or write files.",
+              role: "Task Directive -> Agent Inference -> Decision Actions & Commands"
             },
             {
-              name: "Sandbox Interception",
-              description: "Catch terminal commands, verifying write permissions and directory paths against safelists.",
+              name: "Sandbox Interception & Subprocess Execution",
+              description: "Validate generated Shell commands against safety constraints and safelists, executing safe tasks in isolated processes.",
               role: "Action Command -> Sandbox Safety Checks -> Sandboxed Call"
             },
             {
-              name: "Execution & Feedback",
-              description: "Execute safe scripts in isolated processes, returning logs to the agent for self-correction.",
-              role: "Sandbox Subprocess -> Capture Output/Errors -> Task Converged"
+              name: "Lesson Export / Error Self-Healing",
+              description: "Compile and export interactive PPTX/HTML lesson packages, or capture subprocess errors to feedback into ReAct for code self-healing.",
+              role: "Sandbox Subprocess -> Capture Output/Errors -> Self-Correction & Delivery"
             }
           ]
         },
         visuals: [
           {
-            title: "CLI Agent Secure Execution Architecture",
-            description: "Secure development architecture of the CLI Agent based on ReAct planning and command subprocess sandboxing.",
+            title: "TDuMAIC Multi-Agent & CLI Sandbox Architecture Diagram",
+            url: "/personal-profile/assets/ai-agent-architecture.png",
+            description: "AI Agent interactive classroom architecture based on Sense-Think-Act and subprocess sandboxing integration.",
             type: "diagram",
             schematic: [
-              { label: "USER INPUT", value: "Natural language directives, software tasks, or file modification requests", class: "script-bar" },
-              { label: "REACT PLAN", value: "Thinking and reasoning loops, selecting tools (read, write, shell), tracing changes", class: "video-bar" },
-              { label: "SANDBOX", value: "Intercept shell executions, verify destination paths, filter risky commands, run in subprocesses", class: "audio-bar" }
+              { label: "SENSE", value: "OpenClaw gateway, intent router, shell action command interceptor", class: "script-bar" },
+              { label: "THINK", value: "LangGraph state machine, multi-roleplay LLM discussions, ReAct reasoning & correction loops", class: "video-bar" },
+              { label: "ACT", value: "Whiteboard rendering, structured PPTX/HTML export, sandboxed Shell execution & code edits", class: "audio-bar" }
             ]
           }
         ]
@@ -347,7 +293,7 @@ export const content = {
         solution: "Wrap a lightweight browser-side engine with Babylon.js; engineer a data-driven spatial gaze interaction system on Unity PICO SDK; develop Shaka Player dual-instance alternating architecture.",
         challenges: [
           "Seamless interactive video: Eliminate multi-branch transition black-screens using preloading and Shaka Player dual-instance 'mute-show/sound-hide' alternation in interactive-video-playground.",
-          "VR gaze polling: Use optimized raycasting and entirely data-driven scheduling to avoid frame rate stuttering in Unity update cycles."
+          "VR gaze polling: Use optimized raycasting and entirely data-driven scheduling to avoid frame rate stuttering in Unity update cycles.",
         ],
         results: [
           "Delivered multiple high-precision Web3D simulations and immersive VR control systems.",
@@ -435,7 +381,7 @@ export const content = {
         ],
         results: [
           "Delivered multiple high-reliability industrial / military-grade control and simulation systems.",
-          "Established a reusable industrial device abstraction and communication baseline for upper-layer business systems."
+          "Established a reusable industrial device abstraction and communication baseline for upper-layer business systems.",
         ],
         judgment: "The biggest value of industrial-grade experience is \"treating a system as a system\" — and that backbone decides the engineering rigor of subsequent AI and full-stack delivery.",
         highlights: [
@@ -457,5 +403,3 @@ export const content = {
     backToHome: "Back to Home"
   }
 };
-
-

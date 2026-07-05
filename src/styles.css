@@ -472,11 +472,8 @@ h2 {
   .theme-card[data-theme-slug="ai-agents"] {
     grid-column: span 3;
   }
-  .theme-card[data-theme-slug="ai-agent-learning"] {
-    grid-column: span 3;
-  }
   .theme-card[data-theme-slug="ai-video-workflow"] {
-    grid-column: span 2;
+    grid-column: span 3;
   }
   .theme-card[data-theme-slug="web3d-vr"] {
     grid-column: span 2;
@@ -485,7 +482,7 @@ h2 {
     grid-column: span 2;
   }
   .theme-card[data-theme-slug="industrial-systems"] {
-    grid-column: span 6;
+    grid-column: span 2;
   }
 }
 
@@ -1086,21 +1083,35 @@ h2 {
   color: var(--color-text-bright);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
+@keyframes flowStream {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.script-bar, .video-bar, .audio-bar {
+  background-size: 200% 100% !important;
+  animation: flowStream 6s linear infinite;
+  transition: var(--transition-smooth);
+}
 
 .script-bar {
-  background: linear-gradient(90deg, rgba(0, 240, 255, 0.12), transparent);
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.12) 0%, rgba(0, 240, 255, 0.32) 50%, rgba(0, 240, 255, 0.12) 100%) !important;
   border-left: 2px solid var(--color-primary);
   width: 90%;
 }
 
 .video-bar {
-  background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent);
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.28) 50%, rgba(245, 158, 11, 0.08) 100%) !important;
   border-left: 2px solid var(--color-accent);
   width: 80%;
 }
 
 .audio-bar {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.03) 100%) !important;
   border-left: 2px solid var(--color-text-muted);
   width: 95%;
 }
@@ -1209,6 +1220,101 @@ h2 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.page-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 80px;
+  animation: pageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.985) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Scroll reveal sections (design-taste-frontend style, IntersectionObserver-driven) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tech Graph Interactive Nodes & Glow */
+.graph-node {
+  cursor: pointer;
+}
+
+.graph-node circle:first-of-type {
+  transition: r 0.25s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.25s, stroke-width 0.25s;
+}
+
+.graph-node:hover circle:first-of-type {
+  r: 13;
+  stroke: var(--color-primary) !important;
+  stroke-width: 3px !important;
+}
+
+.graph-node.active:hover circle:first-of-type {
+  r: 13;
+  stroke: var(--color-primary) !important;
+  stroke-width: 3px !important;
+}
+
+.graph-node[transform*="40, 120"]:hover circle:first-of-type {
+  r: 15;
+  stroke: var(--color-accent) !important;
+  stroke-width: 3px !important;
+}
+
+/* Tooltip on homepage hero for node interactivity */
+.node-tooltip-panel {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(3, 7, 18, 0.85);
+  border: 1px dashed rgba(0, 240, 255, 0.2);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.node-tooltip-text {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-bright);
+  text-align: center;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Theme card hover adjustments (design-taste-frontend style) */
+.theme-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, background 0.4s, box-shadow 0.4s;
+}
+
+.theme-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 240, 255, 0.45);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(11, 15, 25, 0.65));
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5), 
+    0 0 30px rgba(0, 240, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .animate-fade-in-up {

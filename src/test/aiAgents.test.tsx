@@ -28,7 +28,7 @@ describe("AI Agents detail page (issue #10)", () => {
     expect(screen.getByText(detailLabels.judgment)).toBeInTheDocument();
     expect(screen.getByText(detailLabels.repos)).toBeInTheDocument();
 
-    expect(screen.getByRole("heading", { name: "AI 智能体与业务应用", level: 1 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "AI 智能体与 AI 应用", level: 1 })).toBeInTheDocument();
 
     // Check multiple repositories section exists
     const reposSection = screen.getByTestId("theme-detail-repos");
@@ -55,16 +55,16 @@ describe("AI Agents detail page (issue #10)", () => {
 
     // Verify workflow step details
     expect(within(workflowSection).getByText(/自然语言输入与意图路由/)).toBeInTheDocument();
-    expect(within(workflowSection).getByText(/多智能体角色扮演讨论/)).toBeInTheDocument();
-    expect(within(workflowSection).getByText(/课程场景与仿真生成/)).toBeInTheDocument();
-    expect(within(workflowSection).getByText(/多模态课件导出与交付/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/多智能体角色讨论 \/ ReAct 动作规划/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/安全沙箱校验与子进程执行/)).toBeInTheDocument();
+    expect(within(workflowSection).getByText(/课件多模态导出 \/ 编译报错自动纠错/)).toBeInTheDocument();
   });
 
   it("gracefully falls back to visual placeholder when screenshots are missing", () => {
     renderAt("/themes/ai-agents");
 
     // If an image is rendered, fire error to trigger fallback
-    const img = screen.queryByRole("img", { name: /TDuMAIC 多智能体协同架构示意图/i });
+    const img = screen.queryByRole("img", { name: /TDuMAIC 多智能体.*架构示意图/i });
     if (img) {
       fireEvent.error(img);
     }
@@ -72,7 +72,7 @@ describe("AI Agents detail page (issue #10)", () => {
     // Verify placeholder is present and marked as fallback
     const placeholder = screen.getByTestId("visuals-placeholder");
     expect(placeholder).toBeInTheDocument();
-    expect(placeholder).toHaveTextContent(/TDuMAIC 多智能体协同架构示意图/);
+    expect(placeholder).toHaveTextContent(/TDuMAIC 多智能体/);
   });
 
   it("supports bilingual switching for all custom workflow elements", async () => {

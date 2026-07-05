@@ -24,7 +24,7 @@ export const content = {
     cards: [
       {
         title: '物理世界的确定性控制与系统集成经验',
-        p: '在 DCS 工业控制、PLC 通讯及高仿真 VR 软件中积累的严苛工程标准，帮助我在设计 AI 智能体工作流时能精准把握状态机流转、异常分支容错与资源编排。'
+        p: '在 DCS 工业控制、PLC 通讯及 high-fidelity VR 软件中积累的严苛工程标准，帮助我在设计 AI 智能体工作流时能精准把握状态机流转、异常分支容错与资源编排。'
       },
       {
         title: '多维交互与全栈工程的自然演进',
@@ -76,7 +76,7 @@ export const content = {
         company: '天度（厦门）科技股份有限公司',
         role: 'VR / Web3D / C++ 资深工程师',
         contributions: [
-          '基于 C++、Qt 与 Unity 研发高仿真系统与交互式 VR 软件，交付多个高可靠性的工业/军工仿真项目。',
+          '基于 C++、Qt 与 Unity 研发仿真系统与交互式 VR 软件，交付多个高可靠性的工业/军工仿真项目。',
           '主导研发 Web3D 引擎，利用 Babylon.js 实现轻量化、高精度的浏览器端 3D 空间交互。',
           '设计早期互动视频与多媒体编排系统，将底层音视频流与前端交互无缝整合，支撑起丰富的多媒体体验。'
         ]
@@ -108,116 +108,62 @@ export const content = {
     },
     items: {
       'ai-agents': {
-        title: 'AI 智能体与业务应用',
-        summary: '把大模型能力做成可被企业业务真正调用的多智能体协同系统与工程化应用，而不是跑 Demo 的玩具。',
-        problem: '大模型应用在企业落地时常受限于流程不确定性、复杂状态难以维护，团队难以将模型稳定编排进既有的业务系统中。',
-        role: '作为 AI 应用与智能体负责人，从意图路由、状态机设计到多端网关集成，全面负责 TDuMAIC (MAIC-AI-Classroom) 系统架构与交付。',
-        solution: '基于 LangGraph 设计多角色智能体协同的状态机流转，支持 AI 讲师/学生角色扮演讨论；集成 OpenClaw 协议，支持飞书、Slack 等 20+ 聊天客户端一键生成并推送多模态课堂。',
+        title: 'AI 智能体与 AI 应用',
+        summary: '研发多智能体协同系统、本地命令行开发 Agent 与安全执行沙箱，实现生产级 AI 应用交付。',
+        problem: '大模型应用落地受限于流程不确定性与复杂状态编排，同时高自主度的命令行智能体在本地执行时面临高危操作破坏与安全隔离痛点。',
+        role: '作为 AI 应用与智能体负责人，全面主导 TDuMAIC (MAIC-AI-Classroom) 多智能体课堂的架构设计，并独立设计 CLI Agent 推理规划与进程级隔离沙箱。',
+        solution: '基于 LangGraph 设计多智能体讨论状态机并集成 OpenClaw 协议；构建基于 ReAct 推理循环的命令行 Agent，在 subprocess 层封装安全校验和白名单机制，实现代码报错自动回传与状态自愈。',
         challenges: [
           '多智能体协同可靠性：设计基于有向无环图（DAG）的课堂决策流，限制幻觉扩散，并引入人工兜底确认流。',
-          '课件多模态自动化生成：设计统一结构化 Schema 输出，自动驱动 SVG 白板渲染并实时渲染导出为 editable PPTX 课件与互动 HTML。'
-        ],
-        results: [
-          '智能体平台核心理论与架构设计论文发表于中国计算机大会推荐期刊 JCST\'26，且代码已在 GitHub 开源。',
-          '通过 OpenClaw 实现多聊天客户端适配，支撑多厂商 LLM 动态切换，提升了智能课件交付效率。'
-        ],
-        judgment: '企业智能体的落地价值在于对多角色业务流程的确定性状态机流转编排与可容错设计，而非单次惊艳的 Prompt 回答。',
-        highlights: ['JCST\'26 论文发表','LangGraph 状态机编排','OpenClaw 多端适配'],
-        repos: [
-          { label: 'MAIC-AI-Classroom', url: 'https://github.com/guochaopeng110-maker/MAIC-AI-Classroom', description: '一键生成多智能体互动课堂平台。包含 AI 讲师/学生角色扮演、PPTX 导出、白板互动与 OpenClaw 多端聊天软件接入。', role: '架构师 & 核心研发：多智能体协作与多端集成' }
-        ],
-        workflow: {
-          title: '多智能体互动课堂工作流',
-          steps: [
-            {
-              name: '自然语言输入与意图路由',
-              description: '接收来自 Web 端或 OpenClaw 聊天软件（飞书/Slack）的请求，通过意图路由模型将任务分发给指定的多智能体课堂。',
-              role: '用户自然语言请求 -> 路由网关解析 -> 唤醒课堂 Agent 实例'
-            },
-            {
-              name: '多智能体角色扮演讨论',
-              description: '智能讲师 Agent 与学生 Agent 根据 LangGraph 状态机定义协同讨论主题，相互提问补充，产出结构化讲义。',
-              role: '教学大纲 -> 智能体角色扮演讨论 -> 结构化讲义生成'
-            },
-            {
-              name: '课程场景与仿真生成',
-              description: '依据讲义内容自动驱动白板公式与 SVG 渲染，同步生成小测验（Quizzes）与交互式网页仿真代码。',
-              role: '结构化讲义 -> SVG 白板渲染 & 交互仿真代码 -> 互动课件资产'
-            },
-            {
-              name: '多模态课件导出与交付',
-              description: '整合课件、小测验及生成的多分支代码，一键导出为 editable PPTX 及互动 HTML，通过网关反馈给用户。',
-              role: '互动课件资产 -> PPTX/HTML 自动后期导出 -> 多端推送交付'
-            }
-          ]
-        },
-        visuals: [
-          {
-            title: 'TDuMAIC 多智能体协同架构示意图',
-            url: '/personal-profile/assets/ai-agent-architecture.png',
-            description: '基于感知-思考-执行 (Sense-Think-Act) 与多端聊天集成的 AI 智能体互动课堂系统。',
-            type: 'diagram',
-            schematic: [
-              { label: '感知 SENSE', value: 'OpenClaw 网关、意图路由器、自然语言请求解析', class: 'script-bar' },
-              { label: '思考 THINK', value: 'LangGraph 状态机、大模型多角色扮演讨论、课件生成决策链', class: 'video-bar' },
-              { label: '执行 ACT', value: '白板渲染生成、结构化 PPTX/HTML 仿真课件导出与下载', class: 'audio-bar' }
-            ]
-          }
-        ]
-      },
-      'ai-agent-learning': {
-        title: 'AI 智能体学习与沙盒探索',
-        summary: '基于 learn-claude-code 框架，从零构建类 Claude Code 的智能命令行 Agent 框架与安全沙箱。',
-        problem: '在设计具有高自主度、能够执行命令和编写代码的智能体时，如何确保本地 Shell 执行的安全性并保证 ReAct 循环收敛。',
-        role: '独立学习与研发负责人，基于 Python 从底层手写 Agent 决策哈纳斯、动作解析器与子进程执行沙箱。',
-        solution: '构建基于 ReAct 推理规划的 Agent 决策循环，提供文件编辑与终端指令工具；在 subprocess 层上封装安全沙箱以防御高危系统操作。',
-        challenges: [
-          '本地命令安全执行：严格限制沙箱操作目录，防范恶意的系统级破坏（如 rm -rf）命令。',
+          '命令行命令安全执行：严格限制沙箱操作目录，防范恶意的系统级破坏（如 rm -rf）命令，进行路径边界验证与白名单过滤。',
           'ReAct 任务自动纠错：捕获命令报错与异常日志，自动回传给智能体进行状态修复与代码自愈，防止无限死循环。'
         ],
         results: [
-          '手写完成本地命令行开发智能体，实现文件操作、Shell 命令自动执行、编译测试等全套研发动作。',
-          '顺便掌握了 Python 异步编程及 subprocess 底层进程控制，深入实践了 LLM-as-a-judge 评估指标与 Prompt 提示词版本迭代。'
+          '主导多智能体平台核心理论与架构，第一作者论文发表于中国计算机大会推荐期刊 JCST\'26，核心代码在 GitHub 开源。',
+          '通过 OpenClaw 实现 20+ 聊天软件（飞书、Slack等）一键唤醒多模态互动课堂，支撑多厂商 LLM 动态切换。',
+          '独立实现本地命令行开发 Agent，支持文件操作、Shell 执行、编译测试及报错自愈，保障本地开发安全闭环。'
         ],
-        judgment: '命令行智能体的核心壁垒在于对 Shell 动作的防注入校验与沙箱边界管控，这是将 Agent 推向生产级实用的关键安全锁。',
-        highlights: ['类 Claude Code 实现','安全执行沙箱','ReAct 自愈收敛'],
+        judgment: '企业智能体的落地价值在于对多角色业务流程的确定性状态机流转编排、可容错的 ReAct 自愈循环以及物理沙箱的边界安全防护。',
+        highlights: ['JCST\'26 论文发表', 'LangGraph 状态机编排', '命令行安全沙箱', 'OpenClaw 多端适配'],
         repos: [
+          { label: 'MAIC-AI-Classroom', url: 'https://github.com/guochaopeng110-maker/MAIC-AI-Classroom', description: '一键生成多智能体互动课堂平台。包含 AI 讲师/学生角色扮演、PPTX 导出、白板互动与 OpenClaw 多端聊天软件接入。', role: '架构师 & 核心研发：多智能体协作与多端集成' },
           { label: 'ai-agent-engineering-journey', url: 'https://github.com/guochaopeng110-maker/ai-agent-engineering-journey', description: '基于 Python 从零手写 CLI 开发 Agent，包含 Shell 命令安全沙箱与文件操作工具。', role: '独立研发：命令行 Agent Harness 及安全沙箱' }
         ],
         workflow: {
-          title: '智能体运行规划与沙箱验证管线',
+          title: '多智能体课堂协同与命令行沙箱验证管线',
           steps: [
             {
-              name: '意图识别与工具准备',
-              description: '解析用户输入的开发请求，唤醒 ReAct 智能体循环，初始化文件编辑和 Shell 执行等工具链。',
-              role: '用户指令输入 -> 初始化工具链 -> 开启 ReAct 循环'
+              name: '自然语言输入与意图路由',
+              description: '接收 Web 端或飞书/Slack 等聊天客户端的指令，通过意图路由模型将任务分发给指定的多智能体或本地 CLI 开发 Agent。',
+              role: '用户指令输入 -> 路由网关解析 -> 唤醒对应 Agent 实例'
             },
             {
-              name: 'ReAct 推理与行动规划',
-              description: '智能体在循环中进行思考推理与动作选择（如读写特定文件、检查目录结构），生成待执行的 Shell 命令。',
-              role: '当前状态日志 -> LLM 规划推理 -> 动作指令生成'
+              name: '多智能体角色讨论 / ReAct 动作规划',
+              description: '多智能体根据 LangGraph 协同生成讲义课件；若是 CLI 任务，则启动 ReAct 推理规划决策，生成待执行的文件修改或终端指令。',
+              role: '输入指令 -> 智能体规划推理 -> 产出决策/命令'
             },
             {
-              name: '安全沙箱命令拦截与校验',
-              description: '拦截生成的 Shell 命令，通过权限白名单和目录边界验证，防范非法命令或恶意脚本对系统带来威胁。',
-              role: '动作指令 -> 沙箱安全校验 -> 物理系统隔离调用'
+              name: '安全沙箱校验与子进程执行',
+              description: '在 subprocess 隔离层对生成的 Shell 命令进行边界与敏感操作验证，拦截危险操作，在隔离环境执行并通过白名单输出。',
+              role: '命令行指令 -> 沙箱安全校验 -> 物理隔离进程调用'
             },
             {
-              name: '命令执行与结果自动纠错',
-              description: '在隔离子进程中安全执行校验通过的命令，捕获其标准输出及报错日志，实时回传智能体进行动作自愈与逻辑修复。',
-              role: '沙箱子进程运行 -> 报错捕获与自动重试 -> 任务收敛完成'
+              name: '课件多模态导出 / 编译报错自动纠错',
+              description: '课堂课件一键生成 SVG 白板并导出 PPTX/HTML；CLI 任务则自动捕获编译执行报错，实时回传至智能体进行代码自愈。',
+              role: '执行结果 -> 导出多模态资产 / 报错捕获与自动重试自愈 -> 任务收敛完成'
             }
           ]
         },
         visuals: [
           {
-            title: 'CLI Agent 安全执行架构',
-            description: '基于 ReAct 推理循环与隔离沙箱的命令行 Agent 自主研发与安全防护架构。',
+            title: 'TDuMAIC 多智能体与 CLI Agent 安全沙箱架构示意图',
+            url: '/personal-profile/assets/ai-agent-architecture.png',
+            description: '基于感知-思考-执行 (Sense-Think-Act)、OpenClaw 网关及子进程隔离沙箱的 AI 智能体体系结构。',
             type: 'diagram',
             schematic: [
-              { label: '用户输入', value: '自然语言指令、待解决的开发任务或代码修改诉求', class: 'script-bar' },
-              { label: 'ReAct 规划', value: '思考推理、选择工具（读写文件、Shell 执行）、跟踪当前修改进度', class: 'video-bar' },
-              { label: '沙箱校验', value: '拦截 Shell 动作、验证目标路径、白名单过滤危险操作、隔离进程执行', class: 'audio-bar' }
+              { label: '感知 SENSE', value: 'OpenClaw 网关、意图路由器、Shell 动作拦截器', class: 'script-bar' },
+              { label: '思考 THINK', value: 'LangGraph 状态机编排、大模型多角色扮演讨论、ReAct 推理自愈链', class: 'video-bar' },
+              { label: '执行 ACT', value: '多模态 PPTX/HTML 课件导出、隔离子进程 Shell 安全执行、文件自愈编辑', class: 'audio-bar' }
             ]
           }
         ]
@@ -253,7 +199,7 @@ export const content = {
             },
             {
               name: '分镜素材生成',
-              description: '解析分镜大纲，调用 SD 与 Kling 节点批量渲染图像与视频片段，保障一致性。',
+              description: '解析分镜大纲，调用 SD 与 Kling 节点批量渲染图像与视频片段，保障图像一致性。',
               role: '大纲 JSON -> 渲染图像/视频节点 -> 多媒体素材库'
             },
             {
@@ -306,7 +252,7 @@ export const content = {
             },
             {
               name: '渲染调优与无缝拼接',
-              description: '针对低配设备调优 WebGL 渲染参数；在互动多媒体视频中引入 Shaka Player 双实例交替显示，实现多分辨率视频 of 级切换。',
+              description: '针对低配设备调优 WebGL 渲染参数；在互动多媒体视频中引入 Shaka Player 双实例交替显示，实现多分辨率视频秒级切换。',
               role: '交互层事件 -> WebGL/WebGL2 性能调优 / 双实例无缝渲染 -> 流畅交互与秒级播放'
             }
           ]
@@ -351,7 +297,7 @@ export const content = {
         role: '作为 DCS 设备控制系统工程师与底层通讯模块研发，负责异构硬件集成、嵌入式通讯链路与上层业务系统打通。',
         solution: '以 C / C++ 与 Qt 为主构建高可靠工业控制与仿真软件，在 DCS / PLC 接入层抽象统一设备协议，让上层业务系统可以无差别调用工业设备能力。',
         challenges: [
-          '异构兼容：在多厂商、多型号的工业设备之间建立稳定可用的统一抽象。',
+          '异构兼容：在多厂商、多型号 of 工业设备之间建立稳定可用的统一抽象。',
           '稳定优先：在工业现场，可用性与可恢复性优于任何“性感”特性。'
         ],
         results: [
