@@ -1296,13 +1296,17 @@ h2 {
   color: var(--color-text-bright);
 }
 
-/* Header & Lang switcher */
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
   width: min(1200px, calc(100% - 32px));
-  margin: 0 auto;
   padding: 24px 0 0;
   display: flex;
   justify-content: flex-end;
+  pointer-events: none;
 }
 
 .lang-switch-btn {
@@ -1315,6 +1319,7 @@ h2 {
   border-radius: 8px;
   cursor: pointer;
   transition: var(--transition-smooth);
+  pointer-events: auto;
 }
 
 .lang-switch-btn:hover {
@@ -1948,6 +1953,176 @@ h2 {
     right: 16px;
     width: 48px;
     height: 48px;
+  }
+}
+
+/* ==========================================================================
+   Fullpage Vertical Scroll Layout
+   ========================================================================== */
+
+.fullpage-wrapper {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.fullpage-container {
+  height: 100%;
+  width: 100%;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  will-change: transform;
+}
+
+.fullpage-section {
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 80px 24px 40px; /* Leave space for Header at top and bounce arrow at bottom */
+}
+
+/* Hide default scrollbar inside fullpage sections for cleaner look, but keep functionality */
+.fullpage-section::-webkit-scrollbar {
+  width: 6px;
+}
+.fullpage-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+.fullpage-section::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+.fullpage-section::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.3);
+}
+
+.section-card-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Make sure inner cards have no margin bottom inside fullpage sections */
+.fullpage-section .hero,
+.fullpage-section .section {
+  margin-bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Floating fullpage indicator dot navigation */
+.fullpage-nav {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 100;
+}
+
+.fullpage-nav-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fullpage-nav-dot:hover {
+  background: rgba(0, 240, 255, 0.5);
+  border-color: rgba(0, 240, 255, 0.5);
+  transform: scale(1.3);
+}
+
+.fullpage-nav-dot.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary);
+  transform: scale(1.3);
+}
+
+/* Hover dot labels (sliding from right) */
+.fullpage-nav-dot .dot-label {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: rgba(11, 15, 25, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  color: var(--color-text-bright);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fullpage-nav-dot:hover .dot-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Floating scroll down helper arrow */
+.fullpage-scroll-helper {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 90;
+  transition: var(--transition-smooth);
+  animation: bounceArrow 2s infinite;
+  padding: 8px;
+}
+
+.fullpage-scroll-helper:hover {
+  color: var(--color-primary);
+  text-shadow: 0 0 10px var(--color-primary);
+}
+
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-3px);
+  }
+}
+
+/* Reposition components to avoid overlap on small screens */
+@media (max-width: 768px) {
+  .fullpage-nav {
+    display: none; /* Hide dots on mobile to keep screen clean */
+  }
+  
+  .fullpage-section {
+    padding: 72px 16px 56px;
   }
 }
 
