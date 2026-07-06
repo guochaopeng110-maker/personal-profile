@@ -252,6 +252,15 @@ export function HomePage() {
     };
   }, [activePageIndex, isTransitioning]);
 
+  // Timeline collapsible states (default first item expanded)
+  const [expandedJobs, setExpandedJobs] = useState<Record<number, boolean>>({ 0: true });
+
+  const toggleJob = (index: number) => {
+    setExpandedJobs((prev) => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
 
   // Technical summaries for SVG graph nodes hover states (strictly zero em-dashes)
   const nodeInfoZH: Record<string, string> = {
@@ -406,12 +415,79 @@ export function HomePage() {
                 <h2>{narrative.title}</h2>
               </div>
               <div className="narrative-grid">
-                {narrative.cards.map((card, index) => (
-                  <article key={index} className="narrative-card">
-                    <h3>{card.title}</h3>
-                    <p>{card.p}</p>
-                  </article>
-                ))}
+                {narrative.cards.map((card, index) => {
+                  const typedCard = card as { title: string; p: string; highlights?: string[] };
+                  return (
+                    <article key={index} className="narrative-card">
+                      <h3>{typedCard.title}</h3>
+                      <p>{typedCard.p}</p>
+                      {typedCard.highlights && (
+                        <ul className="narrative-highlights">
+                          {typedCard.highlights.map((hl, idx) => (
+                            <li key={idx} className="narrative-hl-tag">{hl}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
+
+              {/* Glowing SVG Evolution Pipeline Diagram */}
+              <div className="evolution-pipeline-visual" aria-hidden="true">
+                <svg className="pipeline-svg" viewBox="0 0 800 120">
+                  <defs>
+                    <linearGradient id="pipelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="var(--color-text-muted)" />
+                      <stop offset="50%" stopColor="var(--color-primary)" />
+                      <stop offset="100%" stopColor="var(--color-accent)" />
+                    </linearGradient>
+                    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="4" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
+                  
+                  {/* Base connecting line */}
+                  <line x1="80" y1="60" x2="720" y2="60" stroke="rgba(255,255,255,0.05)" strokeWidth="4" strokeLinecap="round" />
+                  
+                  {/* Glowing flow line */}
+                  <path 
+                    d="M 80 60 L 720 60" 
+                    fill="none" 
+                    stroke="url(#pipelineGrad)" 
+                    strokeWidth="2.5" 
+                    strokeDasharray="15, 150" 
+                    className="active-pipeline-path" 
+                    filter="url(#glowEffect)"
+                  />
+
+                  {/* Stage 1 Node */}
+                  <g className="pipeline-node" transform="translate(150, 60)">
+                    <circle r="12" fill="var(--color-bg-base)" stroke="var(--color-text-muted)" strokeWidth="2" />
+                    <circle r="4" fill="var(--color-text-muted)" />
+                    <text y="-22" textAnchor="middle" className="pipeline-node-title">DCS & PLC</text>
+                    <text y="24" textAnchor="middle" className="pipeline-node-subtitle">{locale === "zh" ? "确定性控制" : "Deterministic"}</text>
+                  </g>
+
+                  {/* Stage 2 Node */}
+                  <g className="pipeline-node active" transform="translate(400, 60)">
+                    <circle className="pipeline-ping" r="16" fill="none" stroke="var(--color-primary)" strokeWidth="1" opacity="0.5" />
+                    <circle r="12" fill="var(--color-bg-base)" stroke="var(--color-primary)" strokeWidth="2" filter="url(#glowEffect)" />
+                    <circle r="4" fill="var(--color-primary)" />
+                    <text y="-22" textAnchor="middle" className="pipeline-node-title">Web3D & STACK</text>
+                    <text y="24" textAnchor="middle" className="pipeline-node-subtitle">{locale === "zh" ? "多维交互" : "Interaction"}</text>
+                  </g>
+
+                  {/* Stage 3 Node */}
+                  <g className="pipeline-node active-accent" transform="translate(650, 60)">
+                    <circle className="pipeline-ping-accent" r="18" fill="none" stroke="var(--color-accent)" strokeWidth="1" opacity="0.5" />
+                    <circle r="14" fill="var(--color-bg-base)" stroke="var(--color-accent)" strokeWidth="2" filter="url(#glowEffect)" />
+                    <circle r="5" fill="var(--color-accent)" />
+                    <text y="-22" textAnchor="middle" className="pipeline-node-title" fill="var(--color-accent)">AI AGENTS</text>
+                    <text y="24" textAnchor="middle" className="pipeline-node-subtitle" fill="var(--color-accent)">{locale === "zh" ? "智能涌现" : "Emergence"}</text>
+                  </g>
+                </svg>
               </div>
             </ScrollRevealSection>
           </div>
@@ -427,21 +503,43 @@ export function HomePage() {
                 <p className="section-intro">{timeline.intro}</p>
               </div>
               <div className="timeline-container">
-                {timeline.items.map((item, index) => (
-                  <div key={index} className="timeline-item">
-                    <div className="timeline-marker"></div>
-                    <div className="timeline-content">
-                      <span className="timeline-period">{item.period}</span>
-                      <h3 className="timeline-company">{item.company}</h3>
-                      <p className="timeline-role">{item.role}</p>
-                      <ul className="timeline-contributions">
-                         {item.contributions.map((contribution, idx) => (
-                          <li key={idx}>{contribution}</li>
-                        ))}
-                      </ul>
+                {timeline.items.map((item, index) => {
+                  const isExpanded = !!expandedJobs[index];
+                  return (
+                    <div key={index} className={`timeline-item ${isExpanded ? "expanded" : ""}`}>
+                      <div className="timeline-marker"></div>
+                      <div className="timeline-content">
+                        <div 
+                          className="timeline-header" 
+                          onClick={() => toggleJob(index)}
+                          role="button"
+                          aria-expanded={isExpanded}
+                        >
+                          <div className="timeline-header-info">
+                            <span className="timeline-period">{item.period}</span>
+                            <h3 className="timeline-company">{item.company}</h3>
+                            <p className="timeline-role">{item.role}</p>
+                          </div>
+                          <span className={`timeline-chevron ${isExpanded ? "expanded" : ""}`}>
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                          </span>
+                        </div>
+                        
+                        <div className={`timeline-details ${isExpanded ? "expanded" : ""}`}>
+                          <div className="timeline-details-inner">
+                            <ul className="timeline-contributions">
+                              {item.contributions.map((contribution, idx) => (
+                                <li key={idx}>{contribution}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </ScrollRevealSection>
           </div>

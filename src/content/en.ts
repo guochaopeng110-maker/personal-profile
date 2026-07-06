@@ -28,15 +28,18 @@ export const content = {
     cards: [
       {
         title: "Deterministic Control & System Integration in the Physical World",
-        p: "Rigorous engineering standards accumulated in industrial DCS control, PLC communication, and high-fidelity VR simulation guide me in designing state machines, error recovery, and resource management for AI workflows."
+        p: "Rigorous engineering standards accumulated in industrial DCS control, PLC communication, and high-fidelity VR simulation guide me in designing state machines, error recovery, and resource management for AI workflows.",
+        highlights: ['DCS / PLC Device Control', 'High-Concurrency Redis Locks', 'Heterogeneous Scheduling State Machine', 'Millisecond Real-Time Comm Bus']
       },
       {
         title: "Natural Progression of Multi-Dimensional Interaction & Full-Stack Engineering",
-        p: "From low-level hardware control to browser-side Babylon.js 3D rendering and LLM-driven multimedia workflows, this continuous evolution empowers me with cross-domain architecture and end-to-end delivery."
+        p: "From low-level hardware control to browser-side Babylon.js 3D rendering and LLM-driven multimedia workflows, this continuous evolution empowers me with cross-domain architecture and end-to-end delivery.",
+        highlights: ['Babylon.js Web3D Spatial Computing', 'Shaka Player Dual-Instance Stitching', 'Next.js / Node.js Full-Stack Dev', 'PICO VR Gaze Interaction System']
       },
       {
         title: "Engineering Closed Loop of AI Agents & Intelligence Emergence",
-        p: "Combining the rigor of industrial control state machines with the emergent intelligence of LLMs to build production-grade AI applications and multi-agent pipelines, evolving from deterministic control to autonomous decision-making."
+        p: "Combining the rigor of industrial control state machines with the emergent intelligence of LLMs to build production-grade AI applications and multi-agent pipelines, evolving from deterministic control to autonomous decision-making.",
+        highlights: ['LangGraph Multi-Agent Orchestration', 'CLI Agent Self-Healing Sandbox', 'OpenClaw Messenger Integration', 'Multimodal AI Video Generation Workflow']
       }
     ]
   },

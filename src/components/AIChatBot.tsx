@@ -9,7 +9,7 @@ interface Message {
 
 export function AIChatBot() {
   const { locale, content } = useLocale();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isThinking, setIsThinking] = useState(false);
