@@ -17,7 +17,7 @@ describe("Accessibility and Image Degradation (issue #12)", () => {
   it("verifies language switcher button in Header has a valid aria-label", () => {
     renderAt("/");
 
-    const switchBtn = screen.getByRole("button");
+    const switchBtn = screen.getByRole("button", { name: /English/i });
     expect(switchBtn).toHaveAttribute("aria-label");
     expect(switchBtn.getAttribute("aria-label")?.length).toBeGreaterThan(0);
   });
