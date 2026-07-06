@@ -57,6 +57,44 @@ export function HomePage() {
   const { hero, narrative, themes, timeline, skills } = content;
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
+  const themeEntries = Object.entries(themes.items);
+  const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setCurrentThemeIndex((prev) => (prev + 1) % themeEntries.length);
+    } else if (isRightSwipe) {
+      setCurrentThemeIndex((prev) => (prev - 1 + themeEntries.length) % themeEntries.length);
+    }
+  };
+
+  const nextSlide = () => {
+    setCurrentThemeIndex((prev) => (prev + 1) % themeEntries.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentThemeIndex((prev) => (prev - 1 + themeEntries.length) % themeEntries.length);
+  };
+
+
   // Technical summaries for SVG graph nodes hover states (strictly zero em-dashes)
   const nodeInfoZH: Record<string, string> = {
     dcs: "DCS / PLC 底层设备控制系统：严谨的状态机流转、乐观锁并发控制及异构硬件集成底色。",
@@ -264,42 +302,128 @@ export function HomePage() {
           <h2>{themes.title}</h2>
           <p className="section-intro">{themes.intro}</p>
         </div>
-        <div className="card-grid">
-          {Object.entries(themes.items).map(([slug, item]) => (
-            <article
+
+        {/* Theme tabs for quick navigation */}
+        <div className="theme-slider-tabs" role="tablist">
+          {themeEntries.map(([slug, item], index) => (
+            <button
               key={slug}
-              className="card theme-card"
-              data-testid="theme-card"
-              data-theme-slug={slug}
+              role="tab"
+              aria-selected={currentThemeIndex === index}
+              className={`theme-slider-tab ${currentThemeIndex === index ? "active" : ""}`}
+              onClick={() => setCurrentThemeIndex(index)}
             >
-              <h3 className="theme-card-title">{item.title}</h3>
-              <p className="theme-card-summary">{item.summary}</p>
-              <ul className="theme-card-highlights">
-                {item.highlights.map((tag, idx) => (
-                  <li key={idx} className="theme-card-tag">{tag}</li>
-                ))}
-              </ul>
-              <div className="theme-card-results">
-                <p className="theme-card-label">{themes.detailPage.labels.results}</p>
-                <ul className="theme-card-results-list">
-                  {item.results.map((result, idx) => (
-                    <li key={idx}>{result}</li>
-                  ))}
-                </ul>
-              </div>
-              <p className="theme-card-judgment">
-                <span className="theme-card-label">{themes.detailPage.labels.judgment}</span>
-                {item.judgment}
-              </p>
-              <Link
-                to={`/themes/${slug}`}
-                className="theme-card-link"
-                data-testid="theme-card-link"
-              >
-                {themes.viewDetail}
-              </Link>
-            </article>
+              {item.title}
+            </button>
           ))}
+        </div>
+
+        <div className="theme-slider-container">
+          <button 
+            className="slider-nav-btn prev-btn" 
+            onClick={prevSlide}
+            aria-label="Previous Theme"
+          >
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div 
+            className="theme-slider-viewport"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            <div 
+              className="theme-slider-track"
+              style={{ transform: `translateX(-${currentThemeIndex * 100}%)` }}
+            >
+              {themeEntries.map(([slug, item], index) => (
+                <div 
+                  key={slug} 
+                  className={`theme-slider-slide ${currentThemeIndex === index ? "active" : ""}`}
+                >
+                  <article
+                    className="card theme-card"
+                    data-testid="theme-card"
+                    data-theme-slug={slug}
+                  >
+                    <h3 className="theme-card-title">{item.title}</h3>
+                    <p className="theme-card-summary">{item.summary}</p>
+                    <ul className="theme-card-highlights">
+                      {item.highlights.map((tag, idx) => (
+                        <li key={idx} className="theme-card-tag">{tag}</li>
+                      ))}
+                    </ul>
+                    <div className="theme-card-results">
+                      <p className="theme-card-label">{themes.detailPage.labels.results}</p>
+                      <ul className="theme-card-results-list">
+                        {item.results.map((result, idx) => (
+                          <li key={idx}>{result}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <p className="theme-card-judgment">
+                      <span className="theme-card-label">{themes.detailPage.labels.judgment}</span>
+                      {item.judgment}
+                    </p>
+                    <Link
+                      to={`/themes/${slug}`}
+                      className="theme-card-link"
+                      data-testid="theme-card-link"
+                    >
+                      {themes.viewDetail}
+                    </Link>
+                  </article>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button 
+            className="slider-nav-btn next-btn" 
+            onClick={nextSlide}
+            aria-label="Next Theme"
+          >
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile-friendly and desktop fallback navigation controls under card */}
+        <div className="theme-slider-controls">
+          <button 
+            className="slider-nav-btn-mobile prev-btn" 
+            onClick={prevSlide}
+            aria-label="Previous Theme"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          
+          <div className="slider-dots">
+            {themeEntries.map((_, index) => (
+              <button
+                key={index}
+                className={`slider-dot ${currentThemeIndex === index ? "active" : ""}`}
+                onClick={() => setCurrentThemeIndex(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button 
+            className="slider-nav-btn-mobile next-btn" 
+            onClick={nextSlide}
+            aria-label="Next Theme"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
       </ScrollRevealSection>
     </main>
