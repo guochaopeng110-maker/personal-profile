@@ -127,7 +127,9 @@ export const content = {
         highlights: ['JCST\'26 论文发表', 'LangGraph 状态机编排', '命令行安全沙箱', 'OpenClaw 多端适配'],
         repos: [
           { label: 'MAIC-AI-Classroom', url: 'https://github.com/guochaopeng110-maker/MAIC-AI-Classroom', description: '一键生成多智能体互动课堂平台。包含 AI 讲师/学生角色扮演、PPTX 导出、白板互动与 OpenClaw 多端聊天软件接入。', role: '架构师 & 核心研发：多智能体协作与多端集成' },
-          { label: 'ai-agent-engineering-journey', url: 'https://github.com/guochaopeng110-maker/ai-agent-engineering-journey', description: '基于 Python 从零手写 CLI 开发 Agent，包含 Shell 命令安全沙箱与文件操作工具。', role: '独立研发：命令行 Agent Harness 及安全沙箱' }
+          { label: 'ai-agent-engineering-journey', url: 'https://github.com/guochaopeng110-maker/ai-agent-engineering-journey', description: '基于 Python 从零手写 CLI 开发 Agent，包含 Shell 命令安全沙箱与文件操作工具。', role: '独立研发：命令行 Agent Harness 及安全沙箱' },
+          { label: 'LLM-MysterySolving', url: 'https://github.com/guochaopeng110-maker/LLM-MysterySolving', description: '一款基于 Unity + 大语言模型（DeepSeek API）的 2D 古风审讯解谜游戏。玩家通过与嫌疑人进行多轮对话、追问并出示证物，推动嫌疑人压力值变化，最终逼近真相。', role: '独立研发：设计 Unity 交互系统与对接 DeepSeek API 实现动态剧情驱动' },
+          { label: 'Interactive-Video-Learning-with-AI', url: 'https://github.com/guochaopeng110-maker/Interactive-Video-Learning-with-AI', description: '一个面向学校的 AI 互动课程视频平台。围绕知识点生成多个视频素材，由老师审核编排成带有分支和互动的课程视频，支持学生答题与多分支交互。', role: '核心研发：设计音视频素材分片编排与多分支事件交互系统' }
         ],
         workflow: {
           title: '多智能体课堂协同与命令行沙箱验证管线',
@@ -185,9 +187,9 @@ export const content = {
         judgment: '多仓库项目更需要一个共同主题把它们串起来，否则亮点会被仓库列表稀释。',
         highlights: ['多仓库统一主题','工作流化生产','缺图降级保持可读'],
         repos: [
-          { label: 'prompt-to-screenplay', url: 'https://github.com/guochaopeng110-maker/prompt-to-screenplay', description: '脚本与镜头提示词编辑器：大模型驱动，自动生成结构化场景与分镜描述。', role: '工作流上游：创意转化与分镜设计' },
-          { label: 'storyboard-diffuser', url: 'https://github.com/guochaopeng110-maker/storyboard-diffuser', description: '分镜画面生成器：基于 SD & Kling 等大模型 API 进行多线程批量生成及限频调度。', role: '工作流中游：视觉资产自动化渲染' },
-          { label: 'ffmpeg-stitcher-orchestrator', url: 'https://github.com/guochaopeng110-maker/ffmpeg-stitcher-orchestrator', description: '多媒体合成剪辑编排引擎：利用 JSON 配置多轨时间线，合成配音、字幕和视频。', role: '工作流下游：资产装配与自动后期' }
+          { label: 'DramaStudio', url: 'https://github.com/guochaopeng110-maker/DramaStudio', description: '全栈 AI 短剧自动化制作平台。通过对接大型语言模型、文生图/图生视频等 AI 服务，实现剧本解析、角色设计、分镜绘制到视频合成与剪辑的端到端制作。', role: '核心架构与研发：对接 AI 多模态生成服务与音视频后期编排' },
+          { label: 'ComicDirector', url: 'https://github.com/guochaopeng110-maker/ComicDirector', description: '使用自然语言自动生成漫剧。基于提示词解析器，将剧本自动转换为对应的漫剧分镜画面和多轨合成配置。', role: '独立研发：漫剧生成工作流核心解析与渲染调度引擎' },
+          { label: 'EraseVideoSubtitle', url: 'https://github.com/guochaopeng110-maker/EraseVideoSubtitle', description: '高端智能硬字幕擦除 Web 系统。基于 Next.js 14 全栈架构，底层深度对接火山引擎 MediaKit AI 字幕擦除服务，提供极佳的硬字幕去除体验。', role: '全栈开发：Next.js 全栈管理系统与火山引擎 AI 字幕擦除接口集成' }
         ],
         workflow: {
           title: '工作流核心节点与分工',
@@ -232,10 +234,11 @@ export const content = {
           '成功消灭了多分支互动视频切换过程中的瞬时黑屏与音频卡顿，实现接近零延迟的无缝体验。'
         ],
         judgment: '3D 与多媒体的护城河不在模型精细度，而在底层交互管道的设计与极致的渲染切换性能调优。',
-        highlights: ['Babylon.js 空间渲染','PICO VR 凝视交互系统','Shaka Player 双实例拼接'],
+        highlights: ['Babylon.js 空间渲染', 'PICO VR 凝视交互系统', 'Shaka Player 双实例拼接'],
         repos: [
           { label: 'exm-player-web3d', url: 'https://github.com/guochaopeng110-maker/exm-player-web3d', description: '基于 Babylon.js 研发的轻量级网页 3D 空间交互播放器，支持多种工业三维格式解析与高频手势动作交互。', role: '核心研发：3D 渲染管线与事件交互总线设计' },
-          { label: 'building-stared-navigator-pico', url: 'https://github.com/guochaopeng110-maker/building-stared-navigator-pico', description: '基于 PICO Unity SDK 研发的非侵入式、数据驱动的 3D 空间凝视交互系统（Gaze Interaction System）。', role: '主导研发：数据驱动交互框架与射线轮询调度设计' }
+          { label: 'building-stared-navigator-pico', url: 'https://github.com/guochaopeng110-maker/building-stared-navigator-pico', description: '基于 PICO Unity SDK 研发的非侵入式、数据驱动的 3D 空间凝视交互系统（Gaze Interaction System）。', role: '主导研发：数据驱动交互框架与射线轮询调度设计' },
+          { label: 'interactive-video-playground', url: 'https://github.com/guochaopeng110-maker/interactive-video-playground', description: '数据驱动多分支互动视频引擎。采用 React 19 + TypeScript + Shaka Player 双实例交替拼接架构，解决 MP4 分支切换黑屏卡顿问题。', role: '独立研发：双播放器实例生命周期与无缝衔接控制模块' }
         ],
         workflow: {
           title: '3D 交互与仿真工程管线',
@@ -287,8 +290,10 @@ export const content = {
           '实现核心代码测试覆盖率达到 75% 以上，并在复杂业务与工程复杂度间找到演进平衡。'
         ],
         judgment: '业务系统项目的价值在于“能稳定跑起来且能持续演进”，不是某一个炫技功能。',
-        highlights: ['全栈业务系统','业务建模 + 工程取舍','可灰度发布链路'],
-        repo: { label: 'GitHub 主页', url: 'https://github.com/guochaopeng110-maker' }
+        highlights: ['全栈业务系统', '业务建模 + 工程取舍', '可灰度发布链路'],
+        repos: [
+          { label: 'CargoShipManage', url: 'https://github.com/guochaopeng110-maker/CargoShipManage', description: '基于现代技术栈构建的船舶机舱智能监控与管理平台，实现设备实时监测、智能告警、健康评估和数据管理功能。', role: '全栈开发：负责前后端功能、状态机逻辑与 Docker 容器化部署' }
+        ]
       },
       'industrial-systems': {
         title: '底层系统与工业软件',
@@ -297,7 +302,7 @@ export const content = {
         role: '作为 DCS 设备控制系统工程师与底层通讯模块研发，负责异构硬件集成、嵌入式通讯链路与上层业务系统打通。',
         solution: '以 C / C++ 与 Qt 为主构建高可靠工业控制与仿真软件，在 DCS / PLC 接入层抽象统一设备协议，让上层业务系统可以无差别调用工业设备能力。',
         challenges: [
-          '异构兼容：在多厂商、多型号 of 工业设备之间建立稳定可用的统一抽象。',
+          '异构兼容：在多厂商、多型号的工业设备之间建立稳定可用的统一抽象。',
           '稳定优先：在工业现场，可用性与可恢复性优于任何“性感”特性。'
         ],
         results: [
@@ -305,8 +310,10 @@ export const content = {
           '建立可被上层业务复用的工业设备抽象与通讯基线。'
         ],
         judgment: '工业级经验的最大价值是“把系统当系统做”，这一底色决定了后续 AI 与全栈交付的工程严谨度。',
-        highlights: ['C / C++ + Qt','DCS / PLC 异构集成','工业级稳定性'],
-        repo: { label: 'GitHub 主页', url: 'https://github.com/guochaopeng110-maker' }
+        highlights: ['C / C++ + Qt', 'DCS / PLC 异构集成', '工业级稳定性'],
+        repos: [
+          { label: 'guochaopeng110-maker GitHub', url: 'https://github.com/guochaopeng110-maker', description: '包含多个仿真开发插件、购票助手及各种实验性仓储/设备接口，作为工业控制系统工程化积累的部分呈现。部分商业/军工仿真项目源码为闭源状态。', role: '项目架构师 & 底层系统研发' }
+        ]
       }
     }
   },

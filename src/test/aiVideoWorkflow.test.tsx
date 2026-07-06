@@ -33,9 +33,9 @@ describe("AI Video Workflow detail page (issue #8)", () => {
     const repoLinks = within(reposSection).getAllByRole("link");
     expect(repoLinks.length).toBeGreaterThan(1);
 
-    // Verify specific repository links are present (e.g., prompt-to-screenplay, ffmpeg-stitcher-orchestrator)
-    expect(within(reposSection).getByText(/prompt-to-screenplay/i)).toBeInTheDocument();
-    expect(within(reposSection).getByText(/ffmpeg-stitcher-orchestrator/i)).toBeInTheDocument();
+    // Verify specific repository links are present (e.g., DramaStudio, ComicDirector)
+    expect(within(reposSection).getByText(/DramaStudio/i)).toBeInTheDocument();
+    expect(within(reposSection).getByText(/ComicDirector/i)).toBeInTheDocument();
   });
 
   it("renders workflow steps and role divisions in a pipeline diagram", () => {

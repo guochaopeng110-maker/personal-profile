@@ -176,6 +176,18 @@ export const content = {
             url: "https://github.com/guochaopeng110-maker/ai-agent-engineering-journey",
             description: "From-scratch Python implementation of a developer CLI Agent, with a secure subprocess shell sandbox.",
             role: "Independent Creator: CLI Agent Harness & safety sandboxing"
+          },
+          {
+            label: "LLM-MysterySolving",
+            url: "https://github.com/guochaopeng110-maker/LLM-MysterySolving",
+            description: "A 2D ancient-style interrogation puzzle game built with Unity and DeepSeek API. Players query suspects with evidence, dynamically driving stress values and attitude changes to reveal clues.",
+            role: "Independent Creator: Unity interaction system design and DeepSeek API integration for dynamic story progression"
+          },
+          {
+            label: "Interactive-Video-Learning-with-AI",
+            url: "https://github.com/guochaopeng110-maker/Interactive-Video-Learning-with-AI",
+            description: "An AI-powered interactive video learning platform for schools. It processes learning segments, generates video assets, and allows teachers to orchestrate branch-based lessons with quizzes and paths.",
+            role: "Core Developer: Segmented video asset management and branch interactive decision flow system"
           }
         ],
         workflow: {
@@ -239,22 +251,22 @@ export const content = {
         ],
         repos: [
           {
-            label: "prompt-to-screenplay",
-            url: "https://github.com/guochaopeng110-maker/prompt-to-screenplay",
-            description: "Script & Shot Prompt Editor: Driven by LLMs to automatically generate structured scenes and storyboard descriptions.",
-            role: "Workflow Upstream: Creative Translation & Storyboard Design"
+            label: "DramaStudio",
+            url: "https://github.com/guochaopeng110-maker/DramaStudio",
+            description: "A full-stack automated AI short drama production platform. By integrating LLM and image/video-generation AI services, it automates screenplay parsing, character design, storyboarding, and video rendering.",
+            role: "Core Architect & Developer: AI generation pipeline and multimedia post-stitching integration"
           },
           {
-            label: "storyboard-diffuser",
-            url: "https://github.com/guochaopeng110-maker/storyboard-diffuser",
-            description: "Storyboard Asset Generator: Multi-threaded batch generation and rate-limit scheduling based on SD & Kling API nodes.",
-            role: "Workflow Midstream: Automated Rendering of Visual Assets"
+            label: "ComicDirector",
+            url: "https://github.com/guochaopeng110-maker/ComicDirector",
+            description: "Automatically generates manga dramas using natural language. Built with prompt engines to translate scripts into visual frames and timeline tracks.",
+            role: "Independent Creator: Core screenplay parsing and storyboard rendering engine"
           },
           {
-            label: "ffmpeg-stitcher-orchestrator",
-            url: "https://github.com/guochaopeng110-maker/ffmpeg-stitcher-orchestrator",
-            description: "Multimedia Synthesis & Editing Engine: Uses JSON configuration to orchestrate multi-track timeline rendering, combining voice, music, and clips.",
-            role: "Workflow Downstream: Asset Assembly & Automated Post-Processing"
+            label: "EraseVideoSubtitle",
+            url: "https://github.com/guochaopeng110-maker/EraseVideoSubtitle",
+            description: "A premium hard subtitle removal system. Built with Next.js 14, integrating Volcengine MediaKit AI subtitle erasure services.",
+            role: "Full-Stack Developer: Next.js system management and Volcengine AI interface integration"
           }
         ],
         workflow: {
@@ -307,7 +319,8 @@ export const content = {
         ],
         repos: [
           { label: "exm-player-web3d", url: "https://github.com/guochaopeng110-maker/exm-player-web3d", description: "Lightweight browser 3D spatial interactive player based on Babylon.js, supporting multiple 3D formats and high-frequency interaction actions.", role: "Core Developer: 3D rendering pipeline & event bus design" },
-          { label: "building-stared-navigator-pico", url: "https://github.com/guochaopeng110-maker/building-stared-navigator-pico", description: "Data-driven, non-intrusive 3D Gaze Interaction System (Gaze Interaction System) built on PICO Unity SDK.", role: "Lead Developer: Data-driven interaction architecture & raycast scheduling" }
+          { label: "building-stared-navigator-pico", url: "https://github.com/guochaopeng110-maker/building-stared-navigator-pico", description: "Data-driven, non-intrusive 3D Gaze Interaction System (Gaze Interaction System) built on PICO Unity SDK.", role: "Lead Developer: Data-driven interaction architecture & raycast scheduling" },
+          { label: "interactive-video-playground", url: "https://github.com/guochaopeng110-maker/interactive-video-playground", description: "A data-driven multi-branch interactive video engine using React 19, TypeScript, and Shaka Player dual-instance alternating architecture to prevent transition black-screens.", role: "Independent Creator: Dual player lifecycle coordination and seamless transition controls" }
         ],
         workflow: {
           title: "3D Interaction & Simulation Engineering Pipeline",
@@ -364,10 +377,14 @@ export const content = {
           "Business modeling + engineering trade-offs",
           "Gray-release delivery pipeline"
         ],
-        repo: {
-          label: "GitHub Profile",
-          url: "https://github.com/guochaopeng110-maker"
-        }
+        repos: [
+          {
+            label: "CargoShipManage",
+            url: "https://github.com/guochaopeng110-maker/CargoShipManage",
+            description: "An intelligent monitoring and management platform for cargo ship engine rooms built with a modern full-stack architecture, featuring real-time telemetry, smart alerting, and health diagnostics.",
+            role: "Full-Stack Developer: Telemetry ingestion, state-machine business logic, and Docker containers"
+          }
+        ]
       },
       "industrial-systems": {
         title: "Underlying Systems & Industrial Software",
@@ -389,10 +406,14 @@ export const content = {
           "DCS / PLC heterogeneous integration",
           "Industrial-grade stability"
         ],
-        repo: {
-          label: "GitHub Profile",
-          url: "https://github.com/guochaopeng110-maker"
-        }
+        repos: [
+          {
+            label: "guochaopeng110-maker GitHub",
+            url: "https://github.com/guochaopeng110-maker",
+            description: "Includes various plugins, booking assistants, and experimental device hooks showcasing low-level system design. Enterprise and military-grade simulation systems remain proprietary.",
+            role: "System Architect & Low-Level Developer"
+          }
+        ]
       }
     }
   },
